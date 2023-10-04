@@ -2,7 +2,21 @@
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        'custom-purple': '#9747FF', 
+      },
+      borderRadius: {
+        'custom': '15px',
+      },
+      textColor: {
+        'custom-purple': '#9747FF',
+      },
+      borderColor: {
+        'custom-purple': '#9747FF',
+        'custom-purple-hover': '#5500FF', 
+      },
+    },
   },
   plugins: [],
 };
