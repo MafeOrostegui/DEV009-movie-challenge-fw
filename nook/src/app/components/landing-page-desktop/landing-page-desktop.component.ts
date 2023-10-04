@@ -12,6 +12,14 @@ export class LandingPageDesktopComponent {
   upcomingMovies: any[] = [];
   currentMovieIndex: number = 0;
 
+  onMouseEnter(movie: any) {
+    movie.isHovered = true;
+  }
+
+  onMouseLeave(movie: any) {
+    movie.isHovered = false;
+  }
+
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit(): void {
@@ -19,8 +27,17 @@ export class LandingPageDesktopComponent {
       .subscribe(
         (response: any): void => {
           this.popularMovies = response.results;
-          console.log(this.popularMovies);
         }
       );
+
+    this.moviesService.getUpcomingMovies()
+      .subscribe(
+        (response: any): void => {
+          this.upcomingMovies = response.results;
+          console.log(this.upcomingMovies);
+        }
+      )
   }
+
+
 }
