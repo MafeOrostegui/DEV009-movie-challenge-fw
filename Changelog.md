@@ -1,21 +1,34 @@
-## <version> - <date>
+# Changelog
+
+## 1.0.0 - 2023-10-04
 
 ### Sprint learnings
 
-En esta sección enumera los aprendizajes del sprint.
+* Aprendí a crear componentes.
+* Aprendí a realizar solicitudes con Angular.
+* Aprendí del uso de los estilos con Tailwind y SCSS.
 
 ### Added
 
-En esta sección especifica las funcionalides que agregaste.
+* Configuré las rutas para mostrar otro landing page en caso de que sea visitada la app desde una pantalla superior a los 611px de ancho.
+* Realicé la petición de las peliculas más populares.
+* Usé Tailwind para parte de los estilos de las peliculas y también del video que visualiza algunas de ellas.
 
 ### Changed
 
-En esta sección detalla los cambios que hiciste a funcionalides ya existentes.
+* Cambié parte del diseño del componente Landing page para desktop.
 
 ### Fixed
 
-En esta sección describe los _bugs_ solucionados.
+* No 
 
 ### Removed
 
-En esta sección incluye las funcionalidades eliminadas.
+* No removí ningún componente.
+
+### Commit Log
+
+* Create the landing page with an appealing design diplaying complete
+* Creation of landing page for mobile and desktop version, with some styles. Creation of the service folder.
+* Changelog update 
+* Initial Setup 
