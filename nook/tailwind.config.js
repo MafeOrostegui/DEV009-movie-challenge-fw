@@ -14,7 +14,7 @@ module.exports = {
       },
       borderColor: {
         'custom-purple': '#9747FF',
-        'custom-purple-hover': '#5500FF', 
+        'custom-purple-hover': '#9747FF', 
       },
     },
   },
