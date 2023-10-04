@@ -6,5 +6,41 @@
       <button class="button_get">Get Started</button>
     </div>
   </header>
-  <section class="slide_movies"></section>
+  <section class="movie_video">
+    <video class="w-full h-full" autoplay loop muted>
+      <source src="../../../assets/movies-trailer.mp4" type="video/mp4" />
+      Tu navegador no soporta la reproducción de videos.
+    </video>
+    <div
+      class="absolute inset-0 flex flex-col items-center justify-center text-white"
+    >
+      <h1 class="text-5xl font-bold mb-4">
+        Unlock the Future of Entertainment
+      </h1>
+      <span class="text-2xl">Elevate your streaming experience now!</span>
+      <button
+        class="bg-custom-purple text-white font-regular py-4 px-6 rounded-custom mt-10"
+      >
+        Get Started
+      </button>
+    </div>
+  </section>
+  <h2 class="text-white mt-10 mb-5 ml-6">Popular Movies</h2>
+  <section class="section_cards_movies_popular overflow-x-auto whitespace-nowrap ml-5">
+    <div *ngFor="let movie of popularMovies" class="card_movies_popular_scroll inline-block mr-4">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+        [alt]="movie.title"
+      />
+    </div>
+  </section>
+  <h2 class="text-white mt-10 mb-5 ml-6">Upcoming Movies</h2>
+  <section class="section_cards_movies_popular overflow-x-auto whitespace-nowrap ml-5">
+    <div *ngFor="let movie of popularMovies" class="card_movies_popular_scroll inline-block mr-4">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+        [alt]="movie.title"
+      />
+    </div>
+  </section>
 </section>

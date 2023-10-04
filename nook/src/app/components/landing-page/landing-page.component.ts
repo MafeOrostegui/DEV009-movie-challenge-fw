@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
+
 export class LandingPageComponent {
   images: string[] = [
     '../../assets/slide-first-img.png',
@@ -21,7 +22,7 @@ export class LandingPageComponent {
   ];
 
   titles: string[] = [
-    'Unlock the Future of  Entertainment',
+    'Unlock the Future of Entertainment',
     'Access AI-Powered Recommendations',
     'Create Personalized Watchlists',
     'Sign up and start exploring!'
