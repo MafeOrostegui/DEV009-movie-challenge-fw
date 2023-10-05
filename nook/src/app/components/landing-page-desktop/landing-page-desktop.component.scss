@@ -14,22 +14,30 @@ header {
         margin-left: 2vw;
     }
 
-    div {
+    .buttons_landing_page {
         margin-right: 2vw;
-    }
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
 
-    button {
-        width: 10rem;
-        height: 3rem;
-        border-radius: 15px;
-        color: white;
-    }
+        div {
+            width: 10rem;
+            height: 3rem;
+            margin: 1vw;
+            border-radius: 15px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    button:hover {
-        cursor: pointer;
-        background-color: rgba(0, 0, 0, 0.5);
-        border: 1px solid #9747FF;
-        color: #9747FF;
+        div:hover {
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid #9747FF;
+            color: #9747FF;
+        }
     }
 
     .button_get {
@@ -38,7 +46,7 @@ header {
 }
 
 .movie_video {
-    div button:hover {
+    .button_get:hover {
         background-color: rgba(0, 0, 0, 0.5);
         font-weight: 500;
         color: #9747FF;
@@ -75,7 +83,7 @@ header {
             font-size: 0.8rem;
         }
 
-        button {
+        .button_get {
             width: 20vw;
             height: 5vh;
             font-size: 0.8rem;

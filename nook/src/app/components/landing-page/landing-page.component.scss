@@ -66,11 +66,14 @@
 }
 
 .buttons_landing_page {
-    button {
+    div {
         color: white;
         width: 80vw;
         height: 6vh;
         border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .button_get_started {

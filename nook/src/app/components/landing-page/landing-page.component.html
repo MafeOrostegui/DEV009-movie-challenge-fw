@@ -1,5 +1,5 @@
-<section class="body_landing_page" (click)="changeImage()">
-  <div class="slide">
+<section class="body_landing_page">
+  <div class="slide" (click)="changeImage()">
     <img [src]="currentImage" class="slide_img" />
     <img [src]="currentPoint" class="slide_point" />
     <h1>{{ currentTitle }}</h1>
@@ -10,8 +10,24 @@
     <h1>{{ currentTitle }}</h1>
     <span>{{ currentSubtitle }}</span>
     <div class="buttons_landing_page">
-      <button class="button_get_started">Get Started</button>
-      <button class="button_login">Login</button>
+      <div class="button_get_started" routerLink="/sign-up">
+        <a
+          routerLink="/sign-up"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          Get Started
+        </a>
+      </div>
+      <div class="button_login" routerLink="/login">
+        <a
+          routerLink="/login"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          Login
+        </a>
+      </div>
     </div>
   </section>
 </section>

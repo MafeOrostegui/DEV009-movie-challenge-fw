@@ -1,9 +1,13 @@
 <section>
   <header>
     <img src="../assets/logo.png" />
-    <div>
-      <button>Login</button>
-      <button class="button_get">Get Started</button>
+    <div class="buttons_landing_page">
+      <div routerLink="/login">
+        <a routerLink="/login"> Login </a>
+      </div>
+      <div routerLink="/sign-up" class="button_get">
+        <a routerLink="/sign-up"> Get Started </a>
+      </div>
     </div>
   </header>
   <section class="movie_video">
@@ -20,11 +24,19 @@
       <span class="text-2xl message_video"
         >Elevate your streaming experience now!</span
       >
-      <button
-        class="bg-custom-purple text-white font-regular py-4 px-6 rounded-custom mt-10"
+      <div
+        class="bg-custom-purple text-white font-regular py-4 px-6 rounded-custom mt-10 button_get"
+        routerLink="/sign-up"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
       >
-        Get Started
-      </button>
+        <a
+          routerLink="/sign-up"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Get Started</a
+        >
+      </div>
     </div>
   </section>
   <h2 class="text-white mt-10 mb-5 ml-6">Popular Movies</h2>
