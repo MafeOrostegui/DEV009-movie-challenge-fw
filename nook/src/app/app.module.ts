@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { LandingPageDesktopComponent } from './components/landing-page-desktop/landing-page-desktop.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 
@@ -16,7 +15,6 @@ import { HomeComponent } from './components/home/home.component';
     LandingPageComponent,
     LoginFormComponent,
     SignUpComponent,
-    LandingPageDesktopComponent,
     LoginFormComponent,
     HomeComponent
   ],
