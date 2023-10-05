@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundColor: {
         'custom-purple': '#9747FF', 
+        'custom-input-color':'#212226',
       },
       borderRadius: {
         'custom': '15px',

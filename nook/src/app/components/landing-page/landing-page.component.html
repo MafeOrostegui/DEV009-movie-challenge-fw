@@ -1,5 +1,5 @@
-<section class="body_landing_page" (click)="changeImage()">
-  <div class="slide">
+<section class="body_landing_page" *ngIf="isMobile">
+  <div class="slide" (click)="changeImage()">
     <img [src]="currentImage" class="slide_img" />
     <img [src]="currentPoint" class="slide_point" />
     <h1>{{ currentTitle }}</h1>
@@ -10,8 +10,115 @@
     <h1>{{ currentTitle }}</h1>
     <span>{{ currentSubtitle }}</span>
     <div class="buttons_landing_page">
-      <button class="button_get_started">Get Started</button>
-      <button class="button_login">Login</button>
+      <div class="button_get_started" routerLink="/sign-up">
+        <a
+          routerLink="/sign-up"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          Get Started
+        </a>
+      </div>
+      <div class="button_login" routerLink="/login">
+        <a
+          routerLink="/login"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          Login
+        </a>
+      </div>
     </div>
   </section>
 </section>
+
+<section *ngIf="!isMobile">
+  <header>
+    <img src="../assets/logo.png" />
+    <div class="buttons_landing_page">
+      <div routerLink="/login">
+        <a routerLink="/login"> Login </a>
+      </div>
+      <div routerLink="/sign-up" class="button_get">
+        <a routerLink="/sign-up"> Get Started </a>
+      </div>
+    </div>
+  </header>
+  <section class="movie_video">
+    <video class="w-full h-full" autoplay loop muted>
+      <source src="../../../assets/movies-trailer.mp4" type="video/mp4" />
+      Tu navegador no soporta la reproducción de videos.
+    </video>
+    <div
+      class="absolute inset-0 flex flex-col items-center justify-center text-white"
+    >
+      <h1 class="text-5xl font-bold mb-4 title_video">
+        Unlock the Future of Entertainment
+      </h1>
+      <span class="text-2xl message_video"
+        >Elevate your streaming experience now!</span
+      >
+      <div
+        class="bg-custom-purple text-white font-regular py-4 px-6 rounded-custom mt-10 button_get"
+        routerLink="/sign-up"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
+        <a
+          routerLink="/sign-up"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Get Started</a
+        >
+      </div>
+    </div>
+  </section>
+  <h2 class="text-white mt-10 mb-5 ml-6">Popular Movies</h2>
+  <section
+    class="section_cards_movies_popular overflow-x-auto whitespace-nowrap ml-5"
+  >
+    <div
+      *ngFor="let movie of popularMovies"
+      class="card_movies_popular_scroll inline-block mr-4"
+    >
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+        [alt]="movie.title"
+        (mouseenter)="onMouseEnter(movie)"
+        (mouseleave)="onMouseLeave(movie)"
+        [class.hovered]="movie.isHovered"
+      />
+    </div>
+  </section>
+  <h2 class="text-white mt-10 mb-5 ml-6">Upcoming Movies</h2>
+  <section
+    class="section_cards_movies_popular overflow-x-auto whitespace-nowrap ml-5"
+  >
+    <div
+      *ngFor="let movie of upcomingMovies"
+      class="card_movies_popular_scroll inline-block mr-4"
+    >
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+        [alt]="movie.title"
+        (mouseenter)="onMouseEnter(movie)"
+        (mouseleave)="onMouseLeave(movie)"
+        [class.hovered]="movie.isHovered"
+      />
+    </div>
+  </section>
+  <section class="flex flex-col justify-center items-center mb-20">
+    <h3 class="text-white text-2xl text-center mt-20 mb-20">
+      A simple and complete experience
+    </h3>
+    <img
+      src="../../../assets/view-landing.png"
+      class="w-3/4"
+      alt="Photos of the app viewing in mobile and desktop version"
+    />
+    <span class="text-white"
+      >Discover all the ways to watch your favorite movies on Nook</span
+    >
+  </section>
+</section>
+

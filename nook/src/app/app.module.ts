@@ -4,22 +4,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { LandingPageDesktopComponent } from './components/landing-page-desktop/landing-page-desktop.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    LoginComponent,
+    LoginFormComponent,
     SignUpComponent,
-    LandingPageDesktopComponent
+    LoginFormComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
