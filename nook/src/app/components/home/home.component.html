@@ -1,1 +1,17 @@
-<p>home works!</p>
+<section>
+  <div class="header flex">
+    <img src="../../../assets/Icon-menu.svg" class="icon_menu" />
+    <img src="../../../assets/logo.png" class="logo" />
+    <img src="../../../assets/Icon-user.svg" class="icon_user" />
+  </div>
+  <section
+    class="section_cards_movies_popular overflow-x-auto whitespace-nowrap"
+  >
+    <div *ngFor="let movie of popularMovies" class="card_movies_popular">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+        [alt]="movie.title"
+      />
+    </div>
+  </section>
+</section>
