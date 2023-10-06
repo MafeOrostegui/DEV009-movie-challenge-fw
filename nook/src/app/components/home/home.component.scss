@@ -1,0 +1,32 @@
+.header {
+    width: 100vw;
+    margin: 4vh 0;
+    justify-content: space-between;
+    position: fixed;
+    .logo {
+        width: 30vw;
+        height: auto;
+    }
+
+    .icon_menu {
+        margin-left: 2vw;
+    }
+
+    .icon_user {
+        margin-right: 2vw;
+    }
+}
+
+.section_cards_movies_popular {
+    margin: 0px;
+}
+
+.card_movies_popular {
+    width: 100vw;
+    height: 70vh;
+
+    img {
+        margin: 0px;
+        width: 100vw;
+    }
+}
