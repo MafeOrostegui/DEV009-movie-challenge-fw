@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "nook-f46b2": {
+      "hosting": {
+        "nook": [
+          "nook-f46b2"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "nook-f46b2"
+  }
+}

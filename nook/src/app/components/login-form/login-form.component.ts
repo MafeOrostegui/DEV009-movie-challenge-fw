@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import { HostListener } from '@angular/core';
 
 @Component({
@@ -10,15 +10,6 @@ import { HostListener } from '@angular/core';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent {
-  loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-  });
-
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) { }
 
   isMobile = window.innerWidth < 611;
 
@@ -29,24 +20,21 @@ export class LoginFormComponent {
 
   hide = true;
 
+  loginForm: FormGroup;
+
+  constructor(
+    private userService: FirestoreService,
+    private router: Router
+  ) {
+    this.loginForm = new FormGroup({
+      email: new FormControl(''),
+      password: new FormControl(''),
+    })
+  }
+
   onSubmit() {
-    if (this.loginForm.valid) {
-      const requestToken = localStorage.getItem('requestToken');
-      if (requestToken) {
-        this.authService.createSession(requestToken)
-          .subscribe({
-            next: (response: any) => {
-              console.log('Session ID:', response.session_id);
-              localStorage.setItem('session_id', response.session_id);
-              this.router.navigate(['/home']);
-            },
-            error: (error) => {
-              console.error('Error:', error);
-            }
-          });
-      } else {
-        console.error('The requestToken was not found in the localStorage.');
-      }
-    }
+    const email = this.loginForm.get('email')?.value;
+    const password = this.loginForm.get('password')?.value;
+    this.userService.login(email, password)
   }
 }

@@ -4,7 +4,7 @@
   </div>
 
   <h1 class="text-white text-center text-2xl mb-14">Create Account</h1>
-  
+
   <form
     [formGroup]="signUpForm"
     (ngSubmit)="onSubmit()"
@@ -16,6 +16,22 @@
       formControlName="firstName"
       class="bg-custom-input-color h-10 mt-4 rounded-lg"
     />
+    <div
+      *ngIf="
+        signUpForm.get('firstName')?.invalid &&
+        (signUpForm.get('firstName')?.dirty ||
+          signUpForm.get('firstName')?.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div
+        *ngIf="signUpForm.get('firstName')?.errors?.['required']"
+        class="text-red text-sm alert"
+      >
+        <mat-icon class="icon_error">cancel</mat-icon>
+        <span>First Name is required.</span>
+      </div>
+    </div>
 
     <input
       type="text"
@@ -82,6 +98,7 @@
       formControlName="confirmPassword"
       class="bg-custom-input-color h-10 mt-4 rounded-lg"
     />
+
     <div
       *ngIf="
         signUpForm.get('confirmPassword')?.invalid &&
@@ -91,14 +108,20 @@
       class="alert alert-danger"
     >
       <div
-        *ngIf="signUpForm.get('confirmPassword')?.errors?.['required']"
+        *ngIf="signUpForm.get('confirmPassword')?.hasError('required')"
         class="text-red text-sm alert"
       >
         <mat-icon class="icon_error">cancel</mat-icon>
-        <span>Confirm Password is required.</span>
+        <span>Password is required.</span>
+      </div>
+      <div
+        *ngIf="signUpForm.get('confirmPassword')?.hasError('passwordMismatch')"
+        class="text-red text-sm alert"
+      >
+        <mat-icon class="icon_error">cancel</mat-icon>
+        <span>Passwords do not match.</span>
       </div>
     </div>
-
     <button
       type="submit"
       [disabled]="!signUpForm.valid"
