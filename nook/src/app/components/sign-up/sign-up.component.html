@@ -1,5 +1,10 @@
 <section class="section_signUp">
+  <div class="header" *ngIf="!isMobile">
+    <img src="../../../assets/logo.png" routerLink="/landing-page" />
+  </div>
+
   <h1 class="text-white text-center text-2xl mb-14">Create Account</h1>
+  
   <form
     [formGroup]="signUpForm"
     (ngSubmit)="onSubmit()"
@@ -9,52 +14,100 @@
       type="text"
       placeholder="Name"
       formControlName="firstName"
-      class="bg-custom-input-color h-10 mb-4 rounded-lg"
+      class="bg-custom-input-color h-10 mt-4 rounded-lg"
     />
 
     <input
       type="text"
       placeholder="Last Name"
       formControlName="lastName"
-      class="bg-custom-input-color h-10 mb-4 rounded-lg"
+      class="bg-custom-input-color h-10 mt-4 rounded-lg"
     />
 
     <input
       type="email"
       placeholder="Email"
       formControlName="email"
-      class="bg-custom-input-color h-10 mb-4 rounded-lg"
+      class="bg-custom-input-color h-10 mt-4 rounded-lg"
     />
+    <div
+      *ngIf="
+        signUpForm.get('email')?.invalid &&
+        (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div
+        *ngIf="signUpForm.get('email')?.errors?.['required']"
+        class="text-red text-sm alert"
+      >
+        <mat-icon class="icon_error">cancel</mat-icon>
+        <span>Email valid is required.</span>
+      </div>
+    </div>
 
     <input
       type="password"
       placeholder="Password"
       formControlName="password"
-      class="bg-custom-input-color h-10 mb-4 rounded-lg"
+      class="bg-custom-input-color h-10 mt-4 rounded-lg"
     />
+    <div
+      *ngIf="
+        signUpForm.get('password')?.invalid &&
+        (signUpForm.get('password')?.dirty ||
+          signUpForm.get('password')?.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div
+        *ngIf="signUpForm.get('password')?.errors?.['required']"
+        class="text-red text-sm alert"
+      >
+        <mat-icon class="icon_error">cancel</mat-icon>
+        <span>Password is required.</span>
+      </div>
+      <div
+        *ngIf="signUpForm.get('password')?.errors?.['minlength']"
+        class="text-red text-sm alert"
+      >
+        <mat-icon class="icon_error">cancel</mat-icon>
+        <span>Password should be at least 8 characters long.</span>
+      </div>
+    </div>
 
     <input
       type="password"
       placeholder="Confirm Password"
       formControlName="confirmPassword"
-      class="bg-custom-input-color h-10 mb-4 rounded-lg"
+      class="bg-custom-input-color h-10 mt-4 rounded-lg"
     />
+    <div
+      *ngIf="
+        signUpForm.get('confirmPassword')?.invalid &&
+        (signUpForm.get('confirmPassword')?.dirty ||
+          signUpForm.get('confirmPassword')?.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div
+        *ngIf="signUpForm.get('confirmPassword')?.errors?.['required']"
+        class="text-red text-sm alert"
+      >
+        <mat-icon class="icon_error">cancel</mat-icon>
+        <span>Confirm Password is required.</span>
+      </div>
+    </div>
 
-    <input
-      type="number"
-      placeholder="Your number"
-      formControlName="number"
-      class="bg-custom-input-color h-10 mb-4 rounded-lg"
-    />
     <button
       type="submit"
       [disabled]="!signUpForm.valid"
-      class="bg-custom-purple text-white font-regular py-2 px-6 rounded-custom mt-4 mb-10 button_get"
+      class="bg-custom-purple text-white font-regular py-2 px-6 rounded-custom mt-4 mb-10 button_get transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ... button_get"
     >
       Create Account
     </button>
   </form>
-  <div class="flex justify-center">
+  <div class="flex justify-center container_options">
     <span class="text-white mr-2 font_light">Already have an account?</span>
     <a class="text-custom-purple font_bold" routerLink="/login">Sign In</a>
   </div>

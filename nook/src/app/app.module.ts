@@ -8,6 +8,9 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -15,14 +18,16 @@ import { HomeComponent } from './components/home/home.component';
     LandingPageComponent,
     LoginFormComponent,
     SignUpComponent,
-    LoginFormComponent,
     HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    MatFormFieldModule, 
+    MatInputModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
