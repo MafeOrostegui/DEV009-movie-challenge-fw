@@ -4,9 +4,8 @@ import { SignUpRoutingModule } from './sign-up-routing.module';
 import { SignUpComponent } from './sign-up.component';
 import { AuthFormComponent } from 'src/app/components/auth-form/auth-form.component';
 
-
 @NgModule({
-  declarations: [SignUpComponent],
-  imports: [CommonModule, SignUpRoutingModule, AuthFormComponent],
+    declarations: [SignUpComponent],
+    imports: [CommonModule, SignUpRoutingModule, AuthFormComponent],
 })
-export class SignUpModule {}
+export class SignUpModule { }
