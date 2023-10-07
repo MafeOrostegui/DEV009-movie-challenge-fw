@@ -111,7 +111,7 @@ header {
         margin-left: 2vw;
     }
 
-    .buttons_landing_page {
+    .buttons_landing_page_desktop {
         margin-right: 2vw;
         display: flex;
         justify-content: center;
@@ -137,15 +137,16 @@ header {
         }
     }
 
-    .button_get {
+    .button_get_desktop {
         background-color: #9747FF;
     }
 }
 
 .movie_video {
-    .button_get:hover {
+    .button_get_desktop:hover {
         background-color: rgba(0, 0, 0, 0.5);
         font-weight: 500;
+        cursor: pointer;
         color: #9747FF;
         border: 1px solid #9747FF;
     }
@@ -173,18 +174,27 @@ header {
 @media screen and (min-width: 611px) and (max-width: 858px) {
     .movie_video {
         h1 {
-            font-size: 2rem
+            font-size: 2rem;
+            position: absolute;
+            top:20vh
         }
 
         span {
             font-size: 0.8rem;
+            position: absolute;
+            top:28vh
         }
 
-        .button_get {
+        .button_get_desktop {
             width: 20vw;
-            height: 5vh;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 0.8rem;
             padding: 0;
+            position: absolute;
+            top:32vh;
         }
     }
 }
