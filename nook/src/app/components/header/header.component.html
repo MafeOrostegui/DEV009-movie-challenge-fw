@@ -1,0 +1,19 @@
+<header [class.header-home]="isHome()">
+  <ng-container *ngIf="isHome()">
+    <div class="icon_menu">
+      <img src="../../../assets/Icon-menu.svg" class="icon_menu" />
+    </div>
+    <div class="icon_user">
+      <img src="../../../assets/Icon-user.svg" class="icon_user" />
+    </div>
+  </ng-container>
+  <img src="../assets/logo.png" class="logo" [class.center-logo]="isHome()"/>
+  <div class="buttons_landing_page_desktop" *ngIf="!isHome()">
+    <div routerLink="/login">
+      <a routerLink="/login"> Login </a>
+    </div>
+    <div routerLink="/sign-up" class="button_get_desktop">
+      <a routerLink="/sign-up"> Get Started </a>
+    </div>
+  </div>
+</header>

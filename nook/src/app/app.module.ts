@@ -18,6 +18,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
     SignUpComponent,
     HomeComponent,
     EmailVerificationComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
