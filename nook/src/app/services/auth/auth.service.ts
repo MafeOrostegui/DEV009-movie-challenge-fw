@@ -14,6 +14,7 @@ export class authService {
     try {
       const { user } = await createUserWithEmailAndPassword(this.auth, email, password);
       await this.sendEmailVerification(user);
+      console.log('se envio el correo')
       this.router.navigate(['/email-verification'])
     } catch (error) {
       console.log(error)

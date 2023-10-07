@@ -17,6 +17,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,6 @@ import { AuthFormComponent } from './components/auth-form/auth-form.component';
     SignUpComponent,
     HomeComponent,
     EmailVerificationComponent,
-    AuthFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +36,8 @@ import { AuthFormComponent } from './components/auth-form/auth-form.component';
     MatFormFieldModule, 
     MatInputModule,
     MatIconModule,
+    AuthFormComponent,
+    ErrorMessageComponent,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
