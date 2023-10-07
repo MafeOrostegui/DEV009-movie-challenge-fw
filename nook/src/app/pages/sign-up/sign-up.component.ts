@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { FirestoreService } from 'src/app/services/firestore/firestore.service';
+import { authService } from 'src/app/services/auth/auth.service';
 import { matchPasswordValidator } from 'src/app/directives/match-password-directive.directive';
 
 @Component({
@@ -21,7 +21,7 @@ export class SignUpComponent {
   signUpForm: FormGroup;
 
   constructor(
-    private userService: FirestoreService,
+    private userService: authService,
     private router: Router
   ) {
     this.signUpForm = new FormGroup({
@@ -40,10 +40,5 @@ export class SignUpComponent {
     const email = this.signUpForm.get('email')?.value;
     const password = this.signUpForm.get('password')?.value;
     this.userService.register(email, password)
-      .then(response => {
-        console.log(response)
-        this.router.navigate(['/login'])
-      })
-      .catch(error => console.log(error))
   }
 }
