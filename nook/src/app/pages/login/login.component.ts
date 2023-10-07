@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FirestoreService } from 'src/app/services/firestore/firestore.service';
-import { HostListener } from '@angular/core';
+import { authService } from 'src/app/services/auth/auth.service';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class LoginFormComponent {
+export class LoginComponent {
 
   isMobile = window.innerWidth < 611;
 
@@ -23,7 +22,7 @@ export class LoginFormComponent {
   loginForm: FormGroup;
 
   constructor(
-    private userService: FirestoreService,
+    private userService: authService,
     private router: Router
   ) {
     this.loginForm = new FormGroup({
@@ -36,5 +35,8 @@ export class LoginFormComponent {
     const email = this.loginForm.get('email')?.value;
     const password = this.loginForm.get('password')?.value;
     this.userService.login(email, password)
+      .then((response)=>{
+       
+      })
   }
 }

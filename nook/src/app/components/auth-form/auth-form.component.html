@@ -1,0 +1,56 @@
+<section class="section_login">
+    <div class="header">
+      <img src="../../../assets/logo.png" routerLink="/landing-page" />
+    </div>
+    <h1 *ngIf="!isMobile" class="text-white mb-20 text-2xl">{{ title }}</h1>
+    <form
+      [formGroup]="loginForm"
+      class="flex flex-col justify-center px-6 text-white w-full"
+    >
+      <input
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+        class="bg-custom-input-color h-10 mb-4 rounded-lg"
+      />
+      <div class="bg-custom-input-color h-10 mb-4 rounded-lg password">
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          placeholder="Password"
+          formControlName="password"
+          class="bg-custom-input-color rounded-lg"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+          class="eye_password"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </div>
+      <button
+        type="submit"
+        [disabled]="!loginForm.valid"
+        (click)="onSubmit()"
+        class="bg-custom-purple text-white font-regular py-2 px-6 rounded-custom mt-4 mb-10 button_get transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110"
+      >
+        {{ title }}
+      </button>
+    </form>
+    <ng-container
+      *ngIf="action === 'signIn'; else templateSignIn"
+      class="flex justify-center container_options"
+    >
+      <span class="text-white mr-2 font_light">Already have an account?</span>
+      <a class="text-custom-purple font_bold" routerLink="/sign-up">Register</a>
+    </ng-container>
+    <ng-container  #templateSignIn class="flex justify-center container_options">
+      <span class="text-white mr-2 font_light">Already have an account?</span>
+      <a class="text-custom-purple font_bold" routerLink="/login">Sign In</a>
+    </ng-container>
+  </section>
+  
