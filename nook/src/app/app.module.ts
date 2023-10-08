@@ -19,6 +19,7 @@ import { EmailVerificationComponent } from './pages/email-verification/email-ver
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MoviesComponent } from './components/movies/movies.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HeaderComponent } from './components/header/header.component';
     HomeComponent,
     EmailVerificationComponent,
     HeaderComponent,
+    MoviesComponent,
   ],
   imports: [
     BrowserModule,

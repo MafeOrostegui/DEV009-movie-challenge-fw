@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { HostListener } from '@angular/core';
-import { MoviesService } from 'src/app/services/movies/movies.service';
 import { HeaderComponent } from 'src/app/components/header/header.component';
+import { MoviesComponent } from 'src/app/components/movies/movies.component';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss']
+  styleUrls: ['./landing-page.component.scss'],
 })
 
 export class LandingPageComponent {
@@ -44,18 +44,6 @@ export class LandingPageComponent {
     ''
   ];
 
-  popularMovies: any[] = [];
-  upcomingMovies: any[] = [];
-  currentMovieIndex: number = 0;
-
-  onMouseEnter(movie: any) {
-    movie.isHovered = true;
-  }
-
-  onMouseLeave(movie: any) {
-    movie.isHovered = false;
-  }
-
   currentImageIndex: number = 0;
   currentImage: string = this.images[this.currentImageIndex];
   currentPoint: string = this.points[this.currentImageIndex];
@@ -70,22 +58,5 @@ export class LandingPageComponent {
     this.currentSubtitle = this.subtitles[this.currentImageIndex];
   }
 
-  constructor(private moviesService: MoviesService) { }
-
-  ngOnInit(): void {
-    this.moviesService.getPopularMovies()
-      .subscribe(
-        (response: any): void => {
-          this.popularMovies = response.results;
-        }
-      );
-
-    this.moviesService.getUpcomingMovies()
-      .subscribe(
-        (response: any): void => {
-          this.upcomingMovies = response.results;
-          console.log(this.upcomingMovies);
-        }
-      )
-  }
+  constructor() { }
 }

@@ -1,0 +1,18 @@
+<section>
+  <section
+    class="section_cards_movies_popular overflow-x-auto whitespace-nowrap ml-5 {{ customClasses }}"
+  >
+    <div
+      *ngFor="let movie of getMovies()"
+      class="card_movies_popular_scroll inline-block mr-4"
+    >
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+        [alt]="movie.title"
+        (mouseenter)="onMouseEnter(movie)"
+        (mouseleave)="onMouseLeave(movie)"
+        [class.hovered]="movie.isHovered"
+      />
+    </div>
+  </section>
+</section>
