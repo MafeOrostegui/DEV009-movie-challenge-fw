@@ -1,14 +1,5 @@
 <section>
   <app-header></app-header>
-  <section
-    class="section_cards_movies_popular overflow-x-auto whitespace-nowrap"
-  >
-    <div *ngFor="let movie of popularMovies" class="card_movies_popular">
-      <img
-        [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
-        [alt]="movie.title"
-      />
-    </div>
-  </section>
+  <app-movies [movieType]="'upcoming'" [customClasses]="'slide-movies'"></app-movies>
   <button (click)="onClick()" class="text-white">Sign Out</button>
 </section>
