@@ -10,6 +10,7 @@ import { MoviesComponent } from 'src/app/components/movies/movies.component';
 })
 
 export class LandingPageComponent {
+
   isMobile = window.innerWidth < 611;
 
   @HostListener('window:resize', ['$event'])

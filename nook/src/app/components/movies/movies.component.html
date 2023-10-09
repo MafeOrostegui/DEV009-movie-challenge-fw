@@ -1,10 +1,13 @@
 <section>
   <section
-    class="section_cards_movies_popular overflow-x-auto whitespace-nowrap ml-5 {{ customClasses }}"
+    [ngClass]="{
+      'slider-container': useSlider,
+      'scroll-container': !useSlider
+    }"
   >
     <div
       *ngFor="let movie of getMovies()"
-      class="card_movies_popular_scroll inline-block mr-4"
+      [ngClass]="{ 'slider-movie': useSlider, 'scroll-movie': !useSlider }"
     >
       <img
         [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
