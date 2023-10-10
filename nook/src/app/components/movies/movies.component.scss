@@ -2,11 +2,17 @@
     overflow-x: auto;
     white-space: nowrap;
     margin-left: 5px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none; 
+    }
 
     .scroll-movie {
         display: inline-block;
         margin-right: 4px;
-        width: 10vw;
+        width: 20vw;
         height: auto;
         margin: 10px;
         transition: transform 0.3s ease;
@@ -17,7 +23,6 @@
         cursor: pointer;
     }
 
-
     .hovered {
         transform: scale(1.1);
         box-shadow: 0 8px 16px rgba(151, 71, 255, 0.5);
@@ -25,29 +30,70 @@
     }
 }
 
+@media (min-width: 611px) {
+    .scroll-container {
+        .scroll-movie {
+            width: 10vw;
+        }
+    }
+}
+
 .slider-container {
-    overflow: hidden;
+    overflow-x: auto;
+    scrollbar-width: none;
     white-space: nowrap;
-    display: flex;
-    align-items: center;
-    margin-left: 5px;
+    scroll-snap-type: x mandatory;
+    width: 100vw;
 
     .slider-movie {
-        flex: 0 0 auto;
-        width: 100vw;
+        width: 100%;
+        display: inline-block;
         height: auto;
-        margin-right: 4px;
         transition: transform 0.3s ease;
+        transform: translateX(0);
         cursor: pointer;
 
         img {
-            max-width: 100%;
-            max-height: 100%;
+            flex: 0 0 100%;
+            width: 100%;
+            object-fit: cover;
+            scroll-snap-align: center;
         }
 
         &.hovered {
-            transform: scale(1.1);
+            cursor: pointer;
             box-shadow: 0 8px 16px rgba(151, 71, 255, 0.5);
         }
+    }
+}
+
+@media (min-width: 611px) {
+    .slider-container {
+        margin: 0 auto;
+        width: 30vw;
+        height: 80vh;
+        overflow-y: hidden;
+    }
+
+    .slider-movie {
+        width: 50%;
+        img {
+            width:10vw;
+            height:80vh;
+        }
+    }
+
+    .slider-container::-webkit-scrollbar {
+        width: 2vw; 
+        height: 3vh;
+    }
+    
+    .slider-container::-webkit-scrollbar-track {
+        background-color: transparent; 
+    }
+    
+    .slider-container::-webkit-scrollbar-thumb {
+        background-color: #9747FF; 
+        border-radius: 50%; 
     }
 }

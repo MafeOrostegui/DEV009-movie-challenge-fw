@@ -29,6 +29,14 @@ export class MoviesService {
       );
   }
 
+  getTopRatedMovies(): Observable<any> {
+    const url = `${this.apiUrl}/movie/top_rated?language=en-US&page=1&api_key=${this.apiKey}`;
+    return this.http.get(url)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       console.error('An error occurred:', error.error);

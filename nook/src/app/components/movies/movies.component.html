@@ -6,7 +6,7 @@
     }"
   >
     <div
-      *ngFor="let movie of getMovies()"
+      *ngFor="let movie of movies"
       [ngClass]="{ 'slider-movie': useSlider, 'scroll-movie': !useSlider }"
     >
       <img

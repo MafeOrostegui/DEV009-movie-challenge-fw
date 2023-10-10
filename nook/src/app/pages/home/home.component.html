@@ -1,5 +1,7 @@
 <section>
   <app-header></app-header>
   <app-movies [movieType]="'popular'" [useSlider]="true"></app-movies>
+  <h1 class="text-white ml-5">Discover the movies with the best ratings</h1>
+  <app-movies [movieType]="'topRated'" [useSlider]="false"></app-movies>
   <button (click)="onClick()" class="text-white">Sign Out</button>
 </section>
