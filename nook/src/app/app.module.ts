@@ -20,6 +20,7 @@ import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MoviesComponent } from './components/movies/movies.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MoviesComponent } from './components/movies/movies.component';
     EmailVerificationComponent,
     HeaderComponent,
     MoviesComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,11 +10,10 @@ import { Movie } from 'src/app/models/movie';
 export class MoviesComponent implements OnInit {
   constructor(private moviesService: MoviesService) { }
 
-  @Input() movieType!: 'popular' | 'upcoming';
+  @Input() movieType!: 'popular' | 'upcoming' | 'topRated';
   @Input() useSlider: boolean = false;
 
-  popularMovies: Movie[] = [];
-  upcomingMovies: Movie[] = [];
+  movies: Movie[] = [];
 
   onMouseEnter(movie: any) {
     movie.isHovered = true;
@@ -24,29 +23,39 @@ export class MoviesComponent implements OnInit {
     movie.isHovered = false;
   }
 
-  getMovies(): Movie[] {
-    if (this.movieType === 'popular') {
-      return this.popularMovies;
-    } else if (this.movieType === 'upcoming') {
-      return this.upcomingMovies;
-    } else {
-      return [];
+  ngOnInit(): void {
+    const serviceMap: { [key: string]: () => void } = {
+      popular: this.getPopularMovies,
+      upcoming: this.getUpcomingMovies,
+      topRated: this.getTopRatedMovies,
+    };
+
+    const selectedService = serviceMap[this.movieType];
+
+    if (selectedService) {
+      selectedService.call(this);
     }
   }
 
-  ngOnInit(): void {
-    if (this.movieType === 'popular') {
-      this.moviesService.getPopularMovies().subscribe((response: any): void => {
-        this.popularMovies = response.results as Movie[];
-        console.log(this.popularMovies);
-      });
-    } else if (this.movieType === 'upcoming') {
-      this.moviesService.getUpcomingMovies().subscribe(
-        (response: any): void => {
-          this.upcomingMovies = response.results as Movie[];
-          console.log(this.upcomingMovies);
-        }
-      );
-    }
+  private getPopularMovies(): void {
+    this.moviesService.getPopularMovies().subscribe((response: any) => {
+      this.movies = response.results as Movie[];
+      console.log(this.movies);
+    });
+  }
+
+  private getUpcomingMovies(): void {
+    this.moviesService.getUpcomingMovies().subscribe((response: any) => {
+      this.movies = response.results as Movie[];
+      console.log(this.movies);
+    });
+  }
+
+  private getTopRatedMovies(): void {
+    this.moviesService.getTopRatedMovies().subscribe((response: any) => {
+      this.movies = response.results as Movie[];
+      console.log(this.movies);
+    });
   }
 }
+
