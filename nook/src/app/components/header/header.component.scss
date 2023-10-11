@@ -5,13 +5,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-content: center;
     position: fixed;
     z-index: 9999;
 
     img {
         width: 13vw;
         height: auto;
-        margin-left: 2vw;
     }
 
     .buttons_landing_page_desktop {
@@ -60,14 +60,8 @@ header {
     height: auto;
 }
 
-.icon_menu {
-    margin-left: 2vw;
-    width: 10vw;
-    order: 1;
-}
-
 .icon_user {
-    margin-right: 4vw;
+    margin-right: 6vw;
     width: 10vw;
     order: 3;
 }
@@ -81,10 +75,6 @@ header {
             height: auto;
             margin-left: 2vw;
         }
-    }
-
-    .icon_menu {
-        width: 4vw;
     }
 
     .icon_user {
