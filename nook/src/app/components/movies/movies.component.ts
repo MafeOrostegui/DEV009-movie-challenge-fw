@@ -11,7 +11,7 @@ export class MoviesComponent implements OnInit {
   constructor(private moviesService: MoviesService) { }
 
   @Input() movieType!: 'popular' | 'upcoming' | 'top_rated';
-  @Input() genre?: number; 
+  @Input() genre?: number;
   @Input() useSlider: boolean = false;
 
   movies: Movie[] = [];
@@ -29,17 +29,9 @@ export class MoviesComponent implements OnInit {
   }
 
   private getMovies(): void {
-    if (this.genre) {
-      this.moviesService.getMoviesByCategory(this.genre, 1).subscribe((response: any) => {
-        this.movies = response.results as Movie[];
-        console.log(this.movies);
-      });
-    } else {
-      this.moviesService.getMovies(this.movieType, 1).subscribe((response: any) => {
-        this.movies = response.results as Movie[];
-        console.log(this.movies);
-      });
-    }
+    this.moviesService.getMovies(this.movieType, 1, this.genre).subscribe((response: any) => {
+      this.movies = response.results as Movie[];
+      console.log(this.movies);
+    })
   }
 }
-
