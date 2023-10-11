@@ -10,7 +10,8 @@ import { Movie } from 'src/app/models/movie';
 export class MoviesComponent implements OnInit {
   constructor(private moviesService: MoviesService) { }
 
-  @Input() movieType!: 'popular' | 'upcoming' | 'topRated';
+  @Input() movieType!: 'popular' | 'upcoming' | 'top_rated';
+  @Input() genre?: number; 
   @Input() useSlider: boolean = false;
 
   movies: Movie[] = [];
@@ -24,38 +25,21 @@ export class MoviesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const serviceMap: { [key: string]: () => void } = {
-      popular: this.getPopularMovies,
-      upcoming: this.getUpcomingMovies,
-      topRated: this.getTopRatedMovies,
-    };
+    this.getMovies();
+  }
 
-    const selectedService = serviceMap[this.movieType];
-
-    if (selectedService) {
-      selectedService.call(this);
+  private getMovies(): void {
+    if (this.genre) {
+      this.moviesService.getMoviesByCategory(this.genre, 1).subscribe((response: any) => {
+        this.movies = response.results as Movie[];
+        console.log(this.movies);
+      });
+    } else {
+      this.moviesService.getMovies(this.movieType, 1).subscribe((response: any) => {
+        this.movies = response.results as Movie[];
+        console.log(this.movies);
+      });
     }
-  }
-
-  private getPopularMovies(): void {
-    this.moviesService.getPopularMovies().subscribe((response: any) => {
-      this.movies = response.results as Movie[];
-      console.log(this.movies);
-    });
-  }
-
-  private getUpcomingMovies(): void {
-    this.moviesService.getUpcomingMovies().subscribe((response: any) => {
-      this.movies = response.results as Movie[];
-      console.log(this.movies);
-    });
-  }
-
-  private getTopRatedMovies(): void {
-    this.moviesService.getTopRatedMovies().subscribe((response: any) => {
-      this.movies = response.results as Movie[];
-      console.log(this.movies);
-    });
   }
 }
 

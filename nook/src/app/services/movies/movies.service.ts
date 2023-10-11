@@ -13,28 +13,27 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
 
-  getPopularMovies(): Observable<any> {
-    const url = `${this.apiUrl}/movie/popular?api_key=${this.apiKey}`;
+  getMovies(kind: string, page: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/movie/${kind}?api_key=${this.apiKey}&page=${page}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getCategoryMovies(): Observable<any> {
+    const url = `${this.apiUrl}/genre/movie/list?language=en&api_key=${this.apiKey}`;
     return this.http.get(url)
       .pipe(
         catchError(this.handleError)
       );
   }
 
-  getUpcomingMovies(): Observable<any> {
-    const url = `${this.apiUrl}/movie/upcoming?api_key=${this.apiKey}`;
+  getMoviesByCategory(genreId: number, page: number): Observable<any> {
+    const url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_genres=${genreId}&page=${page}`;
     return this.http.get(url)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
-
-  getTopRatedMovies(): Observable<any> {
-    const url = `${this.apiUrl}/movie/top_rated?language=en-US&page=1&api_key=${this.apiKey}`;
-    return this.http.get(url)
-      .pipe(
-        catchError(this.handleError)
-      );
+    .pipe(
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: HttpErrorResponse) {
