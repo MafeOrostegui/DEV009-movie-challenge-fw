@@ -1,14 +1,27 @@
-<section class="body_landing_page" *ngIf="isMobile">
-  <div class="slide" (click)="changeImage()">
-    <img [src]="currentImage" class="slide_img" />
-    <img [src]="currentPoint" class="slide_point" />
+<section class="w-screen h-screen mx-auto" *ngIf="isMobile">
+  <div class="relative" (click)="changeImage()">
+    <img
+      [src]="currentImage"
+      class="absolute top-0 left-0 transition-opacity duration-500"
+    />
+    <img
+      [src]="currentPoint"
+      class="absolute top-[75vh] left-1/2 transform -translate-x-1/2 transition-opacity duration-500"
+    />
   </div>
-  <section class="content_landing_page">
-    <img src="../../assets/logo.png" class="logo" />
-    <h1>{{ currentTitle }}</h1>
-    <span>{{ currentSubtitle }}</span>
-    <div class="buttons_landing_page">
-      <div class="button_get_started" routerLink="/sign-up">
+  <section class="flex flex-col justify-center items-center">
+    <img src="../../assets/logo.png" class="absolute w-1/2 h-auto top-[55vh]" />
+    <h1 class="absolute text-white mt-[5vh] font-semibold top-[60vh]">
+      {{ currentTitle }}
+    </h1>
+    <span class="mb-[2vh] font-light text-sm absolute text-white top-[70vh]">{{
+      currentSubtitle
+    }}</span>
+    <div class="absolute top-[80vh] flex flex-col">
+      <div
+        class="text-white h-[6vh] rounded-15 flex justify-center items-center bg-custom-purple hover:bg-transparent hover:border-custom-purple font-semibold py-2 px-4 rounded mb-[1vh] md:w-[20vw]"
+        routerLink="/sign-up"
+      >
         <a
           routerLink="/sign-up"
           routerLinkActive="active"
@@ -17,7 +30,10 @@
           Get Started
         </a>
       </div>
-      <div class="button_login" routerLink="/login">
+      <div
+        class="text-white w-[80vw] h-[6vh] rounded-15 flex justify-center items-center border border-custom-purple hover:bg-custom-purple hover:text-white hover:border-transparent font-semibold py-2 px-4 rounded"
+        routerLink="/login"
+      >
         <a
           routerLink="/login"
           routerLinkActive="active"
@@ -32,7 +48,7 @@
 
 <section *ngIf="!isMobile">
   <app-header></app-header>
-  <section class="movie_video">
+  <section>
     <video class="w-full h-full" autoplay loop muted>
       <source src="../../../assets/movies-trailer.mp4" type="video/mp4" />
       Tu navegador no soporta la reproducción de videos.
@@ -40,14 +56,17 @@
     <div
       class="absolute inset-0 flex flex-col items-center justify-center text-white"
     >
-      <h1 class="text-5xl font-bold mb-4 title_video">
+      <h1
+        class="lg:text-5xl lg:font-bold lg:mb-4 lg:top-1/3 md:text-3xl md:absolute md:top-[22vh] sm:absolute sm:top-[20vh] sm:text-2xl"
+      >
         Unlock the Future of Entertainment
       </h1>
-      <span class="text-2xl message_video"
+      <span
+        class="lg:text-2xl lg:top-[40vh] md:text-xl md:top-[28vh] md:absolute sm:absolute sm:top-[24vh] sm:text-sm"
         >Elevate your streaming experience now!</span
       >
       <div
-        class="bg-custom-purple text-white font-regular py-4 px-6 rounded-custom mt-10 button_get_desktop"
+        class="bg-custom-purple text-white font-regular py-4 px-6 lg:top-[50vh] rounded-custom mt-10 md:text-xs lg:text-sm md:absolute md:top-[32vh] sm:absolute sm:top-[25vh] sm:text-sm"
         routerLink="/sign-up"
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
@@ -62,9 +81,9 @@
     </div>
   </section>
   <h2 class="text-white mt-10 mb-5 ml-6">Popular Movies</h2>
-  <app-movies  [movieType]="'popular'" [useSlider]="false"></app-movies>
+  <app-movies [movieType]="'popular'" [useSlider]="false"></app-movies>
   <h2 class="text-white mt-10 mb-5 ml-6">Upcoming Movies</h2>
-  <app-movies  [movieType]="'upcoming'" [useSlider]="false"></app-movies>
+  <app-movies [movieType]="'upcoming'" [useSlider]="false"></app-movies>
   <section class="flex flex-col justify-center items-center mb-20">
     <h3 class="text-white text-2xl text-center mt-20 mb-20">
       A simple and complete experience
@@ -79,4 +98,3 @@
     >
   </section>
 </section>
-
