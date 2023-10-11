@@ -5,17 +5,16 @@ import { MoviesComponent } from 'src/app/components/movies/movies.component';
 
 @Component({
   selector: 'app-landing-page',
-  templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss'],
+  templateUrl: './landing-page.component.html'
 })
 
 export class LandingPageComponent {
 
-  isMobile = window.innerWidth < 611;
+  isMobile = window.innerWidth < 640;
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
-    this.isMobile = window.innerWidth < 611;
+    this.isMobile = window.innerWidth < 640;
   }
 
   images: string[] = [
