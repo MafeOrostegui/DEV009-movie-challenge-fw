@@ -13,11 +13,16 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
 
-  getMovies(kind: string, page: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/movie/${kind}?api_key=${this.apiKey}&page=${page}`)
-      .pipe(
-        catchError(this.handleError)
-      );
+  getMovies(kind: string, page: number, genreId?: null | number): Observable<any> {
+    let url: string;
+
+    (genreId)
+      ? url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_genres=${genreId}&page=${page}`
+      : url = `${this.apiUrl}/movie/${kind}?api_key=${this.apiKey}&page=${page}`;
+
+    return this.http.get(url).pipe(
+      catchError(this.handleError)
+    );
   }
 
   getCategoryMovies(): Observable<any> {
@@ -28,21 +33,13 @@ export class MoviesService {
       );
   }
 
-  getMoviesByCategory(genreId: number, page: number): Observable<any> {
-    const url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_genres=${genreId}&page=${page}`;
-    return this.http.get(url)
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
+  private handleError(error: any): Observable<never> {
+    const errorMessage =
+      error.status === 0
+        ? `An error occurred: ${error.error}`
+        : `Backend returned code ${error.status}, body was: ${error.error}`;
 
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      console.error('An error occurred:', error.error);
-    } else {
-      console.error(
-        `Backend returned code ${error.status}, body was: `, error.error);
-    }
+    console.error(errorMessage);
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 }
