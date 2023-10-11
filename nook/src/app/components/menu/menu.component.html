@@ -1,14 +1,14 @@
 <nav class="flex items-center justify-between p-4 text-white z-10">
   <button
     *ngIf="!menuOpen"
-    class="block px-2 py-1 text-white focus:outline-none"
+    class="block px-2 py-1 text-white focus:outline-none mt-3"
     (click)="toggleMenu()"
   >
-    <img src="../../../assets/Icon-menu.svg" alt="menu icon" class="ml-4vw w-10vw"/>
+    <img src="../../../assets/Icon-menu.svg" alt="menu icon" class="w-[13vw] lg:w-[4vw] md:w-[7vw] lg:ml-[6vw] md:ml-6vw"/>
   </button>
   <button
     *ngIf="menuOpen && !inCategoryMenu"
-    class="block px-2 py-1 text-3xl text-white focus:outline-none z-10"
+    class="block px-2 py-1 text-white focus:outline-none z-10"
     (click)="toggleMenu()"
   >
     <mat-icon>clear</mat-icon>
