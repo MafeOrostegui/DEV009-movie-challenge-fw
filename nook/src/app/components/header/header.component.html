@@ -1,16 +1,18 @@
-<header [class.header-home]="isHome()">
+<header class="w-full h-(13vh) fixed z-10 flex justify-between items-center"  [ngClass]="{'bg-transparent': isHome() && isMobile,
+'bg-gradient-to-b from-purple-500 to-[rgba(0,0,0,0.5)]':!isMobile}">
   <ng-container *ngIf="isHome()">
     <app-menu></app-menu>
-    <div class="icon_user">
-      <img src="../../../assets/Icon-user.svg" />
+    <div class="w-[13vw] h-auto order-3 mt-3" [ngClass]="{'mr-[6vw]':isMobile}">
+      <img src="../../../assets/Icon-user.svg" class=" w-[13vw] lg:w-[4vw] md:w-[7vw] md:mr-6vw "/>
     </div>
   </ng-container>
-  <img src="../assets/logo.png" class="logo" [class.center-logo]="isHome()" />
-  <div class="buttons_landing_page_desktop" *ngIf="!isHome()">
-    <div routerLink="/login">
+  <img src="../assets/logo.png" class="lg:w-[10vw] md:w-[20vw] w-[30vw] sm:w-[20vw] h-auto" [ngClass]="{'w-[30vw] order-2': isHome() && isMobile,
+  'ml-[4vw]': !isMobile && !isHome()}"/>
+  <div class="mr-[2vw] flex justify-center items-center" *ngIf="!isHome()">
+    <div routerLink="/login" class="w-[10rem] h-[3rem] m-[1vw] rounded-[15px] text-white flex justify-center items-center hover:bg-[rgba(0,0,0,0.5)] hover:border-2 hover:border-custom-purple hover:text-custom-purple cursor-pointer">
       <a routerLink="/login"> Login </a>
     </div>
-    <div routerLink="/sign-up" class="button_get_desktop">
+    <div routerLink="/sign-up" class="bg-custom-purple w-[10rem] h-[3rem] m-[1vw] rounded-[15px] text-white flex justify-center items-center hover:bg-[rgba(0,0,0,0.5)] hover:border-2 hover:border-custom-purple hover:text-custom-purple cursor-pointer">
       <a routerLink="/sign-up"> Get Started </a>
     </div>
   </div>
