@@ -1,12 +1,12 @@
-<section class="section_login">
-  <div class="header">
-    <img src="../../../assets/logo.png" routerLink="/landing-page" />
+<section class="h-[100vh] w-[80vw] flex mx-auto flex-col justify-center items-center">
+  <div class="md:w-full md:h-[13vh] lg:bg-gradient-to-b from-purple-500 to-[rgba(0,0,0,0.5)] sm:bg-none md:bg-none lg:fixed md:fixed lg:top-0 md:top-0 lg:flex md:flex lg:justify-center lg:items-center md:justify-center md:items-center z-10 md:left-1/2 md:transform md:-translate-x-1/2">
+    <img src="../../../assets/logo.png" routerLink="/landing-page" class="w-[60vw] mt-[2vh] mb-[7vh] cursor-pointer lg:w-[15vw] lg:h-auto lg:mt-[5vh] md:w-[20vw] md:mt-[4vh]"/>
   </div>
   <h1 *ngIf="!isMobile" class="text-white mb-20 text-2xl">{{ title }}</h1>
   <form
     [formGroup]="form"
     (ngSubmit)="onSubmit()"
-    class="flex flex-col justify-center px-6 text-white w-full"
+    class="lg:w-[30vw] md:w-[50vw] flex flex-col justify-center px-6 text-white w-full"
   >
     <ng-container *ngIf="action === 'signUp'">
       <input
@@ -15,7 +15,7 @@
         id="name"
         name="name"
         formControlName="firstName"
-        class="bg-custom-input-color h-10 mt-4 rounded-lg"
+        class="bg-custom-input-color h-10 mt-4 rounded-lg placeholder:font-light pl-5 w-full max-w-full"
       />
       <app-error-message [control]="form.get('firstName')!" />
 
@@ -23,7 +23,7 @@
         type="text"
         placeholder="Last Name"
         formControlName="lastName"
-        class="bg-custom-input-color h-10 mt-4 rounded-lg"
+        class="bg-custom-input-color h-10 mt-4 rounded-lg placeholder:font-light pl-5 w-full max-w-full"
       />
     </ng-container>
     <input
@@ -33,11 +33,11 @@
       name="email"
       formControlName="email"
       [ngClass]="{ invalid: hasError('email') }"
-      class="bg-custom-input-color h-10 mt-4 rounded-lg"
+      class="bg-custom-input-color h-10 mt-4 rounded-lg placeholder:font-light pl-5 w-full max-w-full"
     />
     <app-error-message [control]="form.get('email')!" />
 
-    <div class="bg-custom-input-color h-10 mt-4 rounded-lg password">
+    <div class="bg-custom-input-color h-10 mt-4 rounded-lg w-full flex justify-between items-center relative">
       <input
         matInput
         [type]="hide ? 'password' : 'text'"
@@ -46,7 +46,7 @@
         name="password"
         formControlName="password"
         [ngClass]="{ invalid: hasError('password') }"
-        class="bg-custom-input-color rounded-lg"
+        class="bg-custom-input-color rounded-lg placeholder:font-light pl-5 w-full max-w-full h-full pr-[40px]"
       />
       <button
       mat-icon-button
@@ -55,7 +55,7 @@
       (click)="togglePasswordVisibility()"
       [attr.aria-label]="'Hide password'"
       [attr.aria-pressed]="hide"
-      class="eye_password"
+      class="absolute top-1/2 right-[5px] transform -translate-y-1/2 lg:m-0"
     >
       <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
 
@@ -68,20 +68,20 @@
         type="password"
         placeholder="Confirm Password"
         formControlName="confirmPassword"
-        class="bg-custom-input-color h-10 mt-4 rounded-lg"
+        class="bg-custom-input-color h-10 mt-4 rounded-lg placeholder:font-light pl-5 w-full max-w-full"
       />
       <app-error-message [control]="form.get('confirmPassword')!" />
     </ng-container>
     <button
       type="submit"
-      class="bg-custom-purple text-white font-regular py-2 px-6 rounded-custom mt-4 mb-10 button_get transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110"
+      class="bg-custom-purple text-white font-regular py-2 px-6 rounded-custom mt-4 mb-10 button_get transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 lg:w-[10vw] lg:mx-auto md:w-[15vw] md:mx-auto"
     >
       {{ titleButton }}
     </button>
     <ng-container *ngIf="action === 'signIn'; else templateSignIn">
-      <div class="flex justify-center container_options">
-        <span class="text-white mr-2 font_light">Don’t have an account?</span>
-        <a class="text-custom-purple font_bold" routerLink="/sign-up"
+      <div class="flex justify-center mt-[7vh] text-sm">
+        <span class="text-white mr-2 font-light">Don’t have an account?</span>
+        <a class="text-custom-purple font-bold" routerLink="/sign-up"
           >Register</a
         >
       </div>
@@ -89,8 +89,8 @@
   </form>
 </section>
 <ng-template #templateSignIn>
-  <div class="flex justify-center container_options">
-    <span class="text-white mr-2 font_light">Already have an account?</span>
-    <a class="text-custom-purple font_bold" routerLink="/login">Sign In</a>
+  <div class="flex justify-center mt-[7vh] text-sm">
+    <span class="text-white mr-2 font-light">Already have an account?</span>
+    <a class="text-custom-purple font-bold" routerLink="/login">Sign In</a>
   </div>
 </ng-template>
