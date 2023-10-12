@@ -1,20 +1,17 @@
 <section>
   <section
     [ngClass]="{
-      'slider-container': useSlider,
-      'scroll-container': !useSlider
+      'overflow-x-auto': useSlider,
+      'overflow-x-auto whitespace-nowrap ml-[5px] overflow-y-hidden no-scrollbar': !useSlider
     }"
   >
     <div
       *ngFor="let movie of movies"
-      [ngClass]="{ 'slider-movie': useSlider, 'scroll-movie': !useSlider }"
+      [ngClass]="{ 'inline-block': useSlider, 'inline-block mr-[4px] w-[20vw] h-auto m-[10px] transition-transform duration-300 ease-linear hover:cursor-pointer md:w-[10vw]': !useSlider}"
     >
       <img
         [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
         [alt]="movie.title"
-        (mouseenter)="onMouseEnter(movie)"
-        (mouseleave)="onMouseLeave(movie)"
-        [class.hovered]="movie.isHovered"
       />
     </div>
   </section>

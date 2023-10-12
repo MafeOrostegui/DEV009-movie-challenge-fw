@@ -5,7 +5,6 @@ import { Movie } from 'src/app/models/movie';
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss'],
 })
 export class MoviesComponent implements OnInit {
   constructor(private moviesService: MoviesService) { }
@@ -15,14 +14,6 @@ export class MoviesComponent implements OnInit {
   @Input() useSlider: boolean = false;
 
   movies: Movie[] = [];
-
-  onMouseEnter(movie: any) {
-    movie.isHovered = true;
-  }
-
-  onMouseLeave(movie: any) {
-    movie.isHovered = false;
-  }
 
   ngOnInit(): void {
     this.getMovies();
