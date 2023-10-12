@@ -1,9 +1,9 @@
 <section>
   <app-header></app-header>
   <app-movies [movieType]="'popular'" [useSlider]="true"></app-movies>
-  <h1 class="text-white ml-5">Discover top-rated movies</h1>
+  <h1 class="text-white ml-5 mt-7">Discover top-rated movies</h1>
   <app-movies [movieType]="'top_rated'" [useSlider]="false"></app-movies>
-  <h2 class="text-white ml-5">Best animated movies for you</h2>
+  <h2 class="text-white ml-5 mt-7">Best animated movies for you</h2>
   <app-movies [genre]=16 [useSlider]="false"></app-movies>
   <button (click)="onClick()" class="text-white">Sign Out</button>
 </section>

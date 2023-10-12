@@ -1,18 +1,30 @@
-<section>
+<section [ngClass]="{ 'relative w-full': useSlider }" [attr.data-carousel]="useSlider ? 'slide' : null">
   <section
     [ngClass]="{
-      'overflow-x-auto': useSlider,
-      'overflow-x-auto whitespace-nowrap ml-[5px] overflow-y-hidden no-scrollbar': !useSlider
+      'relative h-[60vh] overflow-hidden rounded-lg lg:h-[70vh] md:h-96': useSlider,
+      'overflow-x-auto whitespace-nowrap ml-[5px] overflow-y-hidden no-scrollbar':
+        !useSlider
     }"
   >
     <div
       *ngFor="let movie of movies"
-      [ngClass]="{ 'inline-block': useSlider, 'inline-block mr-[4px] w-[20vw] h-auto m-[10px] transition-transform duration-300 ease-linear hover:cursor-pointer md:w-[10vw]': !useSlider}"
+      [ngClass]="{
+        'hidden duration-700 ease-in-out': useSlider,
+        'inline-block mr-[4px] w-[20vw] h-auto m-[10px] transition-transform duration-300 ease-linear hover:cursor-pointer md:w-[10vw]':
+          !useSlider
+      }"
+      [attr.data-carousel-item]="useSlider"
     >
       <img
         [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
         [alt]="movie.title"
+        [ngClass]="{
+          'absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:w-[27vw] lg:h-[100%] lg:object-cover':
+            useSlider
+        }"
+        [attr.data-carousel-item]="useSlider ? 'active' : null"
       />
     </div>
   </section>
 </section>
+
