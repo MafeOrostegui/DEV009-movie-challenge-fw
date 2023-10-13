@@ -1,7 +1,4 @@
 <section class="h-[100vh] w-[80vw] flex mx-auto flex-col justify-center items-center">
-  <div class="md:w-full md:h-[13vh] lg:bg-gradient-to-b from-purple-500 to-[rgba(0,0,0,0.5)] sm:bg-none md:bg-none lg:fixed md:fixed lg:top-0 md:top-0 lg:flex md:flex lg:justify-center lg:items-center md:justify-center md:items-center z-10 md:left-1/2 md:transform md:-translate-x-1/2">
-    <img src="../../../assets/logo.png" routerLink="/landing-page" class="w-[60vw] mt-[2vh] mb-[7vh] cursor-pointer lg:w-[15vw] lg:h-auto lg:mt-[5vh] md:w-[20vw] md:mt-[4vh]"/>
-  </div>
   <h1 *ngIf="!isMobile" class="text-white mb-20 text-2xl">{{ title }}</h1>
   <form
     [formGroup]="form"
