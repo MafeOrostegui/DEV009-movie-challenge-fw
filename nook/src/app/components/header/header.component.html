@@ -2,11 +2,11 @@
 'bg-gradient-to-b from-purple-500 to-[rgba(0,0,0,0.5)]':!isMobile}">
   <ng-container *ngIf="isHome()">
     <app-menu></app-menu>
-    <div class="w-[13vw] h-auto order-3 mt-3" [ngClass]="{'mr-[6vw]':isMobile}">
-      <img src="../../../assets/Icon-user.svg" class=" w-[13vw] lg:w-[4vw] md:w-[7vw] md:mr-6vw "/>
+    <div class="h-auto order-3 mt-3 px-2 py-1" [ngClass]="{'mr-[6vw]':isMobile}">
+      <img src="../../../assets/Icon-user.svg" class=" w-[13vw] lg:w-[3.3vw] md:w-[7vw] md:mr-[1vw] lg:mr-[1vw] sm:w-[7vw]"/>
     </div>
   </ng-container>
-  <img src="../assets/logo.png" class="lg:w-[10vw] md:w-[20vw] w-[30vw] sm:w-[20vw] h-auto" [ngClass]="{'w-[30vw] order-2': isHome() && isMobile,
+  <img src="../assets/logo.png" class="lg:w-[8vw] md:w-[20vw] w-[30vw] sm:w-[20vw] h-auto" [ngClass]="{'w-[30vw] order-2': isHome() && isMobile,
   'ml-[4vw]': !isMobile && !isHome()}"/>
   <div class="mr-[2vw] flex justify-center items-center" *ngIf="!isHome()">
     <div routerLink="/login" class="w-[10rem] h-[3rem] m-[1vw] rounded-[15px] text-white flex justify-center items-center hover:bg-[rgba(0,0,0,0.5)] hover:border-2 hover:border-custom-purple hover:text-custom-purple cursor-pointer">

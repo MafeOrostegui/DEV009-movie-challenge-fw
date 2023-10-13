@@ -1,0 +1,26 @@
+<section class="relative">
+  <div *ngIf="movie.images && movie.images.backdrops">
+    <img
+      [src]="
+        'https://image.tmdb.org/t/p/original/' +
+        movie.images.backdrops[0].file_path
+      "
+      alt="Backdrop"
+      class="lg:h-[80vh] lg:w-full object-cover h-[70vh] w-full object-right-top"
+    />
+    <div class="top-[60vh] left-[6vw] text-white absolute z-10 ">
+      <h1 class="lg:text-5xl decoration-from-font">
+        {{ movie.title }}
+      </h1>
+      <p class="">
+        {{ movie.genres[0].name}}
+      </p>
+      <p class="">
+        {{ movie.release_date }}
+      </p>
+      <p class="">
+        Vote Average: {{ movie.vote_average }}
+      </p>
+    </div>
+  </div>
+</section>

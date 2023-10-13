@@ -19,7 +19,7 @@
     }}</span>
     <div class="absolute top-[80vh] flex flex-col">
       <div
-        class="text-white h-[6vh] rounded-15 flex justify-center items-center bg-custom-purple hover:bg-transparent hover:border-custom-purple font-semibold py-2 px-4 rounded mb-[1vh] md:w-[20vw]"
+        class="text-white h-[6vh] rounded-[15px] flex justify-center items-center bg-custom-purple hover:bg-transparent hover:border-custom-purple font-semibold py-2 px-4 mb-[1vh] md:w-[20vw]"
         routerLink="/sign-up"
       >
         <a
@@ -31,7 +31,7 @@
         </a>
       </div>
       <div
-        class="text-white w-[80vw] h-[6vh] rounded-15 flex justify-center items-center border border-custom-purple hover:bg-custom-purple hover:text-white hover:border-transparent font-semibold py-2 px-4 rounded"
+        class="text-white w-[80vw] h-[6vh] rounded-[15px] flex justify-center items-center border border-custom-purple hover:bg-custom-purple hover:text-white hover:border-transparent font-semibold py-2 px-4"
         routerLink="/login"
       >
         <a
@@ -81,9 +81,9 @@
     </div>
   </section>
   <h2 class="text-white mt-10 mb-5 ml-6">Popular Movies</h2>
-  <app-movies [movieType]="'popular'" [useSlider]="false"></app-movies>
+  <app-movies [movieType]="'popular'" [useScrollX]="true"></app-movies>
   <h2 class="text-white mt-10 mb-5 ml-6">Upcoming Movies</h2>
-  <app-movies [movieType]="'upcoming'" [useSlider]="false"></app-movies>
+  <app-movies [movieType]="'upcoming'" [useScrollX]="true"></app-movies>
   <section class="flex flex-col justify-center items-center mb-20">
     <h3 class="text-white text-2xl text-center mt-20 mb-20">
       A simple and complete experience
