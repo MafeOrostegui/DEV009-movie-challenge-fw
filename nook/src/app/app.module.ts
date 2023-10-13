@@ -21,6 +21,8 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
 import { HeaderComponent } from './components/header/header.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { MovieInfoComponent } from './pages/movie-info/movie-info.component';
+import { MovieComponent } from './components/movie/movie.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { MenuComponent } from './components/menu/menu.component';
     HeaderComponent,
     MoviesComponent,
     MenuComponent,
+    MovieInfoComponent,
+    MovieComponent,
   ],
   imports: [
     BrowserModule,

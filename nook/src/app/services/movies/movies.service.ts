@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -23,6 +23,14 @@ export class MoviesService {
     return this.http.get(url).pipe(
       catchError(this.handleError)
     );
+  }
+
+  getMovieInfo(movieId: number): Observable<any> {
+    const url = `${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}&append_to_response=credits,images`;
+    return this.http.get(url)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   getCategoryMovies(): Observable<any> {

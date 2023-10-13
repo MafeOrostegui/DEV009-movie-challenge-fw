@@ -4,7 +4,7 @@
     class="block px-2 py-1 text-white focus:outline-none mt-3"
     (click)="toggleMenu()"
   >
-    <img src="../../../assets/Icon-menu.svg" alt="menu icon" class="w-[13vw] lg:w-[4vw] md:w-[7vw] lg:ml-[6vw] md:ml-6vw"/>
+    <img src="../../../assets/Icon-menu.svg" alt="menu icon" class="w-[13vw] sm:w-[7vw] lg:w-[3vw] md:w-[6vw] lg:ml-[1vw] md:ml-1vw"/>
   </button>
   <button
     *ngIf="menuOpen && !inCategoryMenu"
@@ -18,7 +18,7 @@
     class="block px-2 py-1 text-5xl text-white focus:outline-none z-10"
     (click)="goBackToMenu()"
   >
-    <mat-icon>keyboard_arrow_left</mat-icon>
+    <mat-icon class="lg:w-[3vw]">keyboard_arrow_left</mat-icon>
   </button>
 </nav>
 

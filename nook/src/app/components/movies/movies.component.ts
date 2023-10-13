@@ -11,7 +11,7 @@ export class MoviesComponent implements OnInit {
 
   @Input() movieType!: 'popular' | 'upcoming' | 'top_rated';
   @Input() genre?: number;
-  @Input() useSlider: boolean = false;
+  @Input() useScrollX: boolean = false;
 
   movies: Movie[] = [];
 

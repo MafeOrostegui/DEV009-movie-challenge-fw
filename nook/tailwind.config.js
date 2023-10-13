@@ -18,16 +18,9 @@ module.exports = {
         'custom-purple-hover': '#9747FF', 
       },
     },
-    scrollbarUtilities: {
-      '.no-scrollbar::-webkit-scrollbar': { display: 'none' },
-      '.no-scrollbar': {
-        '-ms-overflow-style': 'none',  
-        'scrollbar-width': 'none',   
-      },
-    },
   },
   plugins: [
-    require('flowbite/plugin')
+    require('tailwind-scrollbar-hide')
   ],
 };
 
