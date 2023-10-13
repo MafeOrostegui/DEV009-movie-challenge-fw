@@ -1,4 +1,5 @@
 import { BackdropImage } from "./backdrop-image";
+import { LogosImages } from "./logos-images";
 
 export interface Movie {
     id: number;
@@ -12,5 +13,6 @@ export interface Movie {
     release_date: string;
     images: {
         backdrops: BackdropImage[]
+        logos: LogosImages[]
     }
 }

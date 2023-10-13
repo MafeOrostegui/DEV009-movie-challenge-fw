@@ -1,26 +1,48 @@
 <section class="relative">
-  <div *ngIf="movie.images && movie.images.backdrops">
-    <img
-      [src]="
-        'https://image.tmdb.org/t/p/original/' +
-        movie.images.backdrops[0].file_path
-      "
-      alt="Backdrop"
-      class="lg:h-[80vh] lg:w-full object-cover h-[70vh] w-full object-right-top"
-    />
-    <div class="top-[60vh] left-[6vw] text-white absolute z-10 ">
-      <h1 class="lg:text-5xl decoration-from-font">
-        {{ movie.title }}
-      </h1>
-      <p class="">
-        {{ movie.genres[0].name}}
-      </p>
-      <p class="">
-        {{ movie.release_date }}
-      </p>
-      <p class="">
-        Vote Average: {{ movie.vote_average }}
-      </p>
+  <div *ngIf="movie.images && movie.images.backdrops && movie.images.logos">
+    <a [routerLink]="['/movie', movie.id]">
+      <img
+        [src]="
+          'https://image.tmdb.org/t/p/original/' +
+          movie.images.backdrops[0].file_path
+        "
+        alt="Backdrop"
+        class="lg:h-[80vh] lg:w-full object-cover h-[70vh] w-[100vw] lg:object-right-top md:object-right-top sm:object-right-top object-center"
+      />
+    </a>
+    <div
+      class="z-10 lg:top-[45vh] sm:top-[33vh] top-[45vh] lg:left-[20vw] text-white absolute left-1/2 -translate-x-1/2 drop-shadow-lg shadow-black"
+    >
+      <img
+        [src]="
+          'https://image.tmdb.org/t/p/original/' +
+          movie.images.logos[0].file_path
+        "
+        alt="Logos"
+        class="w-[80vw] sm:w-[40vw] lg:w-[20vw]"
+      />
+      <div
+        class="text-center text-[0.6rem] sm:text-[1rem] flex flex-col font-extralight mt-[2vh]"
+      >
+        <div class="flex justify-center">
+          <span class="pr-[2vw] font-normal">
+            {{ movie.genres[0].name }}
+          </span>
+          <span>
+            {{ movie.release_date }}
+          </span>
+        </div>
+        <span>Vote Average: {{ movie.vote_average }}</span>
+      </div>
     </div>
+    <ng-container *ngIf="isHome() && !isMobile">
+      <div
+        class="z-10 lg:top-[70vh] md:left-[80vw] md:translate-x-0 sm:top-[60vh] sm:left-1/2 sm:-translate-x-1/2 absolute text-white bg-custom-input-color rounded-[15px] h-[3rem] sm:h-[2rem] lg:h-[3rem] w-[8rem] flex items-center justify-center"
+      >
+        <a class="sm:text-[0.8rem] lg:text-[1.2rem]" [routerLink]="['/movie', movie.id]"
+          >More Info</a
+        >
+      </div>
+    </ng-container>
   </div>
 </section>

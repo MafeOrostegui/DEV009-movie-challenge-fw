@@ -11,8 +11,17 @@ export class HeaderComponent {
     this.isMobile = window.innerWidth < 640
    }
 
-  isHome(): boolean {
-    return this.router.url === '/home';
+   isHome(): boolean {
+    const regex = /^\/(home|movie\/\d+)$/;
+    return regex.test(this.router.url);
+  }
+  
+  isLandingPage() : boolean {
+    return this.router.url === '/landing-page'
+  }
+
+  isForm() : boolean {
+    return this.router.url === '/login' || this.router.url === '/sign-up'
   }
 
   isMobile: boolean;
@@ -21,5 +30,4 @@ export class HeaderComponent {
   onResize(event: Event): void {
     this.isMobile = window.innerWidth < 640;
   }
-
 }

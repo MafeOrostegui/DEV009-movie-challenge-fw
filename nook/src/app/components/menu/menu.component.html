@@ -1,4 +1,4 @@
-<nav class="flex items-center justify-between p-4 text-white z-10">
+<nav class="flex items-center justify-between text-white z-10">
   <button
     *ngIf="!menuOpen"
     class="block px-2 py-1 text-white focus:outline-none mt-3"
@@ -8,14 +8,14 @@
   </button>
   <button
     *ngIf="menuOpen && !inCategoryMenu"
-    class="block px-2 py-1 text-white focus:outline-none z-10 mt-3"
+    class="block px-2 py-1 text-white focus:outline-none z-10 mt-3 lg:ml-[1vw] md:ml-1vw ml-4vw ml-[3vw]"
     (click)="toggleMenu()"
   >
     <mat-icon>clear</mat-icon>
   </button>
   <button
     *ngIf="menuOpen && inCategoryMenu"
-    class="block px-2 py-1 text-5xl text-white focus:outline-none z-10"
+    class="block px-2 py-1 text-5xl text-white focus:outline-none z-10 lg:ml-[1vw] md:ml-1vw ml-4vw ml-[3vw]"
     (click)="goBackToMenu()"
   >
     <mat-icon class="lg:w-[3vw]">keyboard_arrow_left</mat-icon>
