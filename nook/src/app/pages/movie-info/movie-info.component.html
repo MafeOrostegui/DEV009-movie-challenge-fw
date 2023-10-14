@@ -1,40 +1,27 @@
 <app-movie [movieId]="movie.id"></app-movie>
 <p
-  class="text-white font-light lg:font-light text-center text-[0.8rem] lg:text-[1rem] ml-5 mt-5 lg:mt-[10vh] mb-7 mr-5"
+  class="text-white font-light lg:font-light text-center text-[0.8rem] lg:text-[1rem] ml-5 mt-5 lg:mt-[10vh] lg:mb-[10vh] mb-7 mr-5 lg:ml-[5vw] lg:mr-[5vw] mx-auto"
 >
   {{ movie.overview }}
 </p>
+
 <h2 class="text-white ml-5">Main Cast</h2>
-<div
-  *ngFor="let actor of movie.credits.cast.slice(0,4)"
-  class="text-white mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3"
->
-  <ul
-    role="list"
-    class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2"
-  >
-    <li>
-      <div class="flex items-center gap-x-6">
-        <img
-          class="h-14 w-14 rounded-full"
-          [src]="'https://image.tmdb.org/t/p/original/' + actor.profile_path"
-          [alt]="actor.name"
-        />
-        <div>
-          <h3
-            class="text-base leading-7 tracking-tight text-opacity-60 text-white font-extralight"
-          >
-            {{ actor.name }}
-          </h3>
-          <p class="text-sm font-semibold leading-6 text-custom-purple">
-            {{ actor.character }}
-          </p>
-        </div>
-      </div>
-    </li>
-  </ul>
+<div class="overflow-x-auto whitespace-nowrap scrollbar-hide mt-5 mb-5 ml-5 mr-5 lg:mb-[4vh]">
+  <div *ngFor="let actor of movie?.credits?.cast"class="inline-block mr-6 w-20vw h-auto m-10px transition-transform duration-300 ease-linear hover:cursor-pointer md:w-10vw flex-col justify-center items-center">
+    <ng-container *ngIf="actor.profile_path">
+      <img class="h-16 mx-auto w-16 rounded-full object-cover lg:h-[8vw] lg:w-[8vw]" [src]="'https://image.tmdb.org/t/p/original/' + actor.profile_path" [alt]="actor.name" />
+    </ng-container>
+    <ng-container *ngIf="!actor.profile_path || actor.profile_path === null">
+      <img class="h-16 mx-auto w-16 lg:h-[8vw] lg:w-[8vw]" src="../../../assets/person-circle.svg" alt="icon person" />
+    </ng-container>
+    <div class="flex flex-col items-center justify-center">
+      <h2 class="lg:text-[0.8rem]  text-[0.6rem] text-opacity-60 text-white font-extralight text-center sm:text-[0.6rem]">{{ actor.name }}</h2>
+      <span class="lg:text-[0.8rem]  text-[0.6rem] font-semibold text-custom-purple text-center  sm:text-[0.6rem]">{{ actor.character }}</span>
+    </div>
+  </div>
 </div>
+
 <ng-container *ngIf="movie && movie.genres && movie.genres.length > 0">
-  <h1 class="text-white ml-5">More content like this</h1>
+  <h3 class="text-white ml-5">More content like this</h3>
   <app-movies [genre]="movie.genres[0].id" [useScrollX]="true"></app-movies>
 </ng-container>
