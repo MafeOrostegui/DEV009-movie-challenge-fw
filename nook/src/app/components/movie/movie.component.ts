@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, HostListener} from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, HostListener } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies/movies.service';
 import { Movie } from 'src/app/models/movie';
 import { Router } from '@angular/router';
@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
   selector: 'app-movie',
   templateUrl: './movie.component.html',
 })
-export class MovieComponent implements OnInit {
+export class MovieComponent implements OnInit, OnChanges {
   constructor(private moviesService: MoviesService, private router: Router) { 
-    this.isMobile = window.innerWidth < 640
+    this.isMobile = window.innerWidth < 640;
   }
 
   @Input() movieId!: number;
@@ -26,12 +26,21 @@ export class MovieComponent implements OnInit {
     this.isMobile = window.innerWidth < 640;
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['movieId'] && !changes['movieId'].firstChange) {
+      this.loadMovieInfo(this.movieId);
+    }
+  }
+
   ngOnInit() {
-    this.moviesService.getMovieInfo(this.movieId)
-    .subscribe(
-      (response) => {
+    this.loadMovieInfo(this.movieId);
+  }
+
+  loadMovieInfo(id: number): void {
+    this.moviesService.getMovieInfo(id)
+      .subscribe((response) => {
         this.movie = response;
-        console.log(this.movie)
-      })
+        console.log(this.movie);
+      });
   }
 }
