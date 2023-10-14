@@ -22,7 +22,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MovieInfoComponent } from './pages/movie-info/movie-info.component';
-import { MovieComponent } from './components/movie/movie.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { MovieComponent } from './components/movie/movie.component';
     MoviesComponent,
     MenuComponent,
     MovieInfoComponent,
-    MovieComponent,
+    MovieCardComponent,
   ],
   imports: [
     BrowserModule,

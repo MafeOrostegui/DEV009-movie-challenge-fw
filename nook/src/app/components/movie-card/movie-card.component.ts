@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
-  templateUrl: './movie.component.html',
+  templateUrl: './movie-card.component.html',
 })
-export class MovieComponent implements OnInit, OnChanges {
+export class MovieCardComponent implements OnInit, OnChanges {
   constructor(private moviesService: MoviesService, private router: Router) { 
     this.isMobile = window.innerWidth < 640;
   }
