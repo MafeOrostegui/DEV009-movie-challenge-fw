@@ -1,1 +1,40 @@
 <app-movie [movieId]="movie.id"></app-movie>
+<p
+  class="text-white font-light lg:font-light text-center text-[0.8rem] lg:text-[1rem] ml-5 mt-5 mb-7 mr-5"
+>
+  {{ movie.overview }}
+</p>
+<h2 class="text-white ml-5">Main Cast</h2>
+<div
+  *ngFor="let actor of movie.credits.cast.slice(0,4)"
+  class="text-white mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3"
+>
+  <ul
+    role="list"
+    class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2"
+  >
+    <li>
+      <div class="flex items-center gap-x-6">
+        <img
+          class="h-14 w-14 rounded-full"
+          [src]="'https://image.tmdb.org/t/p/original/' + actor.profile_path"
+          [alt]="actor.name"
+        />
+        <div>
+          <h3
+            class="text-base leading-7 tracking-tight text-opacity-60 text-white font-extralight"
+          >
+            {{ actor.name }}
+          </h3>
+          <p class="text-sm font-semibold leading-6 text-custom-purple">
+            {{ actor.character }}
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<ng-container *ngIf="movie && movie.genres && movie.genres.length > 0">
+  <h1 class="text-white ml-5">More content like this</h1>
+  <app-movies [genre]="movie.genres[0].id" [useScrollX]="true"></app-movies>
+</ng-container>
