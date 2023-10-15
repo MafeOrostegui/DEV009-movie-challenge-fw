@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { User, Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendEmailVerification } from '@angular/fire/auth';
+import { User, Auth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signOut, sendEmailVerification } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class authService {
+  constructor(private auth: Auth, private router: Router) {
+  }
 
-  constructor(private auth: Auth, private router: Router) { }
-
-  async register(email: string, password: string): Promise<void> {
+  async register(email: string, password: string, firstName: string): Promise<void> {
     try {
       const { user } = await createUserWithEmailAndPassword(this.auth, email, password);
       await this.sendEmailVerification(user);
+      await updateProfile(user, { displayName: firstName });
       console.log('se envio el correo')
       this.router.navigate(['/email-verification'])
     } catch (error) {
@@ -35,7 +36,7 @@ export class authService {
       this.checkUserIsVerified(user)
     } catch (error: any) {
       console.log('login', error);
-      if(error.code === 'auth/invalid-login-credentials'){
+      if (error.code === 'auth/invalid-login-credentials') {
         console.log('lo logre')
       }
     }

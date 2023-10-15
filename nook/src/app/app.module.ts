@@ -48,7 +48,7 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
     MatIconModule,
     AuthFormComponent,
     ErrorMessageComponent,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
   ],
