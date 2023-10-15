@@ -78,9 +78,9 @@ export class AuthFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { email, password } = this.form.value;
+    const { email, password, firstName } = this.form.value;
     this.action === actionType.signIn.action ?
-      this.authSvc.login(email, password) : this.authSvc.register(email, password);
+      this.authSvc.login(email, password ) : this.authSvc.register(email, password, firstName);
   }
 
   private initForm(): void {

@@ -1,5 +1,5 @@
 <section class="h-[100vh] w-[80vw] flex mx-auto flex-col justify-center items-center">
-  <h1 *ngIf="!isMobile" class="text-white mb-20 text-2xl">{{ title }}</h1>
+  <h1 class="text-white mb-20 text-2xl">{{ title }}</h1>
   <form
     [formGroup]="form"
     (ngSubmit)="onSubmit()"

@@ -1,4 +1,5 @@
 <section>
+  <app-header></app-header>
   <app-movie [movieId]="569094"></app-movie>
   <h1 class="text-white ml-5 mt-10">Discover top-rated movies</h1>
   <app-movies [movieType]="'top_rated'" [useScrollX]="true"></app-movies>
@@ -7,5 +8,7 @@
   <h2 class="text-white ml-5 mt-7">Action-Packed Movie</h2>
   <app-movies [genre]="18" [useScrollX]="true"></app-movies>
   <app-movie [movieId]="1151534"></app-movie>
+  <h2 class="text-white ml-5 mt-7">LaughFlix</h2>
+  <app-movies [genre]="35" [useScrollX]="true"></app-movies>
   <button (click)="onClick()" class="text-white">Sign Out</button>
 </section>

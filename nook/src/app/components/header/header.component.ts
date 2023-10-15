@@ -1,27 +1,26 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from '@angular/fire/auth';
+import { User } from 'firebase/auth';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
+  user: User | null;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private auth: Auth) {
     this.isMobile = window.innerWidth < 640
+    this.user = null;
    }
 
-   isHome(): boolean {
-    const regex = /^\/(home|movie\/\d+)$/;
-    return regex.test(this.router.url);
-  }
-  
-  isLandingPage() : boolean {
-    return this.router.url === '/landing-page'
-  }
-
-  isForm() : boolean {
-    return this.router.url === '/login' || this.router.url === '/sign-up'
+   ngOnInit() {
+    this.auth.onAuthStateChanged((user) => {
+      this.user = user && user.emailVerified ? user : null;
+      console.log(user);
+    });
   }
 
   isMobile: boolean;
