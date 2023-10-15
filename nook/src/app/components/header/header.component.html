@@ -17,27 +17,25 @@
       />
     </div>
   </ng-container>
-
-  <img
-    src="../assets/logo.png"
-    class="lg:w-[8vw] md:w-[20vw] w-[30vw] sm:w-[20vw] h-auto"
-    [ngClass]="{
-      'w-[26vw] order-2': user && isMobile,
-      'ml-[4vw]': !isMobile && !user,
-      'w-[30vw] ml-[2vw]': isMobile && !user
-    }"
-  />
-
+  <a [routerLink]="user ? '/home' : '/landing-page'">
+    <img
+      src="../assets/logo.png"
+      class="lg:w-[8vw] md:w-[20vw] w-[30vw] sm:w-[20vw] h-auto"
+      [ngClass]="{
+        'w-[26vw] order-2': user && isMobile,
+        'ml-[4vw]': !isMobile && !user,
+        'w-[30vw] ml-[2vw]': isMobile && !user
+      }"
+    />
+  </a>
   <div class="mr-[2vw] flex justify-center items-center" *ngIf="!user">
     <div
-      routerLink="/login"
       class="w-[10rem] md:w-[8rem] sm:w-[14vw] h-[3rem] md:h-[2rem] lg:h-[6vh] sm:h-[2rem] rounded-[15px] text-white flex justify-center items-center hover:bg-[rgba(0,0,0,0.5)] hover:border-2 hover:border-custom-purple hover:text-custom-purple cursor-pointer"
       [ngClass]="{ 'text-[0.8rem]': isMobile }"
     >
       <a routerLink="/login"> Login </a>
     </div>
     <div
-      routerLink="/sign-up"
       class="bg-custom-purple w-[10rem] md:w-[8rem] md:h-[2rem] lg:h-[6vh] lg:ml-[1vw] sm:h-[2rem] sm:w-[14vw] h-[3rem] rounded-[15px] text-white flex justify-center items-center hover:bg-[rgba(0,0,0,0.5)] hover:border-2 hover:border-custom-purple hover:text-custom-purple cursor-pointer sm:text-[0.8rem]"
       [ngClass]="{ 'text-[0.8rem] h-[2rem] w-[5rem]': isMobile }"
     >

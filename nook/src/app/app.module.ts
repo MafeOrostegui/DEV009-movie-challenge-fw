@@ -23,6 +23,7 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MovieInfoComponent } from './pages/movie-info/movie-info.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
     MenuComponent,
     MovieInfoComponent,
     MovieCardComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
