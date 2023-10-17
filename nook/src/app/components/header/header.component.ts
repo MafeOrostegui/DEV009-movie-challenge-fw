@@ -14,12 +14,11 @@ export class HeaderComponent {
   constructor(private router: Router, private auth: Auth) {
     this.isMobile = window.innerWidth < 640
     this.user = null;
-   }
+  }
 
-   ngOnInit() {
+  ngOnInit() {
     this.auth.onAuthStateChanged((user) => {
       this.user = user && user.emailVerified ? user : null;
-      console.log(user);
     });
   }
 

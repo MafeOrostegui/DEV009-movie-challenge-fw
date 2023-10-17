@@ -4,9 +4,9 @@ import { Movie } from 'src/app/models/movie';
 
 @Component({
   selector: 'app-movies',
-  templateUrl: './movies.component.html',
+  templateUrl: './movies-cards.component.html',
 })
-export class MoviesComponent implements OnInit {
+export class MoviesCardsComponent implements OnInit {
   constructor(private moviesService: MoviesService) { }
 
   @Input() movieType!: 'popular' | 'upcoming' | 'top_rated';

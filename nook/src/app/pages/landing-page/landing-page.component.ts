@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { HeaderComponent } from 'src/app/components/header/header.component';
-import { MoviesComponent } from 'src/app/components/movies/movies.component';
 
 @Component({
   selector: 'app-landing-page',

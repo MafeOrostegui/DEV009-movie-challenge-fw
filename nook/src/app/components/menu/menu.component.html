@@ -1,4 +1,4 @@
-<nav class="flex items-center justify-between text-white z-10">
+<nav class="flex items-center justify-between text-white z-10" [ngClass]="{'hidden': isMovieInfoPage}">
   <button
     class="block px-2 py-1 text-white focus:outline-none z-10 mt-3 lg:ml-[1vw] md:ml-1vw ml-4vw ml-[3vw] lg:w-[3vw] w-[13vw] md:w-[7vw] sm:w-[7vw]"
     (click)="toggleMenu()"
@@ -9,7 +9,7 @@
 
 <div class="fixed inset-0 bg-gray-900 bg-opacity-50" [class.hidden]="!menuOpen">
   <div
-    class="h-screen w-1/2 bg-custom-input-color inline-flex flex-col text-white text-opacity-50 pt-32 pl-5 sm:pt-32 sm:pl-10 md:w-[25vw] sm:w-[25vw]"
+    class="h-screen w-1/2 bg-custom-input-color inline-flex flex-col text-white text-opacity-50 pt-32 pl-5 sm:pt-32 sm:pl-10 md:w-[25vw] sm:w-[25vw] lg:w-[10vw]"
   >
     <a class="mt-1 mb-1 hover:text-white hover:cursor-pointer">Movies</a>
     <a class="mt-1 mb-1 hover:text-white hover:cursor-pointer">Tv Shows</a>
@@ -26,7 +26,7 @@
 
 <div class="fixed inset-0" *ngIf="genreMenuOpen">
   <div
-    class="h-screen w-1/2 bg-custom-input-color inline-flex flex-col text-white text-opacity-50 pt-32 pl-5 sm:pt-32 sm:pl-10 md:w-[25vw] sm:w-[25vw]"
+    class="h-screen w-1/2 bg-custom-input-color inline-flex flex-col text-white text-opacity-50 pt-32 pl-5 sm:pt-32 sm:pl-10 md:w-[25vw] sm:w-[25vw] lg:w-[10vw]"
     *ngIf="genreMenuOpen"
   >
     <a *ngFor="let category of menuCategoryMovies" class="mt-1 mb-1 hover:text-white hover:cursor-pointer">{{
@@ -34,3 +34,5 @@
     }}</a>
   </div>
 </div>
+
+<app-back-button *ngIf="isMovieInfoPage"></app-back-button>

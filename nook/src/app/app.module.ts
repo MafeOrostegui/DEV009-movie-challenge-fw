@@ -19,11 +19,12 @@ import { EmailVerificationComponent } from './pages/email-verification/email-ver
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { HeaderComponent } from './components/header/header.component';
-import { MoviesComponent } from './components/movies/movies.component';
+import { MoviesCardsComponent } from './components/movies-cards/movies-cards.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MovieInfoComponent } from './pages/movie-info/movie-info.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { BackButtonComponent } from './components/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +35,12 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     HomeComponent,
     EmailVerificationComponent,
     HeaderComponent,
-    MoviesComponent,
+    MoviesCardsComponent,
     MenuComponent,
     MovieInfoComponent,
     MovieCardComponent,
     NavBarComponent,
+    BackButtonComponent,
   ],
   imports: [
     BrowserModule,
