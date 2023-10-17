@@ -8,13 +8,11 @@
   <ng-container *ngIf="user">
     <app-menu></app-menu>
     <div
-      class="h-auto order-3 mt-3 lg:mr-[2vw]"
+      class="h-8 order-3 mt-3 mr-[2vw] bg-white bg-opacity-[17%] rounded-full w-8 flex items-center justify-center"
       [ngClass]="{ 'mr-[4vw]': isMobile }"
+      style="box-shadow: 0 0 20px #9747FF; "
     >
-      <img
-        src="../../../assets/Icon-user.svg"
-        class="w-[8vw] lg:w-[3.3vw] md:w-[6vw] md:mr-[1vw] lg:mr-[1vw] sm:w-[7vw]"
-      />
+      <mat-icon class="text-white">person_outline</mat-icon>
     </div>
   </ng-container>
 
