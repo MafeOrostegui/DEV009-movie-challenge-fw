@@ -1,34 +1,19 @@
 <nav class="flex items-center justify-between text-white z-10">
   <button
-    *ngIf="!menuOpen"
-    class="block px-2 py-1 text-white focus:outline-none mt-3"
+    class="block px-2 py-1 text-white focus:outline-none z-10 mt-3 lg:ml-[1vw] md:ml-1vw ml-4vw ml-[3vw] lg:w-[3vw] w-[13vw] md:w-[7vw] sm:w-[7vw]"
     (click)="toggleMenu()"
   >
-    <img src="../../../assets/Icon-menu.svg" alt="menu icon" class="w-[13vw] sm:w-[7vw] lg:w-[3vw] md:w-[6vw] lg:ml-[1vw] md:ml-1vw"/>
-  </button>
-  <button
-    *ngIf="menuOpen && !inCategoryMenu"
-    class="block px-2 py-1 text-white focus:outline-none z-10 mt-3 lg:ml-[1vw] md:ml-1vw ml-4vw ml-[3vw]"
-    (click)="toggleMenu()"
-  >
-    <mat-icon>clear</mat-icon>
-  </button>
-  <button
-    *ngIf="menuOpen && inCategoryMenu"
-    class="block px-2 py-1 text-5xl text-white focus:outline-none z-10 lg:ml-[1vw] md:ml-1vw ml-4vw ml-[3vw]"
-    (click)="goBackToMenu()"
-  >
-    <mat-icon class="lg:w-[3vw]">keyboard_arrow_left</mat-icon>
+    <mat-icon>{{ iconToShow }}</mat-icon>
   </button>
 </nav>
 
 <div class="fixed inset-0 bg-gray-900 bg-opacity-50" [class.hidden]="!menuOpen">
   <div
-    class="h-screen w-1/2 bg-custom-input-color inline-flex flex-col text-white text-opacity-50 pt-32 pl-5 sm:w-1/6 sm:pt-32 sm:pl-10"
+    class="h-screen w-1/2 bg-custom-input-color inline-flex flex-col text-white text-opacity-50 pt-32 pl-5 sm:pt-32 sm:pl-10 md:w-[25vw] sm:w-[25vw]"
   >
-    <a class="mt-1 mb-1">Movies</a>
-    <a class="mt-1 mb-1">Tv Shows</a>
-    <a class="mt-1 mb-1">Popular People</a>
+    <a class="mt-1 mb-1 hover:text-white hover:cursor-pointer">Movies</a>
+    <a class="mt-1 mb-1 hover:text-white hover:cursor-pointer">Tv Shows</a>
+    <a class="mt-1 mb-1 hover:text-white hover:cursor-pointer">Popular People</a>
     <button
       class="mt-1 mb-1 text-opacity-100 hover:text-white focus:outline-none mr-2 text-left flex align-middle"
       (click)="toggleGenreMenu()"
@@ -41,10 +26,10 @@
 
 <div class="fixed inset-0" *ngIf="genreMenuOpen">
   <div
-    class="h-screen w-1/2 bg-custom-input-color inline-flex flex-col text-white text-opacity-50 pt-32 pl-5 sm:w-1/6 sm:pt-32 sm:pl-10"
+    class="h-screen w-1/2 bg-custom-input-color inline-flex flex-col text-white text-opacity-50 pt-32 pl-5 sm:pt-32 sm:pl-10 md:w-[25vw] sm:w-[25vw]"
     *ngIf="genreMenuOpen"
   >
-    <a *ngFor="let category of menuCategoryMovies" class="mt-1 mb-1">{{
+    <a *ngFor="let category of menuCategoryMovies" class="mt-1 mb-1 hover:text-white hover:cursor-pointer">{{
       category.name
     }}</a>
   </div>

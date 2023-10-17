@@ -9,26 +9,40 @@ import { CategoryMovie } from 'src/app/models/category-movie';
 export class MenuComponent implements OnInit{
   constructor(private moviesService: MoviesService) { }
 
+  iconToShow: string = 'menu';
   menuOpen = false;
   genreMenuOpen = false;
   inCategoryMenu = false;
   menuCategoryMovies: CategoryMovie[] = [];
 
   toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-    this.inCategoryMenu = false;
+    (this.genreMenuOpen) 
+    ? this.closeGenreMenu()
+    : this.menuOpen = !this.menuOpen, this.updateIconToShow();
   }
 
   toggleGenreMenu() {
-    this.genreMenuOpen = !this.genreMenuOpen;
-    if (this.genreMenuOpen) {
-      this.inCategoryMenu = true;
-    }
+    this.genreMenuOpen ? this.closeGenreMenu() : this.openGenreMenu();
   }
 
-  goBackToMenu() {
+  openGenreMenu() {
+    this.genreMenuOpen = true;
+    this.inCategoryMenu = true;
+    this.updateIconToShow();
+  }
+
+  closeGenreMenu() {
     this.genreMenuOpen = false;
     this.inCategoryMenu = false;
+    this.updateIconToShow();
+  }
+
+  updateIconToShow() {
+    this.iconToShow = this.menuOpen
+      ? this.genreMenuOpen
+        ? 'keyboard_arrow_left'
+        : 'clear'
+      : 'menu';
   }
 
   ngOnInit() {
