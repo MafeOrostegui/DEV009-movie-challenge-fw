@@ -1,24 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from 'src/app/services/movies/movies.service';
 import { CategoryMovie } from 'src/app/models/category-movie';
 
 @Component({
   selector: 'app-menu',
-  templateUrl: './menu.component.html'
+  templateUrl: './menu.component.html',
 })
-export class MenuComponent implements OnInit{
-  constructor(private moviesService: MoviesService) { }
-
+export class MenuComponent implements OnInit {
   iconToShow: string = 'menu';
   menuOpen = false;
   genreMenuOpen = false;
   inCategoryMenu = false;
   menuCategoryMovies: CategoryMovie[] = [];
+  isMovieInfoPage: boolean = false;
+
+  constructor(
+    private moviesService: MoviesService,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit() {
+    this.categoryMovies();
+    this.route.url.subscribe(segments => {
+      this.isMovieInfoPage = segments.some(segment => segment.path === 'movie');
+    });
+  }
 
   toggleMenu() {
-    (this.genreMenuOpen) 
-    ? this.closeGenreMenu()
-    : this.menuOpen = !this.menuOpen, this.updateIconToShow();
+    if (this.genreMenuOpen) {
+      this.closeGenreMenu();
+    } else {
+      this.menuOpen = !this.menuOpen;
+      this.updateIconToShow();
+    }
   }
 
   toggleGenreMenu() {
@@ -45,17 +60,10 @@ export class MenuComponent implements OnInit{
       : 'menu';
   }
 
-  ngOnInit() {
-    this.categoryMovies();
-  }
-
   categoryMovies() {
     this.moviesService.getCategoryMovies()
-    .subscribe(
-      (response: { genres: CategoryMovie[] }): void => {
+      .subscribe((response: { genres: CategoryMovie[] }) => {
         this.menuCategoryMovies = response.genres;
-        console.log(this.menuCategoryMovies)
-      }
-    );
+      });
   }
 }

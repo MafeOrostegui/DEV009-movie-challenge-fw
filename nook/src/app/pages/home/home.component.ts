@@ -3,7 +3,6 @@ import { MoviesService } from 'src/app/services/movies/movies.service';
 import { authService } from 'src/app/services/auth/auth.service';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { Router } from '@angular/router';
-import { MoviesComponent } from 'src/app/components/movies/movies.component';
 
 @Component({
   selector: 'app-home',
