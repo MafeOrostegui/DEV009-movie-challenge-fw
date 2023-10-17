@@ -40,7 +40,6 @@ export class MovieCardComponent implements OnInit, OnChanges {
     this.moviesService.getMovieInfo(id)
       .subscribe((response) => {
         this.movie = response;
-        console.log(this.movie);
       });
   }
 }

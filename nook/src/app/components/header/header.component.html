@@ -13,10 +13,11 @@
     >
       <img
         src="../../../assets/Icon-user.svg"
-        class="w-[13vw] lg:w-[3.3vw] md:w-[7vw] md:mr-[1vw] lg:mr-[1vw] sm:w-[7vw]"
+        class="w-[8vw] lg:w-[3.3vw] md:w-[6vw] md:mr-[1vw] lg:mr-[1vw] sm:w-[7vw]"
       />
     </div>
   </ng-container>
+
   <a [routerLink]="user ? '/home' : '/landing-page'">
     <img
       src="../assets/logo.png"
@@ -28,6 +29,7 @@
       }"
     />
   </a>
+
   <div class="mr-[2vw] flex justify-center items-center" *ngIf="!user">
     <div
       class="w-[10rem] md:w-[8rem] sm:w-[14vw] h-[3rem] md:h-[2rem] lg:h-[6vh] sm:h-[2rem] rounded-[15px] text-white flex justify-center items-center hover:bg-[rgba(0,0,0,0.5)] hover:border-2 hover:border-custom-purple hover:text-custom-purple cursor-pointer"
