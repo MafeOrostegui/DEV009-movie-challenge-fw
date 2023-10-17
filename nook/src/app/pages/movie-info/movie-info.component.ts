@@ -17,13 +17,11 @@ export class MovieInfoComponent implements OnInit {
     this.route.params.pipe(
       switchMap(params => {
         this.movie.id = params['id'];
-        console.log(this.movie.id);
         return this.moviesService.getMovieInfo(this.movie.id);
       })
     ).subscribe(
       (response) => {
         this.movie = response;
-        console.log(this.movie);
       });
   }
 }
