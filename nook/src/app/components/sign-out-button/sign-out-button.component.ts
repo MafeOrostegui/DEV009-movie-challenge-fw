@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { authService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './sign-out-button.component.html',
 })
 export class SignOutButtonComponent {
+  @Input() styleProfile: boolean = false;
 
   constructor(private userService : authService, private router: Router) {
   }
