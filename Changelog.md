@@ -1,6 +1,61 @@
 # Changelog
 
-## 1.1.0 - 2023-10-11
+## 1.1.0 - 2023-17-11
+
+
+### Sprint learnings
+
+* Aprendí a usar mejor ngClass.
+* Aprendí de la función goBack.
+* Aprendí de activated route, some y NavigationEnd.
+* Aprendí de OnChanges para rastrear cambios en el id de la película y así poder mostrar una nueva película.
+
+### Added
+
+* Componente de perfil.
+* Componente de dropdown para el usuario y acceder a su cuenta.
+* Petición para acceder a los detalles de las peliculas y su respectivo componente, tanto de la tarjeta movie como la página donde se visualiza.
+* Petición para las imágenes que la Api provee de cada pelicula y así mejorar la interfaz en cuanto al diseño.
+* Componente del botón para volver atrás luego de que el usuario ingresa a los detalles de una pelicula.
+
+### Changed
+
+* Se modularizó más el componente de header, el componente de menu y se separaron botones para usar su funcionalidad en otras rutas. 
+
+### Fixed
+
+* Descubrí que funcionalidades cómo la de salir de sesión era usado en 2 lugares de la app, por lo cual tuvo que modularizarse; además ocurrieron errores en la configuración inicial de firebase por lo cuál se estudió y finalmente se actualizó a le versión pertinente. 
+
+### Removed
+
+* No removí ningún componente, ni tampoco las páginas ya existentes.
+
+### Commit Log
+
+* Style Profile
+* Create profile module and refactor sign-out button function
+* Back button style
+* Style Header
+* Style Header
+* Add icon User
+* Style Header
+* Style header
+* Style Menu
+* Add feature
+* Refactor
+* Creation of back button component and logic to make it visible
+* Refactor component menu and navbar
+* Services
+* Component NavBar
+* Services
+* Authentication Services and Logic Update for Header to Change When User is Logged In
+* Style Movie Info
+* Movie info component design update
+* Style Movie Info
+* Enhanced movie component detail visualization
+* Style Movie Info
+
+## 1.0.1 - 2023-10-11
 
 ### Sprint learnings
 
