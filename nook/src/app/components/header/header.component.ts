@@ -11,6 +11,8 @@ import { User } from 'firebase/auth';
 export class HeaderComponent {
   user: User | null;
   isProfile: boolean = false;
+  isLibrary: boolean = false;
+  isMobile: boolean;
 
   constructor(private auth: Auth, private route: ActivatedRoute) {
     this.isMobile = window.innerWidth < 640
@@ -31,10 +33,9 @@ export class HeaderComponent {
   private subscribeToRouteChanges() {
     this.route.url.subscribe(segments => {
       this.isProfile = segments.some(segment => segment.path === 'profile');
+      this.isLibrary = segments.some(segment => segment.path === 'library');
     });
   }
-
-  isMobile: boolean;
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {

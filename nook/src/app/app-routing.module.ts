@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
 import { MovieInfoComponent } from './pages/movie-info/movie-info.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { LibraryComponent } from './pages/library/library.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: "sign-up", component: SignUpComponent },
   { path: "home", component: HomeComponent },
   { path: "profile", component: ProfileComponent },
+  { path: "library", component: LibraryComponent },
   { path: "email-verification", component: EmailVerificationComponent },
   { path: "movie/:id", component: MovieInfoComponent }
 ];
