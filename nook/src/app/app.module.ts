@@ -28,6 +28,7 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UserDropdownMenuComponent } from './components/user-dropdown-menu/user-dropdown-menu.component';
 import { SignOutButtonComponent } from './components/sign-out-button/sign-out-button.component';
+import { LibraryComponent } from './pages/library/library.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { SignOutButtonComponent } from './components/sign-out-button/sign-out-bu
     ProfileComponent,
     UserDropdownMenuComponent,
     SignOutButtonComponent,
+    LibraryComponent,
   ],
   imports: [
     BrowserModule,

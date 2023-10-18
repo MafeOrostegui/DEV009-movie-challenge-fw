@@ -11,7 +11,7 @@
 
   <a
     [routerLink]="user ? '/home' : '/landing-page'"
-    [ngClass]="{ hidden: isProfile }"
+    [ngClass]="{ hidden: isProfile || isLibrary }"
   >
     <img
       src="../assets/logo.png"
@@ -24,8 +24,8 @@
     />
   </a>
 
-  <div *ngIf="isProfile" class="self-center mx-auto">
-    <h1 class="text-white">Account</h1>
+  <div *ngIf="isProfile || isLibrary" class="self-center mx-auto">
+    <h1 class="text-white">{{ isProfile ? "Account" : "Library" }}</h1>
   </div>
 
   <ng-container *ngIf="user">

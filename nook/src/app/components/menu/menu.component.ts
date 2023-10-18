@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.categoryMovies();
     this.route.url.subscribe(segments => {
-      this.isInfoPage = segments.some(segment => segment.path === 'movie' || segment.path === 'profile');
+      this.isInfoPage = segments.some(segment => segment.path === 'movie' || segment.path === 'profile' || segment.path === 'library');
     });
   }
 
