@@ -1,8 +1,9 @@
 <app-header></app-header>
-<section *ngIf="user" class="mt-8">
-  <h1 class="text-white">Account</h1>
-  <h2 class="text-white">{{ user.displayName }}</h2>
-  <h3 class="text-white">{{ user.email }}</h3>
-  <app-sign-out-button></app-sign-out-button>
-  <app-nav-bar></app-nav-bar>
+<section *ngIf="user">
+    <div class="text-white pt-[15vh] text-center"> 
+        <h2 class="font-extralight mt-11">{{ user.displayName }}</h2>
+        <h3 class="font-extralight mt-2">{{ user.email }}</h3>
+        <app-sign-out-button></app-sign-out-button>
+        <app-nav-bar></app-nav-bar>
+      </div>
 </section>

@@ -2,7 +2,7 @@
   class="w-[100vw] h-(13vh) lg:h-[13vh] md:h-[12vh] pt-[1vh] sm:w-[100vw] fixed z-50 flex justify-between items-center"
   [ngClass]="{
     'bg-transparent': user && isMobile,
-    'bg-gradient-to-b from-purple-500 to-[rgba(0,0,0,0.5)]': !isMobile
+    'bg-gradient-to-b from-purple-500 to-[rgba(0,0,0,0.5)]': !isMobile,
   }"
 >
   <ng-container *ngIf="user">
@@ -11,7 +11,7 @@
 
   <a
     [routerLink]="user ? '/home' : '/landing-page'"
-    [ngClass]="{ 'self-center mx-auto': isProfile }"
+    [ngClass]="{ hidden: isProfile }"
   >
     <img
       src="../assets/logo.png"
@@ -20,14 +20,18 @@
         'w-[26vw]': user && isMobile,
         'ml-[4vw]': !isMobile && !user,
         'w-[30vw] ml-[2vw]': isMobile && !user,
-        'ml-0': isProfile && !isMobile,
-        'mr-[10vw]': isMobile && isProfile
       }"
     />
   </a>
 
-  <ng-container *ngIf="user && !isProfile">
-    <app-user-dropdown-menu></app-user-dropdown-menu>
+  <div *ngIf="isProfile" class="self-center mx-auto">
+    <h1 class="text-white">Account</h1>
+  </div>
+
+  <ng-container *ngIf="user">
+    <app-user-dropdown-menu
+      [ngStyle]="{ visibility: isProfile ? 'hidden' : 'visible' }"
+    ></app-user-dropdown-menu>
   </ng-container>
 
   <div class="mr-[2vw] flex justify-center items-center" *ngIf="!user">

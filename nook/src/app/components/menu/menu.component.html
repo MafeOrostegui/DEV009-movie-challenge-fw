@@ -1,4 +1,7 @@
-<nav class="flex items-center justify-between text-white z-50" [ngClass]="{'hidden': isMovieInfoPage}">
+<nav
+  class="flex items-center justify-between text-white z-50"
+  [ngClass]="{ hidden: isMovieInfoPage }"
+>
   <button
     class="block px-2 py-1 text-white focus:outline-none z-10 mt-3 lg:ml-[1vw] md:ml-1vw ml-4vw ml-[3vw] lg:w-[3vw] w-[13vw] md:w-[7vw] sm:w-[7vw]"
     (click)="toggleMenu()"
@@ -7,13 +10,19 @@
   </button>
 </nav>
 
-<div class="fixed inset-0 bg-gray-900 bg-opacity-50 Z-40" [class.hidden]="!menuOpen">
+<div
+  class="fixed inset-0 bg-gray-900 bg-opacity-50 Z-40"
+  [class.hidden]="!menuOpen"
+>
   <div
     class="h-screen w-1/2 bg-custom-input-color inline-flex flex-col text-white text-opacity-50 pt-32 pl-5 sm:pt-32 sm:pl-10 md:w-[25vw] sm:w-[25vw] lg:w-[20vw]"
   >
+    <a routerLink="/home" class="mt-1 mb-1 hover:text-white hover:cursor-pointer">Home</a>
     <a class="mt-1 mb-1 hover:text-white hover:cursor-pointer">Movies</a>
     <a class="mt-1 mb-1 hover:text-white hover:cursor-pointer">Tv Shows</a>
-    <a class="mt-1 mb-1 hover:text-white hover:cursor-pointer">Popular People</a>
+    <a class="mt-1 mb-1 hover:text-white hover:cursor-pointer"
+      >Popular People</a
+    >
     <button
       class="mt-1 mb-1 text-opacity-100 hover:text-white focus:outline-none mr-2 text-left flex align-middle"
       (click)="toggleGenreMenu()"
@@ -29,9 +38,11 @@
     class="h-screen w-1/2 bg-custom-input-color inline-flex flex-col text-white text-opacity-50 pt-32 pl-5 sm:pt-32 sm:pl-10 md:w-[25vw] sm:w-[25vw] lg:w-[10vw]"
     *ngIf="genreMenuOpen"
   >
-    <a *ngFor="let category of menuCategoryMovies" class="mt-1 mb-1 hover:text-white hover:cursor-pointer">{{
-      category.name
-    }}</a>
+    <a
+      *ngFor="let category of menuCategoryMovies"
+      class="mt-1 mb-1 hover:text-white hover:cursor-pointer"
+      >{{ category.name }}</a
+    >
   </div>
 </div>
 

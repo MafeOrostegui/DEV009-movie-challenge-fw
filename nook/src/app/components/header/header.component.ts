@@ -18,9 +18,17 @@ export class HeaderComponent {
   }
 
   ngOnInit() {
+    this.subscribeToAuthStateChanges();
+    this.subscribeToRouteChanges();
+  }
+
+  private subscribeToAuthStateChanges() {
     this.auth.onAuthStateChanged((user) => {
       this.user = user && user.emailVerified ? user : null;
     });
+  }
+
+  private subscribeToRouteChanges() {
     this.route.url.subscribe(segments => {
       this.isProfile = segments.some(segment => segment.path === 'profile');
     });
