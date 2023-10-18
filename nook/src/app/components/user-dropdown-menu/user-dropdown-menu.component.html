@@ -1,0 +1,15 @@
+<button
+  class="h-8 mr-[5vw] sm:mr-[2vw] md:mr-[4vw] lg:mr-[3vw] bg-white bg-opacity-[17%] rounded-full w-8 flex items-center justify-center"
+  style="box-shadow: 0 0 20px #9747ff"
+  (click)="toggleMenu()"
+>
+  <mat-icon class="text-white">person_outline</mat-icon>
+</button>
+
+<div
+  class="text-white text-opacity-50 bg-custom-input-color fixed mt-1 w-[6vw] h-[9vh] right-10 flex flex-col pt-5 rounded-[15px]"
+  [class.hidden]="!menuOpen"
+>
+  <a routerLink="/profile" class="text-center">Profile</a>
+  <app-sign-out-button></app-sign-out-button>
+</div>

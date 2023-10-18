@@ -7,26 +7,28 @@
 >
   <ng-container *ngIf="user">
     <app-menu></app-menu>
-    <div
-      class="h-8 order-3 mr-[2vw] bg-white bg-opacity-[17%] rounded-full w-8 flex items-center justify-center"
-      [ngClass]="{ 'mr-[4vw]': isMobile }"
-      style="box-shadow: 0 0 20px #9747FF; "
-    >
-      <mat-icon class="text-white">person_outline</mat-icon>
-    </div>
   </ng-container>
 
-  <a [routerLink]="user ? '/home' : '/landing-page'">
+  <a
+    [routerLink]="user ? '/home' : '/landing-page'"
+    [ngClass]="{ 'self-center mx-auto': isProfile }"
+  >
     <img
       src="../assets/logo.png"
       class="lg:w-[8vw] md:w-[20vw] w-[30vw] sm:w-[20vw] h-auto"
       [ngClass]="{
-        'w-[26vw] order-2': user && isMobile,
+        'w-[26vw]': user && isMobile,
         'ml-[4vw]': !isMobile && !user,
-        'w-[30vw] ml-[2vw]': isMobile && !user
+        'w-[30vw] ml-[2vw]': isMobile && !user,
+        'ml-0': isProfile && !isMobile,
+        'mr-[10vw]': isMobile && isProfile
       }"
     />
   </a>
+
+  <ng-container *ngIf="user && !isProfile">
+    <app-user-dropdown-menu></app-user-dropdown-menu>
+  </ng-container>
 
   <div class="mr-[2vw] flex justify-center items-center" *ngIf="!user">
     <div

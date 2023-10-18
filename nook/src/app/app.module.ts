@@ -25,6 +25,9 @@ import { MovieInfoComponent } from './pages/movie-info/movie-info.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { UserDropdownMenuComponent } from './components/user-dropdown-menu/user-dropdown-menu.component';
+import { SignOutButtonComponent } from './components/sign-out-button/sign-out-button.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
     MovieCardComponent,
     NavBarComponent,
     BackButtonComponent,
+    ProfileComponent,
+    UserDropdownMenuComponent,
+    SignOutButtonComponent,
   ],
   imports: [
     BrowserModule,
