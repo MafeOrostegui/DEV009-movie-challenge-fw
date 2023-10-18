@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
   genreMenuOpen = false;
   inCategoryMenu = false;
   menuCategoryMovies: CategoryMovie[] = [];
-  isMovieInfoPage: boolean = false;
+  isInfoPage: boolean = false;
 
   constructor(
     private moviesService: MoviesService,
@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.categoryMovies();
     this.route.url.subscribe(segments => {
-      this.isMovieInfoPage = segments.some(segment => segment.path === 'movie');
+      this.isInfoPage = segments.some(segment => segment.path === 'movie' || segment.path === 'profile');
     });
   }
 

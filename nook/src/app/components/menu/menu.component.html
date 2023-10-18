@@ -1,6 +1,6 @@
 <nav
   class="flex items-center justify-between text-white z-50"
-  [ngClass]="{ hidden: isMovieInfoPage }"
+  [ngClass]="{ hidden: isInfoPage }"
 >
   <button
     class="block px-2 py-1 text-white focus:outline-none z-10 mt-3 lg:ml-[1vw] md:ml-1vw ml-4vw ml-[3vw] lg:w-[3vw] w-[13vw] md:w-[7vw] sm:w-[7vw]"
@@ -46,4 +46,4 @@
   </div>
 </div>
 
-<app-back-button *ngIf="isMovieInfoPage"></app-back-button>
+<app-back-button *ngIf="isInfoPage"></app-back-button>

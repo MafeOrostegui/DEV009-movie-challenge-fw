@@ -7,9 +7,10 @@
 </button>
 
 <div
-  class="text-white text-opacity-50 bg-custom-input-color fixed mt-1 w-[12vw] lg:w-[8vw] h-[10vh] right-10 flex flex-col pt-5 pb-5 rounded-[15px] justify-center items-center"
+  class="text-white text-opacity-50 bg-custom-input-color fixed mt-1 w-[10vw] md:w-[10vw] lg:w-[8vw] h-[10vh] right-10 flex flex-col pt-5 pb-5 rounded-[15px] justify-center items-center"
   [class.hidden]="!menuOpen"
 >
   <a routerLink="/profile" class="text-center">Profile</a>
-  <app-sign-out-button></app-sign-out-button>
+  <a routerLink="/library" class="text-center">Library</a>
+  <app-sign-out-button [styleProfile]="false"></app-sign-out-button>
 </div>
