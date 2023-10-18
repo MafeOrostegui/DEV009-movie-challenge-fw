@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Auth } from '@angular/fire/auth';
 import { User } from 'firebase/auth';
 
@@ -10,8 +10,9 @@ import { User } from 'firebase/auth';
 })
 export class HeaderComponent {
   user: User | null;
+  isProfile: boolean = false;
 
-  constructor(private router: Router, private auth: Auth) {
+  constructor(private auth: Auth, private route: ActivatedRoute) {
     this.isMobile = window.innerWidth < 640
     this.user = null;
   }
@@ -19,6 +20,9 @@ export class HeaderComponent {
   ngOnInit() {
     this.auth.onAuthStateChanged((user) => {
       this.user = user && user.emailVerified ? user : null;
+    });
+    this.route.url.subscribe(segments => {
+      this.isProfile = segments.some(segment => segment.path === 'profile');
     });
   }
 

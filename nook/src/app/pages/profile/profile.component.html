@@ -1,0 +1,8 @@
+<app-header></app-header>
+<section *ngIf="user" class="mt-8">
+  <h1 class="text-white">Account</h1>
+  <h2 class="text-white">{{ user.displayName }}</h2>
+  <h3 class="text-white">{{ user.email }}</h3>
+  <app-sign-out-button></app-sign-out-button>
+  <app-nav-bar></app-nav-bar>
+</section>
