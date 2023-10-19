@@ -1,21 +1,21 @@
 <section
   [ngClass]="{
-    'overflow-x-auto whitespace-nowrap ml-[5px] overflow-y-hidden scrollbar-hide mb-5':
-      useScrollX
+    'overflow-x-auto whitespace-nowrap ml-[5px] overflow-y-hidden scrollbar-hide mb-5': useScrollX,
+    'flex flex-wrap mx-auto justify-center': !useScrollX,
   }"
 >
   <div
     *ngFor="let movie of movies"
     [ngClass]="{
-      'inline-block mr-[4px] w-[20vw] h-auto m-[10px] transition-transform duration-300 ease-linear hover:cursor-pointer md:w-[10vw]':
-        useScrollX
+      'inline-block mr-[4px] w-[19vw] sm:w-[20vw] h-auto m-[10px] lg:w-[10vw] transition-transform duration-300 ease-linear hover:cursor-pointer md:w-[10vw]': useScrollX,
+      'w-[20vw] m-1 lg:w-[10vw]': !useScrollX
     }"
   >
     <a [routerLink]="['/movie', movie.id]">
       <img
         [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
         [alt]="movie.title"
-        class="rounded-[15px]"
+        class="rounded-[8px] hover:border-custom-purple transition duration-300"
       />
     </a>
   </div>

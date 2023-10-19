@@ -16,7 +16,7 @@ export class MoviesCardsComponent implements OnInit {
 
   @Input() movieType!: 'popular' | 'upcoming' | 'top_rated' | 'list';
   @Input() genre?: number;
-  @Input() useScrollX: boolean = false;
+  @Input() useScrollX: boolean = true;
 
   movies: Movie[] = [];
 
