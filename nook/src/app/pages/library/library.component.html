@@ -1,4 +1,10 @@
-<app-nav-bar></app-nav-bar>
-<app-header></app-header>
-<h1 class="text-white">My list</h1>
-<app-movies [movieType]="'list'"></app-movies>"
+<section class="h-[100vh]">
+  <app-nav-bar></app-nav-bar>
+  <app-header></app-header>
+  <div
+    class="ml-[1vw] mt-[10vh] sm:mt-[14vh] lg:mt-[15vh] md:mt-[14vh]"
+  >
+    <h1 class="text-white text-[1.1rem] font-light ml-[4vw] lg:ml-[1vw] mb-5">My list</h1>
+    <app-movies [movieType]="'list'" [useScrollX]="true"></app-movies>
+  </div>
+</section>
