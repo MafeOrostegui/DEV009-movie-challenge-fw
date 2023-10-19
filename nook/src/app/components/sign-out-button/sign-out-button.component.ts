@@ -7,10 +7,11 @@ import { Router } from '@angular/router';
   templateUrl: './sign-out-button.component.html',
 })
 export class SignOutButtonComponent {
-  @Input() styleProfile: boolean = false;
 
   constructor(private userService : authService, private router: Router) {
   }
+  
+  @Input() styleProfile: boolean = false;
 
   onClick() {
     this.userService.logOut()

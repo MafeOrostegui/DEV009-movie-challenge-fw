@@ -32,6 +32,7 @@ type ActionType = keyof typeof actionType;
   ],
   templateUrl: './auth-form.component.html',
 })
+
 export class AuthFormComponent implements OnInit {
 
   constructor(

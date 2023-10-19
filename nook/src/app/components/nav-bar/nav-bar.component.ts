@@ -7,8 +7,6 @@ import { Router, NavigationEnd } from '@angular/router';
   templateUrl: './nav-bar.component.html'
 })
 export class NavBarComponent {
-  isMobile: boolean;
-  activeRoute: string = '';
 
   constructor(private router: Router) {
     this.isMobile = window.innerWidth < 640
@@ -18,7 +16,9 @@ export class NavBarComponent {
         this.activeRoute = event.url;
       }
     });
-   }
+  }
+  isMobile: boolean;
+  activeRoute: string = '';
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {

@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
   templateUrl: './movie-card.component.html',
 })
 export class MovieCardComponent implements OnInit, OnChanges {
-  constructor(private moviesService: MoviesService, private router: Router) { 
+  
+  constructor(private moviesService: MoviesService, private router: Router) {
     this.isMobile = window.innerWidth < 640;
   }
 

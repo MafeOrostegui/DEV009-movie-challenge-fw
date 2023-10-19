@@ -1,0 +1,13 @@
+<button *ngIf="onlyIcon" (click)="addToList()">
+  <mat-icon style="width: 30px; height: 30px; font-size: 35px">{{
+    iconToShow
+  }}</mat-icon>
+</button>
+
+<button
+  *ngIf="!onlyIcon"
+  (click)="addToList()"
+  class="z-10 lg:top-[70vh] md:left-[80vw] md:translate-x-0 sm:top-[60vh] sm:left-1/2 sm:-translate-x-1/2 absolute text-white bg-custom-input-color rounded-[15px] h-[3rem] sm:h-[2rem] lg:h-[3rem] w-[8rem] flex items-center justify-center"
+>
+  <a class="sm:text-[0.8rem] lg:text-[1.2rem]">{{ wordToShow }}</a>
+</button>
