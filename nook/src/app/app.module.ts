@@ -29,6 +29,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { UserDropdownMenuComponent } from './components/user-dropdown-menu/user-dropdown-menu.component';
 import { SignOutButtonComponent } from './components/sign-out-button/sign-out-button.component';
 import { LibraryComponent } from './pages/library/library.component';
+import { AddToListButtonComponent } from './components/add-to-list-button/add-to-list-button.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { LibraryComponent } from './pages/library/library.component';
     UserDropdownMenuComponent,
     SignOutButtonComponent,
     LibraryComponent,
+    AddToListButtonComponent,
   ],
   imports: [
     BrowserModule,

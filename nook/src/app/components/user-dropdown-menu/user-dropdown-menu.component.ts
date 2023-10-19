@@ -7,12 +7,13 @@ import { Router } from '@angular/router';
   templateUrl: './user-dropdown-menu.component.html',
 })
 export class UserDropdownMenuComponent {
-  menuOpen = false;
-  isMobile: boolean;
 
   constructor(private router: Router) {
     this.isMobile = window.innerWidth < 640
   }
+
+  menuOpen = false;
+  isMobile: boolean;
 
   toggleMenu() {
     !this.isMobile ? this.menuOpen = !this.menuOpen : this.router.navigate(['/profile']) 

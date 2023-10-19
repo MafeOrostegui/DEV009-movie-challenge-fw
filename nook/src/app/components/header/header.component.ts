@@ -9,15 +9,16 @@ import { User } from 'firebase/auth';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  user: User | null;
-  isProfile: boolean = false;
-  isLibrary: boolean = false;
-  isMobile: boolean;
 
   constructor(private auth: Auth, private route: ActivatedRoute) {
     this.isMobile = window.innerWidth < 640
     this.user = null;
   }
+  
+  user: User | null;
+  isProfile: boolean = false;
+  isLibrary: boolean = false;
+  isMobile: boolean;
 
   ngOnInit() {
     this.subscribeToAuthStateChanges();

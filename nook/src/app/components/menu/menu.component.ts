@@ -8,17 +8,18 @@ import { CategoryMovie } from 'src/app/models/category-movie';
   templateUrl: './menu.component.html',
 })
 export class MenuComponent implements OnInit {
+  
+  constructor(
+    private moviesService: MoviesService,
+    private route: ActivatedRoute
+  ) { }
+
   iconToShow: string = 'menu';
   menuOpen = false;
   genreMenuOpen = false;
   inCategoryMenu = false;
   menuCategoryMovies: CategoryMovie[] = [];
   isInfoPage: boolean = false;
-
-  constructor(
-    private moviesService: MoviesService,
-    private route: ActivatedRoute
-  ) { }
 
   ngOnInit() {
     this.categoryMovies();
