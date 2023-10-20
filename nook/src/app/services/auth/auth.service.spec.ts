@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { authService } from './auth.service';
 
 describe('FirestoreService', () => {

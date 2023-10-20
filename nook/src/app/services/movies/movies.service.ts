@@ -8,10 +8,11 @@ import { catchError } from 'rxjs/operators';
 })
 
 export class MoviesService {
-  private apiKey = '49a18f8a2dc1ca4105c158804e2ea08e';
-  private apiUrl = 'https://api.themoviedb.org/3';
 
   constructor(private http: HttpClient) { }
+  
+  private apiKey = '49a18f8a2dc1ca4105c158804e2ea08e';
+  private apiUrl = 'https://api.themoviedb.org/3';
 
   getMovies(kind: string, page: number, genreId?: null | number): Observable<any> {
     let url: string;

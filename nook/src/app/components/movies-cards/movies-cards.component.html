@@ -4,19 +4,25 @@
     'flex flex-wrap mx-auto justify-center': !useScrollX,
   }"
 >
-  <div
-    *ngFor="let movie of movies"
-    [ngClass]="{
-      'inline-block mr-[4px] w-[19vw] sm:w-[20vw] h-auto m-[10px] lg:w-[10vw] transition-transform duration-300 ease-linear hover:cursor-pointer md:w-[10vw]': useScrollX,
-      'w-[20vw] m-1 lg:w-[10vw]': !useScrollX
-    }"
-  >
-    <a [routerLink]="['/movie', movie.id]">
-      <img
-        [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
-        [alt]="movie.title"
-        class="rounded-[8px] hover:border-custom-purple transition duration-300"
-      />
-    </a>
-  </div>
+  <ng-container *ngIf="movies && movies.length > 0; else noMoviesTemplate">
+    <div
+      *ngFor="let movie of movies"
+      [ngClass]="{
+        'inline-block mr-[4px] w-[19vw] sm:w-[20vw] h-auto m-[10px] lg:w-[10vw] transition-transform duration-300 ease-linear hover:cursor-pointer md:w-[10vw]': useScrollX,
+        'w-[20vw] m-2 lg:w-[10vw]': !useScrollX
+      }"
+    >
+      <a [routerLink]="['/movie', movie.id]">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+          [alt]="movie.title"
+          class="rounded-[8px] hover:border-custom-purple transition duration-300"
+        />
+      </a>
+    </div>
+  </ng-container>
 </section>
+
+<ng-template #noMoviesTemplate>
+  <p class="text-white font-extralight text-[0.7rem] ml-2">{{defaultMessage}}</p>
+</ng-template>

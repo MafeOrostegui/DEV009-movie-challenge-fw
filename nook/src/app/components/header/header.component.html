@@ -2,7 +2,7 @@
   class="w-[100vw] h-(13vh) lg:h-[13vh] top-0 md:h-[12vh] left-0 pt-[1vh] sm:w-[100vw] fixed z-50 flex justify-between items-center"
   [ngClass]="{
     'bg-transparent': user && isMobile,
-    'bg-gradient-to-b from-purple-500 to-[rgba(0,0,0,0.5)]': !isMobile,
+    'bg-gradient-to-b from-purple-700 to-[rgba(0,0,0,0.5)]': !isMobile,
   }"
 >
   <ng-container *ngIf="user">
@@ -29,9 +29,18 @@
   </div>
 
   <ng-container *ngIf="user">
-    <app-user-dropdown-menu
-      [ngStyle]="{ visibility: isProfile ? 'hidden' : 'visible' }"
-    ></app-user-dropdown-menu>
+    <div class="flex items-center">
+      <ng-container
+        *ngIf="!isMobile && !isProfile"
+      >
+        <a class="flex flex-col items-center text-white mr-3">
+          <mat-icon>search</mat-icon>
+        </a>
+      </ng-container>
+      <app-user-dropdown-menu
+        [ngStyle]="{ visibility: isProfile ? 'hidden' : 'visible' }"
+      ></app-user-dropdown-menu>
+    </div>
   </ng-container>
 
   <div class="mr-[2vw] flex justify-center items-center" *ngIf="!user">

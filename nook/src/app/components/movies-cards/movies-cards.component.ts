@@ -14,7 +14,8 @@ export class MoviesCardsComponent implements OnInit {
     private firestoreService: FirestoreService
   ) { }
 
-  @Input() movieType!: 'popular' | 'upcoming' | 'top_rated' | 'list';
+  defaultMessage: string = "There are no movies in this category.";
+  @Input() movieType!: 'popular' | 'upcoming' | 'top_rated' | 'movies' | 'favorites';
   @Input() genre?: number;
   @Input() useScrollX: boolean = true;
 
@@ -25,13 +26,13 @@ export class MoviesCardsComponent implements OnInit {
   }
 
   private getMovies(): void {
-    this.movieType === 'list' 
+    this.movieType === 'movies' || this.movieType === 'favorites' 
     ? this.getMoviesFromFirestore() 
     : this.getMoviesFromService();
   }
 
   private getMoviesFromFirestore(): void {
-    this.firestoreService.getMovies().subscribe((moviesData) => {
+    this.firestoreService.getMovies(this.movieType).subscribe((moviesData) => {
       this.movies = moviesData;
     });
   }

@@ -4,4 +4,5 @@ import { Component } from '@angular/core';
   selector: 'app-library',
   templateUrl: './library.component.html',
 })
-export class LibraryComponent {}
+export class LibraryComponent {
+}
