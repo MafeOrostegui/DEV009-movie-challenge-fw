@@ -9,9 +9,16 @@ import { UserService } from '../user/user.service';
 
 export class authService {
   constructor(
-    private auth: Auth, private router: Router,
+    private auth: Auth,
+    private router: Router,
     private userService: UserService,
-  ) {}
+  ) {
+    this.auth.onAuthStateChanged((user) => {
+      user 
+      ? (this.userService.setUserUID(user.uid), console.log(user.uid)) 
+      : null;
+    });
+  }
 
   async register(email: string, password: string, firstName: string): Promise<void> {
     try {
@@ -19,7 +26,7 @@ export class authService {
       await this.sendEmailVerification(user);
       await updateProfile(user, { displayName: firstName });
       this.router.navigate(['/email-verification'])
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
     }
   }
@@ -36,12 +43,8 @@ export class authService {
     try {
       const { user } = await signInWithEmailAndPassword(this.auth, email, password);
       this.checkUserIsVerified(user)
-      this.userService.setUserUID(user.uid); 
     } catch (error: any) {
       console.log('login', error);
-      if (error.code === 'auth/invalid-login-credentials') {
-        console.log('lo logre')
-      }
     }
   }
 
@@ -53,7 +56,8 @@ export class authService {
 
   async logOut(): Promise<void> {
     try {
-      signOut(this.auth)
+      await signOut(this.auth)
+      this.userService.clearUserUID();
     } catch (error) {
       console.log('Sign out', error)
     }

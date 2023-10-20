@@ -30,6 +30,8 @@ import { UserDropdownMenuComponent } from './components/user-dropdown-menu/user-
 import { SignOutButtonComponent } from './components/sign-out-button/sign-out-button.component';
 import { LibraryComponent } from './pages/library/library.component';
 import { AddToListButtonComponent } from './components/add-to-list-button/add-to-list-button.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { LikeButtonComponent } from './components/like-button/like-button.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { AddToListButtonComponent } from './components/add-to-list-button/add-to
     SignOutButtonComponent,
     LibraryComponent,
     AddToListButtonComponent,
+    SearchBarComponent,
+    LikeButtonComponent,
   ],
   imports: [
     BrowserModule,

@@ -39,7 +39,7 @@ export class AuthFormComponent implements OnInit {
     private authSvc: authService,
     private fb: FormBuilder
   ) { }
-  
+
   @Input() action!: ActionType;
   form!: FormGroup;
   title!: string;
@@ -62,7 +62,7 @@ export class AuthFormComponent implements OnInit {
         ? actionType.signIn.title
         : actionType.signUp.title;
     this.title =
-        this.action === actionType.signIn.action
+      this.action === actionType.signIn.action
         ? 'Login'
         : 'Create Account'
 
@@ -80,8 +80,9 @@ export class AuthFormComponent implements OnInit {
 
   onSubmit(): void {
     const { email, password, firstName } = this.form.value;
-    this.action === actionType.signIn.action ?
-      this.authSvc.login(email, password ) : this.authSvc.register(email, password, firstName);
+    this.action === actionType.signIn.action
+      ? this.authSvc.login(email, password)
+      : this.authSvc.register(email, password, firstName)
   }
 
   private initForm(): void {
@@ -89,7 +90,7 @@ export class AuthFormComponent implements OnInit {
       firstName: ['', [Validators.required]],
       lastName: [''],
       email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
-      password: ['', [Validators.required, Validators.minLength(5)]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', [Validators.required,
       matchPasswordValidator('password')]]
     });

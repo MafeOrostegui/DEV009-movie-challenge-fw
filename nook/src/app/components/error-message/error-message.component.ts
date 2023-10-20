@@ -14,12 +14,13 @@ import { validatorErrorMessage } from './validator-message';
   `,
 })
 export class ErrorMessageComponent {
-  @Input() control!: AbstractControl;
+  @Input() control: AbstractControl | undefined;
+  @Input() firebaseError: string | undefined;
 
   get errorMessage(): string {
     const error = this.control?.errors;
     const validatorName = Object.keys(error ?? {})[0];
-    return this.control.touched && validatorName
+    return this.control?.touched && validatorName
       ? validatorErrorMessage(validatorName)
       : '';
   }

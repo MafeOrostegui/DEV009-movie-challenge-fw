@@ -6,7 +6,7 @@ import { FirestoreService } from 'src/app/services/firestore/firestore.service';
   templateUrl: './add-to-list-button.component.html',
 })
 export class AddToListButtonComponent {
-  
+
   constructor(private firestoreService: FirestoreService) { }
 
   @Input() onlyIcon: boolean = false;
@@ -18,6 +18,6 @@ export class AddToListButtonComponent {
   addToList() {
     this.iconToShow = this.iconToShow === 'add' ? 'done' : 'add';
     this.wordToShow = this.wordToShow === 'Add to List' ? 'Added to List' : 'Add to List';
-    this.firestoreService.addMovieToList(this.movieId, this.moviePath);
+    this.firestoreService.addMovieToList(this.movieId, this.moviePath, 'movies');
   }
 }

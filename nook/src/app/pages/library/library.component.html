@@ -4,7 +4,9 @@
   <div
     class="ml-[1vw] mt-[10vh] sm:mt-[14vh] lg:mt-[15vh] md:mt-[14vh]"
   >
-    <h1 class="text-white text-[1.1rem] font-light ml-[4vw] lg:ml-[1vw] mb-5">My list</h1>
-    <app-movies [movieType]="'list'" [useScrollX]="true"></app-movies>
+    <h1 class="text-white text-[1.1rem] font-light ml-[4vw] lg:ml-[1vw] mb-5">WatchList</h1>
+    <app-movies [movieType]="'movies'" [useScrollX]="true"></app-movies>
+    <h1 class="text-white text-[1.1rem] font-light ml-[4vw] lg:ml-[1vw] mb-5">favorites</h1>
+    <app-movies [movieType]="'favorites'" [useScrollX]="true"></app-movies>
   </div>
 </section>
