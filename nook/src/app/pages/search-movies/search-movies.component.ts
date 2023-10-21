@@ -11,6 +11,9 @@ export class SearchMoviesComponent {
 
   handleSearchResults(results: any) {
     this.searchResults = results;
-    console.log(results)
+  }
+
+  clearSearch() {
+    this.searchResults = null;
   }
 }

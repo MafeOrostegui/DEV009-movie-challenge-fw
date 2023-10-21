@@ -1,10 +1,11 @@
-<app-header></app-header>
-<app-nav-bar></app-nav-bar>
 <section
   class="mt-[10vh] lg:mt-[15vh] md:mt-[15vh] flex flex-col items-center h-[100vh]"
 >
+<app-header></app-header>
+<app-nav-bar></app-nav-bar>
   <app-search-bar
     (searchResults)="handleSearchResults($event)"
+    (clearSearchEvent)="clearSearch()"
   ></app-search-bar>
   <div *ngIf="!searchResults">
     <h1
@@ -14,7 +15,7 @@
     </h1>
     <app-category-cards></app-category-cards>
   </div>
-  <section class="flex flex-wrap justify-center mt-2 w-[80vw]">
+  <section class="flex flex-wrap justify-center mt-2 w-[80vw] pb-20">
     <ng-container *ngIf="searchResults && searchResults.results.length > 0">
       <div
         *ngFor="let result of searchResults.results"
