@@ -1,0 +1,16 @@
+<section
+  class="overflow-x-auto whitespace-nowrap ml-[5px] overflow-y-hidden scrollbar-hide mb-5 w-[80vw]"
+>
+  <a>
+    <div
+      *ngFor="let category of menuCategoryMovies"
+      class="inline-block mr-[4px] rounded-[10px] w-[30vw] md:w-[20vw] sm:w-[30vw] m-[10px] border border-custom-purple lg:w-[10vw] transition-transform duration-300 ease-linear hover:cursor-pointer relative"
+    >
+      <span
+        class="mb-1 hover:text-white text-white hover:cursor-pointer text-[0.8rem] lg:text-[1rem] absolute left-0 bottom-0 p-2 z-30"
+        >{{ category.name }}</span
+      >
+      <app-movie [movieId]="category.id" [cardCategory]="true"></app-movie>
+    </div>
+  </a>
+</section>

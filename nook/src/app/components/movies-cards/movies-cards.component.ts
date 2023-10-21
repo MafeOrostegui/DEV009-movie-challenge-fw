@@ -39,7 +39,7 @@ export class MoviesCardsComponent implements OnInit {
 
   private getMoviesFromService(): void {
     this.moviesService
-      .getMovies(this.movieType, 1, this.genre)
+      .getMovies( 1, this.movieType, this.genre)
       .subscribe((response) => {
         this.movies = response.results as Movie[];
       });
