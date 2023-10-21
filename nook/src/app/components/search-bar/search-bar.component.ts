@@ -7,29 +7,33 @@ import { MoviesService } from 'src/app/services/movies/movies.service';
   templateUrl: './search-bar.component.html',
 })
 export class SearchBarComponent {
-  constructor(
-    private movieService: MoviesService,
-    private fb: FormBuilder
-  ) { 
-    this.initForm(); 
+  constructor(private movieService: MoviesService, private fb: FormBuilder) {
+    this.initForm();
   }
 
   form!: FormGroup;
-  @Output() searchResults = new EventEmitter<any>(); 
+  @Output() searchResults = new EventEmitter<any>();
+  @Output() clearSearchEvent = new EventEmitter<void>();
 
   private initForm(): void {
     this.form = this.fb.group({
-      inputSearch:['']
-    })
+      inputSearch: ['']
+    });
   }
 
   onSearchInputChange(event: Event): void {
     const query = (event.target as HTMLInputElement).value;
-    if (query.length >= 3) {  
-      this.movieService.searchMovies(query).subscribe(response => {
-        this.searchResults.emit(response);
-      });
+    this.form.get('inputSearch')?.setValue(query); 
+
+    if (query.length >= 3) {
+      this.movieService.searchMovies(query).subscribe(response => this.searchResults.emit(response));
+    } else if (query.length === 0) {
+      this.clearSearch();
     }
   }
 
+  clearSearch(): void {
+    this.form?.get('inputSearch')?.setValue('');
+    this.clearSearchEvent.emit();
+  }
 }
