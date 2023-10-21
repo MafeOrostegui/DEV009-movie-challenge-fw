@@ -32,6 +32,7 @@ import { LibraryComponent } from './pages/library/library.component';
 import { AddToListButtonComponent } from './components/add-to-list-button/add-to-list-button.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { LikeButtonComponent } from './components/like-button/like-button.component';
+import { SearchMoviesComponent } from './pages/search-movies/search-movies.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { LikeButtonComponent } from './components/like-button/like-button.compon
     AddToListButtonComponent,
     SearchBarComponent,
     LikeButtonComponent,
+    SearchMoviesComponent,
   ],
   imports: [
     BrowserModule,

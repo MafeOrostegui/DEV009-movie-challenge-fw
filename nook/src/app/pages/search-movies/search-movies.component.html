@@ -1,0 +1,21 @@
+<app-header></app-header> 
+<app-nav-bar></app-nav-bar>
+<section class="mt-[10vh] lg:mt-[15vh] md:mt-[15vh] flex flex-col items-center h-[100vh]">
+  <app-search-bar (searchResults)="handleSearchResults($event)"></app-search-bar>
+  <section class="flex flex-wrap justify-center mt-2">
+    <ng-container *ngIf="searchResults && searchResults.results.length > 0">
+        <div
+          *ngFor="let result of searchResults.results"
+          class="w-[35vw] m-2 lg:w-[10vw]"
+        >
+          <a [routerLink]="['/movie', result.id]">
+            <img
+              [src]="'https://image.tmdb.org/t/p/w500/' + result.poster_path"
+              [alt]="result.title"
+              class=" hover:border-custom-purple hover:border transition duration-300"
+            />
+          </a>
+        </div>
+      </ng-container>
+  </section>
+</section>
