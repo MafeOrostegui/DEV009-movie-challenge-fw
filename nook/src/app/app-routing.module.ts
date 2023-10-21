@@ -8,6 +8,7 @@ import { EmailVerificationComponent } from './pages/email-verification/email-ver
 import { MovieInfoComponent } from './pages/movie-info/movie-info.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LibraryComponent } from './pages/library/library.component';
+import { SearchMoviesComponent } from './pages/search-movies/search-movies.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "profile", component: ProfileComponent },
   { path: "library", component: LibraryComponent },
+  { path: "search", component: SearchMoviesComponent },
   { path: "email-verification", component: EmailVerificationComponent },
   { path: "movie/:id", component: MovieInfoComponent }
 ];

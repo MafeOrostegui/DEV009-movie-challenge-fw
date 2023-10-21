@@ -1,5 +1,5 @@
-<form>
-  <div class="relative sm:w-[18vw] md:w-[16vw] lg:w-[10vw] mr-2">
+<form  [formGroup]="form">
+  <div class="relative w-[75vw] lg:w-[79vw]  md:w-[73vw] mr-2">
     <div
       class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
     >
@@ -22,8 +22,10 @@
     <input
       type="search"
       id="default-search"
+      formControlName="inputSearch"
       class="block w-full p-2 pl-10 text-sm text-gray-900 border rounded-[15px] focus:ring-slate-600 focus:border-custom-purple bg-transparent border-white dark:placeholder-gray-400 dark:text-white"
       placeholder="Search"
+      (input)="onSearchInputChange($event)"
       required
     />
   </div>

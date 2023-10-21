@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ export class MoviesService {
   private apiKey = '49a18f8a2dc1ca4105c158804e2ea08e';
   private apiUrl = 'https://api.themoviedb.org/3';
 
-  getMovies(kind: string, page: number, genreId?: null | number): Observable<any> {
+  getMovies( page: number, kind?: string, genreId?: null | number): Observable<any> {
     let url: string;
 
     (genreId)
@@ -42,7 +42,15 @@ export class MoviesService {
       );
   }
 
-  private handleError(error: any): Observable<never> {
+  searchMovies(query: string): Observable<any> {
+    const url = `${this.apiUrl}/search/multi?api_key=${this.apiKey}&query=${query}`;
+    return this.http.get(url)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  private handleError(error: HttpErrorResponse) {
     const errorMessage =
       error.status === 0
         ? `An error occurred: ${error.error}`
