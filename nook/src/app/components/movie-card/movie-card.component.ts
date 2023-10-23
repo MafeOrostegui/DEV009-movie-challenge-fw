@@ -14,7 +14,6 @@ export class MovieCardComponent implements OnInit, OnChanges {
   }
 
   @Input() movieId!: number;
-  @Input() cardCategory: boolean = false;
   movie: Movie = {} as Movie;
 
   isHome(): boolean {

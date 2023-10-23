@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError, map } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -10,15 +10,15 @@ import { catchError } from 'rxjs/operators';
 export class MoviesService {
 
   constructor(private http: HttpClient) { }
-  
+
   private apiKey = '49a18f8a2dc1ca4105c158804e2ea08e';
   private apiUrl = 'https://api.themoviedb.org/3';
 
-  getMovies( page: number, kind?: string, genreId?: null | number): Observable<any> {
+  getMovies(page: number, kind?: string, genre?: null | number): Observable<any> {
     let url: string;
 
-    (genreId)
-      ? url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_genres=${genreId}&page=${page}`
+    (genre)
+      ? url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_genres=${genre}&page=${page}`
       : url = `${this.apiUrl}/movie/${kind}?api_key=${this.apiKey}&page=${page}`;
 
     return this.http.get(url).pipe(
