@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { User, Auth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signOut, sendEmailVerification } from '@angular/fire/auth';
+import { Auth, User, setPersistence, browserLocalPersistence, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { UserService } from '../user/user.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +14,15 @@ export class authService {
     private router: Router,
     private userService: UserService,
   ) {
-    this.auth.onAuthStateChanged((user) => {
+    setPersistence(this.auth, browserLocalPersistence)
+    onAuthStateChanged(this.auth, (user: User | null) => {
       user 
       ? (this.userService.setUserUID(user.uid), console.log(user.uid)) 
       : null;
     });
   }
+
+
 
   async register(email: string, password: string, firstName: string): Promise<void> {
     try {
@@ -43,6 +47,7 @@ export class authService {
     try {
       const { user } = await signInWithEmailAndPassword(this.auth, email, password);
       this.checkUserIsVerified(user)
+      console.log(user)
     } catch (error: any) {
       console.log('login', error);
     }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies/movies.service';
 import { CategoryMovie } from 'src/app/models/category-movie';
 
@@ -7,8 +7,10 @@ import { CategoryMovie } from 'src/app/models/category-movie';
   templateUrl: './category-cards.component.html',
 })
 export class CategoryCardsComponent implements OnInit {
-  constructor(private moviesService: MoviesService){}
+  constructor(private moviesService: MoviesService) { }
   menuCategoryMovies: CategoryMovie[] = [];
+
+  @Input() links: boolean = false;
 
   ngOnInit() {
     this.categoryMovies();
@@ -20,5 +22,4 @@ export class CategoryCardsComponent implements OnInit {
         this.menuCategoryMovies = response.genres;
       });
   }
-
 }

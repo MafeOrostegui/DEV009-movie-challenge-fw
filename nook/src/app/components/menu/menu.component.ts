@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from 'src/app/services/movies/movies.service';
-import { CategoryMovie } from 'src/app/models/category-movie';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +9,6 @@ import { CategoryMovie } from 'src/app/models/category-movie';
 export class MenuComponent implements OnInit {
   
   constructor(
-    private moviesService: MoviesService,
     private route: ActivatedRoute
   ) { }
 
@@ -18,11 +16,9 @@ export class MenuComponent implements OnInit {
   menuOpen = false;
   genreMenuOpen = false;
   inCategoryMenu = false;
-  menuCategoryMovies: CategoryMovie[] = [];
   isInfoPage: boolean = false;
 
   ngOnInit() {
-    this.categoryMovies();
     this.route.url.subscribe(segments => {
       this.isInfoPage = segments.some(segment => segment.path === 'movie' || segment.path === 'profile' || segment.path === 'library');
     });
@@ -59,12 +55,5 @@ export class MenuComponent implements OnInit {
         ? 'keyboard_arrow_left'
         : 'clear'
       : 'menu';
-  }
-
-  categoryMovies() {
-    this.moviesService.getCategoryMovies()
-      .subscribe((response: { genres: CategoryMovie[] }) => {
-        this.menuCategoryMovies = response.genres;
-      });
   }
 }
