@@ -14,15 +14,12 @@ export class authService {
     private router: Router,
     private userService: UserService,
   ) {
-    setPersistence(this.auth, browserLocalPersistence)
-    onAuthStateChanged(this.auth, (user: User | null) => {
-      user 
-      ? (this.userService.setUserUID(user.uid), console.log(user.uid)) 
-      : null;
+    this.auth.onAuthStateChanged((user) => {
+      user
+        ? (this.userService.setUserUID(user.uid), console.log(user.uid))
+        : null;
     });
   }
-
-
 
   async register(email: string, password: string, firstName: string): Promise<void> {
     try {
