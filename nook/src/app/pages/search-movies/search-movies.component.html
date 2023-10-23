@@ -1,8 +1,8 @@
 <section
   class="mt-[10vh] lg:mt-[15vh] md:mt-[15vh] flex flex-col items-center h-[100vh]"
 >
-<app-header></app-header>
-<app-nav-bar></app-nav-bar>
+  <app-header></app-header>
+  <app-nav-bar></app-nav-bar>
   <app-search-bar
     (searchResults)="handleSearchResults($event)"
     (clearSearchEvent)="clearSearch()"
@@ -13,7 +13,10 @@
     >
       Browse by category
     </h1>
-    <app-category-cards [links]="false"></app-category-cards>
+    <app-category-cards
+      [links]="false"
+      (categorySelected)="handleCategorySelected($event)"
+    ></app-category-cards>
   </div>
   <section class="flex flex-wrap justify-center mt-2 w-[80vw] pb-20">
     <ng-container *ngIf="searchResults && searchResults.results.length > 0">
