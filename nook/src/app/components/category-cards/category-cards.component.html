@@ -1,16 +1,23 @@
 <section
-  class="overflow-x-auto whitespace-nowrap ml-[5px] overflow-y-hidden scrollbar-hide mb-5 w-[80vw]"
+  *ngIf="!links"
+  class="overflow-x-auto whitespace-nowrap ml-[1px] overflow-y-hidden scrollbar-hide mb-5 w-[90vw]"
 >
-  <a>
-    <div
-      *ngFor="let category of menuCategoryMovies"
-      class="inline-block mr-[4px] rounded-[10px] w-[30vw] md:w-[20vw] sm:w-[30vw] m-[10px] border border-custom-purple lg:w-[10vw] transition-transform duration-300 ease-linear hover:cursor-pointer relative"
+  <div
+    *ngFor="let category of menuCategoryMovies"
+    class="inline-block mr-[1px] rounded-[10px] w-[30vw] md:w-[20vw] sm:w-[30vw] m-[10px] border border-custom-purple lg:w-[10vw] transition-transform duration-300 ease-linear hover:cursor-pointer relative"
+  >
+    <span
+      class="mb-1 hover:text-white text-white hover:cursor-pointer text-[0.8rem] lg:text-[1rem] absolute left-0 bottom-0 p-2 z-30"
+      >{{ category.name }}</span
     >
-      <span
-        class="mb-1 hover:text-white text-white hover:cursor-pointer text-[0.8rem] lg:text-[1rem] absolute left-0 bottom-0 p-2 z-30"
-        >{{ category.name }}</span
-      >
-      <app-movie [movieId]="category.id" [cardCategory]="true"></app-movie>
-    </div>
-  </a>
+    <app-movie [movieId]="category.id" [cardCategory]="true"></app-movie>
+  </div>
 </section>
+
+<div *ngIf="links" class="inline-flex flex-col">
+  <a
+    *ngFor="let category of menuCategoryMovies"
+    class="mt-1 mb-1 hover:text-white hover:cursor-pointer"
+    >{{ category.name }}</a
+  >
+</div>

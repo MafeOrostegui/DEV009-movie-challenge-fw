@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, QuerySnapshot, getDocs, query, where } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, QuerySnapshot, getDocs, query, where, doc } from '@angular/fire/firestore';
 import { Observable, from, map } from 'rxjs';
 import { UserService } from '../user/user.service';
 import { Movie } from 'src/app/models/movie';
@@ -14,14 +14,14 @@ export class FirestoreService {
   constructor(private firestore: Firestore, private userService: UserService) {
     this.userService.getUserUID().subscribe((uid) => {
       this.uid = uid;
-      console.log(this.uid);
     });
   }
 
   async addMovieToList(idMovie: number, pathMovie: string, collectionName: string) {
-    if (!idMovie || !pathMovie || !collectionName) return;
+    if (!idMovie || !pathMovie || !collectionName || !this.uid) return;
 
-    const collectionRef = collection(this.firestore, collectionName);
+    const userDocRef = doc(this.firestore, 'users', this.uid);
+    const collectionRef = collection(userDocRef, collectionName);
     const moviesQuery = query(collectionRef, where('uid', '==', this.uid), where('id', '==', idMovie));
     const querySnapshot = await getDocs(moviesQuery);
 
@@ -31,7 +31,13 @@ export class FirestoreService {
   }
 
   getMovies(collectionName: string): Observable<Movie[]> {
-    const collectionRef = collection(this.firestore, collectionName);
+
+    if (!this.uid) {
+      return new Observable<Movie[]>();
+    }
+
+    const userDocRef = doc(this.firestore, 'users', this.uid);
+    const collectionRef = collection(userDocRef, collectionName);
     const moviesQuery = query(collectionRef, where('uid', '==', this.uid));
     return from(getDocs(moviesQuery)).pipe(
       map((querySnapshot: QuerySnapshot) => {
