@@ -14,7 +14,7 @@ export class MoviesService {
   private apiKey = '49a18f8a2dc1ca4105c158804e2ea08e';
   private apiUrl = 'https://api.themoviedb.org/3';
 
-  getMovies(page: number, kind?: string, genre?: null | number): Observable<any> {
+  getMovies(page: number, kind?: string | undefined, genre?: null | number): Observable<any> {
     let url: string;
 
     (genre)
@@ -30,6 +30,7 @@ export class MoviesService {
     const url = `${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}&append_to_response=credits,images`;
     return this.http.get(url)
       .pipe(
+        
         catchError(this.handleError)
       );
   }

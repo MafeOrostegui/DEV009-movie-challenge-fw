@@ -5,6 +5,7 @@
   <div
     *ngFor="let category of menuCategoryMovies"
     class="inline-block mr-[1px] rounded-[10px] w-[30vw] h-[12vh] md:w-[20vw] sm:w-[30vw] m-[10px] lg:w-[10vw] transition-transform duration-300 ease-linear hover:cursor-pointer relative"
+    [ngClass]="{'border border-custom-purple  transition-transform transform scale-110': category.id === selectedCategory}"
     (click)="onCategorySelected(category.id)"
   >
     <span
@@ -23,6 +24,7 @@
   <a
     *ngFor="let category of menuCategoryMovies"
     (click)="onCategorySelected(category.id)"
+    [routerLink]="['/search', category.id]"
     class="mt-1 mb-1 hover:text-white hover:cursor-pointer"
     >{{ category.name }}</a
   >

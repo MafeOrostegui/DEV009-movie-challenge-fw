@@ -10,6 +10,7 @@ import { Movie } from 'src/app/models/movie';
 export class CategoryCardsComponent implements OnInit {
   constructor(private moviesService: MoviesService) { }
   menuCategoryMovies: CategoryMovie[] = [];
+  selectedCategory: number | null = null;
   
   @Output() categorySelected =  new EventEmitter<number>();
   @Input() links: boolean = false;
@@ -29,5 +30,6 @@ export class CategoryCardsComponent implements OnInit {
 
   onCategorySelected(categoryId: number) {
     this.categorySelected.emit(categoryId);
+    this.selectedCategory = categoryId;
   }
 }
