@@ -15,11 +15,7 @@ export class CategoryCardsComponent implements OnInit {
   ) { }
 
   menuCategoryMovies: CategoryMovie[] = [];
-  selectedCategory: number | null = null;
-
-  @Output() categorySelected = new EventEmitter<{ id: number, name: string }>();
   @Input() links: boolean = false;
-  @Input() genre?: number;
   movie: Movie = {} as Movie;
 
   ngOnInit() {
@@ -36,10 +32,4 @@ export class CategoryCardsComponent implements OnInit {
       });
     });
   }
-
-  onCategorySelected(categoryId: number, categoryName: string) {
-    const categoryInfo = { id: categoryId, name: categoryName };
-    this.categorySelected.emit(categoryInfo);
-    this.selectedCategory = categoryId;
-  }  
 }
