@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies/movies.service';
+import { SearchStateService } from 'src/app/services/search-state/search-state.service';
 import { Movie } from 'src/app/models/movie';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search-movies',
@@ -9,30 +10,33 @@ import { ActivatedRoute} from '@angular/router';
 })
 export class SearchMoviesComponent implements OnInit {
   constructor(
-  private moviesService: MoviesService,
-  private route: ActivatedRoute) { }
+    private moviesService: MoviesService,
+    private route: ActivatedRoute,
+    private searchStateService: SearchStateService
+  ) { }
 
   searchResults: any;
-  categorySelected: number | null = null; 
+  categorySelected: number | null = null;
   categoryName: string | null = null;
   movies: Movie[] = [];
 
   handleSearchResults(results: any) {
     this.searchResults = results;
-  }
-
-  handleCategorySelected(categoryId: number, categoryName: string) {
-    this.categorySelected = categoryId;
-    this.categoryName = categoryName;
-    this.getMoviesFromService();
+    this.searchStateService.setSearchResults(results);
   }
 
   clearSearch() {
     this.searchResults = null;
+    this.searchStateService.setSearchResults(null);
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    const savedResults = this.searchStateService.getSearchResults();
+    if (savedResults) {
+      this.searchResults = savedResults;
+    }
+
+    this.route.paramMap.subscribe((params) => {
       const genreId = params.get('id');
       const genreName = params.get('categoryName');
       if (genreId !== null) {
@@ -41,7 +45,7 @@ export class SearchMoviesComponent implements OnInit {
         this.getMoviesFromService();
       }
     });
-  }  
+  }
 
   private getMoviesFromService(): void {
     if (this.categorySelected !== null) {
