@@ -14,14 +14,16 @@ export class SearchMoviesComponent implements OnInit {
 
   searchResults: any;
   categorySelected: number | null = null; 
+  categoryName: string | null = null;
   movies: Movie[] = [];
 
   handleSearchResults(results: any) {
     this.searchResults = results;
   }
 
-  handleCategorySelected(categoryId: number) {
+  handleCategorySelected(categoryId: number, categoryName: string) {
     this.categorySelected = categoryId;
+    this.categoryName = categoryName;
     this.getMoviesFromService();
   }
 
@@ -32,8 +34,10 @@ export class SearchMoviesComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const genreId = params.get('id');
+      const genreName = params.get('categoryName');
       if (genreId !== null) {
         this.categorySelected = +genreId;
+        this.categoryName = genreName;
         this.getMoviesFromService();
       }
     });

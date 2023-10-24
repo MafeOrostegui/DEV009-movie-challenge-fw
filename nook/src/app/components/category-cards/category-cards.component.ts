@@ -11,13 +11,13 @@ import { DataService } from 'src/app/services/data/data.service';
 export class CategoryCardsComponent implements OnInit {
   constructor(
     private moviesService: MoviesService,
-    private dataService: DataService 
-  ) {}
+    private dataService: DataService
+  ) { }
 
   menuCategoryMovies: CategoryMovie[] = [];
   selectedCategory: number | null = null;
 
-  @Output() categorySelected = new EventEmitter<number>();
+  @Output() categorySelected = new EventEmitter<{ id: number, name: string }>();
   @Input() links: boolean = false;
   @Input() genre?: number;
   movie: Movie = {} as Movie;
@@ -37,8 +37,9 @@ export class CategoryCardsComponent implements OnInit {
     });
   }
 
-  onCategorySelected(categoryId: number) {
-    this.categorySelected.emit(categoryId);
+  onCategorySelected(categoryId: number, categoryName: string) {
+    const categoryInfo = { id: categoryId, name: categoryName };
+    this.categorySelected.emit(categoryInfo);
     this.selectedCategory = categoryId;
-  }
+  }  
 }
