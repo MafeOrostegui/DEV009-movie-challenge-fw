@@ -34,6 +34,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { LikeButtonComponent } from './components/like-button/like-button.component';
 import { SearchMoviesComponent } from './pages/search-movies/search-movies.component';
 import { CategoryCardsComponent } from './components/category-cards/category-cards.component';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { CategoryCardsComponent } from './components/category-cards/category-car
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
   ],
   providers: [],
   bootstrap: [AppComponent]
