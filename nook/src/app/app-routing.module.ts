@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "profile", component: ProfileComponent },
   { path: "library", component: LibraryComponent },
-  { path: "search/:id", component: SearchMoviesComponent },
+  { path: "search/:id/:categoryName", component: SearchMoviesComponent },
   { path: "search", component: SearchMoviesComponent },
   { path: "email-verification", component: EmailVerificationComponent },
   { path: "movie/:id", component: MovieInfoComponent }
