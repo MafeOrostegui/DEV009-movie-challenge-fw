@@ -20,7 +20,7 @@ export class SearchMoviesComponent implements OnInit {
   categoryName: string | null = null;
   movies: Movie[] = [];
 
-  handleSearchResults(results: any) {
+  handleSearchResults(results: Movie[]) {
     this.searchResults = results;
     this.searchStateService.setSearchResults(results);
   }
