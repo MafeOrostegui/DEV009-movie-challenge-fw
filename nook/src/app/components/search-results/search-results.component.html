@@ -1,0 +1,17 @@
+<section
+  class="flex flex-wrap mt-2 justify-center pb-20 lg:w-[95vw] md:w-[100vw] xl:w-[90vw] 2xl:w-[100vw]"
+  *ngIf="results && results.length > 0"
+>
+  <div
+    *ngFor="let result of results"
+    class="w-[40vw] m-2 lg:w-[10vw] md:w-[20vw] sm:w-[30vw]"
+  >
+    <a [routerLink]="['/movie', result.id]">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500/' + result.poster_path"
+        [alt]="result.title"
+        class="hover:border-custom-purple hover:border transition duration-300"
+      />
+    </a>
+  </div>
+</section>
