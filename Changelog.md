@@ -1,7 +1,48 @@
 # Changelog
 
-## 1.1.0 - 2023-17-11
+## 1.1.1 - 2023-10-25
 
+### Sprint learnings
+
+* Aprendí a usar Output.
+* Aprendí de EventEmitte.
+* Aprendí a usar RealTime Database y Firestore con Angular.
+* Aprendí a implementar un searchBar que se activa en cuanto escribe el usuario 3 carácteres o más.
+
+### Added
+
+* Componente de searchBar, searchResults, categoryCards, categoryResults.
+* Servicio para guardar la búsqueda y mantenerla hasta que el usuario decida borrarla.
+* Petición para obtener la base de datos que creé.
+* Componente Libreria para mostrar las listas del usuario.
+* Servicio Firestore para añadir elementos a las colecciones del usuario y para mostrarlas.
+
+### Changed
+
+* No se cambión nada que ya tuviese antes.
+
+### Fixed
+
+*  Tenía problemas con unas tarjetas que creé para mostrar los diferentes generos, al final la mejor opción fue usar Realtime Database.
+
+### Removed
+
+No removí ningún componente.
+
+### Commit Log
+
+* modified search results type
+* SEARCH PAGE DETAILS
+* Implement search service enhancements, search input history, and user experience improvements for filters
+* incorporation of gender name to improve user experience
+* Fetching Images for Genres in Realtime Database
+* Add new feature for category management
+* Categories component with style improvements
+* Changes services Firestore
+* Category cards component modification
+
+
+## 1.1.0 - 2023-10-17
 
 ### Sprint learnings
 
@@ -55,7 +96,7 @@
 * Enhanced movie component detail visualization
 * Style Movie Info
 
-## 1.0.1 - 2023-10-11
+## 1.0.1 - 2023-10-10
 
 ### Sprint learnings
 
