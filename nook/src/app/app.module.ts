@@ -35,6 +35,8 @@ import { LikeButtonComponent } from './components/like-button/like-button.compon
 import { SearchMoviesComponent } from './pages/search-movies/search-movies.component';
 import { CategoryCardsComponent } from './components/category-cards/category-cards.component';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { CategoryResultsComponent } from './components/category-results/category-results.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
     LikeButtonComponent,
     SearchMoviesComponent,
     CategoryCardsComponent,
+    SearchResultsComponent,
+    CategoryResultsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <section
-  class="mt-[10vh] lg:mt-[15vh] md:mt-[15vh] flex flex-col items-center h-[100vh]"
+  class="mt-[10vh] lg:mt-[15vh] md:mt-[15vh] flex flex-col items-center h-[100vh] w-[100vw]"
 >
   <app-header></app-header>
   <app-nav-bar></app-nav-bar>
@@ -7,43 +7,16 @@
     (searchResults)="handleSearchResults($event)"
     (clearSearchEvent)="clearSearch()"
   ></app-search-bar>
-  <div *ngIf="!searchResults">
-    <h1
-      class="text-white self-start font-extralight text-[0.8rem] ml-[6vw] lg:ml-[1vw] md:ml-[2vw] mt-6"
-    >
-      Browse by category
-    </h1>
-    <app-category-cards [links]="false"></app-category-cards>
-    <h2 class="text-white ml-4 lg:ml-[2.3vw]">{{ categoryName }}</h2>
-    <section class="flex flex-wrap mt-2 w-[90vw] justify-center pb-20">
-      <div
-        class="w-[40vw] m-2 lg:w-[10vw] md:w-[20vw] sm:w-[30vw]"
-        *ngFor="let movie of movies"
-      >
-        <a [routerLink]="['/movie', movie.id]">
-          <img
-            [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
-            [alt]="movie.title"
-            class="hover:border-custom-purple transition duration-300"
-          />
-        </a>
-      </div>
-    </section>
-  </div>
-  <section class="flex flex-wrap justify-center mt-2 pb-20 mr-[1vw] ml-[1vw]">
-    <ng-container *ngIf="searchResults && searchResults.results.length > 0">
-      <div
-        *ngFor="let result of searchResults.results"
-        class="w-[30vw] m-2 lg:w-[10vw] md:w-[20vw] sm:w-[30vw]"
-      >
-        <a [routerLink]="['/movie', result.id]">
-          <img
-            [src]="'https://image.tmdb.org/t/p/w500/' + result.poster_path"
-            [alt]="result.title"
-            class="hover:border-custom-purple hover:border transition duration-300"
-          />
-        </a>
-      </div>
+
+  <section class="flex flex-col items-center h-[100vh]">
+    <ng-container *ngIf="!searchResults">
+      <app-category-cards></app-category-cards>
+      <app-category-results
+        [categoryName]="categoryName || ''"
+        [movies]="movies"
+      ></app-category-results>
     </ng-container>
+
+    <app-search-results [results]="searchResults?.results"></app-search-results>
   </section>
 </section>
