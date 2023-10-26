@@ -5,7 +5,7 @@ import { AuthFormComponent } from 'src/app/components/auth-form/auth-form.compon
 import { loginRoutingModule } from './login.routing.module';
 
 @NgModule({
-    declarations: [LoginComponent],
-    imports: [CommonModule, loginRoutingModule, AuthFormComponent],
-  })
-  export class SignInModule {}
+  declarations: [LoginComponent],
+  imports: [CommonModule, loginRoutingModule, AuthFormComponent],
+})
+export class SignInModule { }
