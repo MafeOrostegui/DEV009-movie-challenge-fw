@@ -1,4 +1,5 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Movie } from 'src/app/models/movie';
 
 @Component({
   selector: 'app-category-results',
@@ -6,5 +7,5 @@ import { Component, Input} from '@angular/core';
 })
 export class CategoryResultsComponent {
   @Input() categoryName?: string;
-  @Input() movies?: any[];
+  @Input() movies: Movie[] = [];
 }

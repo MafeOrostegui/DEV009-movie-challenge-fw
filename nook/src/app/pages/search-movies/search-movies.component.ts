@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies/movies.service';
 import { SearchStateService } from 'src/app/services/search-state/search-state.service';
+import { Results, emptyResults } from 'src/app/models/results';
 import { Movie } from 'src/app/models/movie';
 import { ActivatedRoute } from '@angular/router';
 
@@ -15,19 +16,20 @@ export class SearchMoviesComponent implements OnInit {
     private searchStateService: SearchStateService
   ) { }
 
-  searchResults: any;
+  searchResults: Results | null = null;
   categorySelected: number | null = null;
   categoryName: string | null = null;
   movies: Movie[] = [];
 
-  handleSearchResults(results: Movie[]) {
+  handleSearchResults(results: Results) {
     this.searchResults = results;
+    console.log(this.searchResults)
     this.searchStateService.setSearchResults(results);
   }
 
   clearSearch() {
     this.searchResults = null;
-    this.searchStateService.setSearchResults(null);
+    this.searchStateService.setSearchResults(emptyResults);
   }
 
   ngOnInit(): void {

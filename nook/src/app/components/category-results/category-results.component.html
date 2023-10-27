@@ -1,9 +1,21 @@
-<h1 class="text-white self-start ml-[7vw] lg:ml-[2vw] md:ml-[7vw] xl:ml-[1vw] 2xl:ml-[2vw]">{{ categoryName }}</h1>
-<section class="flex flex-wrap mt-2 justify-center pb-20 lg:w-[95vw] xl:w-[90vw] 2xl:w-[100vw]">
-  <div class="w-[40vw] m-2 lg:w-[10vw] md:w-[20vw] sm:w-[30vw]" *ngFor="let movie of movies">
+<h1
+  class="text-white self-start ml-[7vw] lg:ml-[2vw] md:ml-[7vw] xl:ml-[1vw] 2xl:ml-[2vw]"
+>
+  {{ categoryName }}
+</h1>
+<section
+  class="flex flex-wrap mt-2 justify-center pb-20 lg:w-[95vw] xl:w-[90vw] 2xl:w-[100vw]"
+>
+  <div
+    class="w-[40vw] m-2 lg:w-[10vw] md:w-[20vw] sm:w-[30vw]"
+    *ngFor="let movie of movies"
+  >
     <a [routerLink]="['/movie', movie.id]">
-      <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" [alt]="movie.title"
-        class="hover:border-custom-purple transition duration-300" />
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+        [alt]="movie.title"
+        class="hover:border-custom-purple transition duration-300"
+      />
     </a>
   </div>
 </section>
