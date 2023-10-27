@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Results } from 'src/app/models/results';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,10 @@ export class SearchStateService {
 
   constructor() { }
 
-  private searchResults: any;
+  private searchResults?: Results;
   private searchTerm: string | null = null;
 
-  setSearchResults(results: any) {
+  setSearchResults(results: Results) {
     this.searchResults = results;
   }
 

@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MoviesService } from 'src/app/services/movies/movies.service';
 import { SearchStateService } from 'src/app/services/search-state/search-state.service';
+import { Results } from 'src/app/models/results';
 
 @Component({
   selector: 'app-search-bar',
@@ -17,9 +18,8 @@ export class SearchBarComponent implements OnInit {
   }
 
   form!: FormGroup;
-  @Output() searchResults = new EventEmitter<any>();
+  @Output() searchResults = new EventEmitter<Results>();
   @Output() clearSearchEvent = new EventEmitter<void>();
-
 
   ngOnInit() {
     const searchResults = this.searchStateService.getSearchTerm();

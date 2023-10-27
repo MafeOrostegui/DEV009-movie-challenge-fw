@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies/movies.service';
 import { CategoryMovie } from 'src/app/models/category-movie';
-import { Movie } from 'src/app/models/movie';
 import { DataService } from 'src/app/services/data/data.service';
 
 @Component({
@@ -16,7 +15,6 @@ export class CategoryCardsComponent implements OnInit {
 
   menuCategoryMovies: CategoryMovie[] = [];
   @Input() links: boolean = false;
-  movie: Movie = {} as Movie;
 
   ngOnInit() {
     this.categoryMovies();
