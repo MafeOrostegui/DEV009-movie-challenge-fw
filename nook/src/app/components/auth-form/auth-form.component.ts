@@ -2,7 +2,7 @@ import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { matchPasswordValidator } from 'src/app/components/auth-form/validator/match-password';
+import { matchPasswordValidator } from './validator/match-password';
 import { ErrorMessageComponent } from '../error-message/error-message.component';
 import { authService } from 'src/app/services/auth/auth.service';
 import { MatIconModule } from '@angular/material/icon';

@@ -1,6 +1,6 @@
 <section>
   <app-nav-bar></app-nav-bar>
-  <app-header></app-header>
+  <app-header [user]="true"></app-header>
   <app-movie [movieId]="569094"></app-movie>
   <h1 class="text-white ml-5 mt-10">Discover top-rated movies</h1>
   <app-movies [movieType]="'top_rated'" [useScrollX]="true"></app-movies>
