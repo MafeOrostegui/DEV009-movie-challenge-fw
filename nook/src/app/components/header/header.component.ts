@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Auth } from '@angular/fire/auth';
-import { User } from 'firebase/auth';
+import { Input } from '@angular/core';
 
 
 @Component({
@@ -12,23 +12,16 @@ export class HeaderComponent {
 
   constructor(private auth: Auth, private route: ActivatedRoute) {
     this.isMobile = window.innerWidth < 640
-    this.user = null;
+    this.user = false;
   }
   
-  user: User | null;
+  @Input() user: boolean;
   isProfile: boolean = false;
   isLibrary: boolean = false;
   isMobile: boolean;
 
   ngOnInit() {
-    this.subscribeToAuthStateChanges();
     this.subscribeToRouteChanges();
-  }
-
-  private subscribeToAuthStateChanges() {
-    this.auth.onAuthStateChanged((user) => {
-      this.user = user && user.emailVerified ? user : null;
-    });
   }
 
   private subscribeToRouteChanges() {

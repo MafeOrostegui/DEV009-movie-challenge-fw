@@ -1,24 +1,31 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { Auth, User, setPersistence, browserLocalPersistence, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
-import { UserService } from '../user/user.service';
+import { Auth, User, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, signInWithEmailAndPassword, signOut, authState } from '@angular/fire/auth';
+import { Subscription } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class authService {
+export class authService implements OnDestroy {
+
+  private auth: Auth = inject(Auth)
+  user$ = authState(this.auth);
+  userSubscription: Subscription;
+
   constructor(
-    private auth: Auth,
     private router: Router,
-    private userService: UserService,
   ) {
-    this.auth.onAuthStateChanged((user) => {
-      user
-        ? (this.userService.setUserUID(user.uid), console.log(user.uid))
-        : null;
-    });
+    this.userSubscription = this.user$.subscribe((aUser: User | null) => {
+      if (aUser) {
+        console.log(aUser.uid)
+      }
+    })
+  }
+
+  ngOnDestroy() {
+    this.userSubscription.unsubscribe();
   }
 
   async register(email: string, password: string, firstName: string): Promise<void> {
@@ -51,7 +58,6 @@ export class authService {
   }
 
   private checkUserIsVerified(user: User): void {
-    const verified = true;
     const route = user.emailVerified ? '/home' : '/email-verification'
     this.router.navigate([route])
   }
@@ -59,7 +65,6 @@ export class authService {
   async logOut(): Promise<void> {
     try {
       await signOut(this.auth)
-      this.userService.clearUserUID();
     } catch (error) {
       console.log('Sign out', error)
     }
