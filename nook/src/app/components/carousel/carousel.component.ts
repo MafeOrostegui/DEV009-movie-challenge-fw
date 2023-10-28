@@ -10,22 +10,22 @@ export class CarouselComponent {
     {
       title: 'Unlock the Future of Entertainment',
       subtitle: 'Elevate your streaming experience now!',
-      img: '../../assets/slide-first-img.png'
+      img: 'https://i.imgur.com/0rK9BNJ.jpg'
     },
     {
       title: 'Access AI-Powered Recommendations',
       subtitle: 'Discover favorites effortlessly.',
-      img: '../../assets/slide-second-img.png'
+      img: 'https://i.imgur.com/LP1ir7j.jpg'
     },
     {
       title: 'Create Personalized Watchlists',
       subtitle: 'Prioritize your must-watch content.',
-      img: '../../assets/slide-third-img.png'
+      img: 'https://i.imgur.com/A6IoWGe.jpg'
     },
     {
       title: 'Sign up and start exploring!',
       subtitle: '',
-      img: '../../assets/slide-four-img.png'
+      img: 'https://i.imgur.com/QcoeGry.jpg'
     }
 
   ];
