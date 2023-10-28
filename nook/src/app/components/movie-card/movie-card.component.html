@@ -1,7 +1,7 @@
 <section class="relative">
-  <a [routerLink]="['/movie', movie.id]">
+  <a [routerLink]="['/info', movie.id, 'movie']">
     <div *ngIf="movie.images && movie.images.backdrops && movie.images.logos">
-      <a [routerLink]="['/movie', movie.id]">
+      <a [routerLink]="['/info', movie.id, 'movie']">
         <img
           [src]="
             movie.images.backdrops[0]
@@ -61,7 +61,7 @@
         >
           <a
             class="sm:text-[0.8rem] lg:text-[1.2rem]"
-            [routerLink]="['/movie', movie.id]"
+            [routerLink]="['/info', movie.id, 'movie']"
             >More Info</a
           >
         </div>

@@ -1,15 +1,19 @@
 <section>
   <app-nav-bar></app-nav-bar>
   <app-header [user]="true"></app-header>
-  <app-movie [movieId]="569094"></app-movie>
+  <app-movie [movieId]="569094" [mediaType]="'movie'"></app-movie>
   <h1 class="text-white ml-5 mt-10">Discover top-rated movies</h1>
-  <app-movies [movieType]="'top_rated'" [useScrollX]="true"></app-movies>
+  <app-movies
+    [movieType]="'top_rated'"
+    [mediaType]="'movie'"
+    [useScrollX]="true"
+  ></app-movies>
   <h2 class="text-white ml-5 mt-7">Best animated movies for you</h2>
-  <app-movies [genre]="16" [useScrollX]="true"></app-movies>
+  <app-movies [genre]="16" [useScrollX]="true" [mediaType]="'movie'"></app-movies>
   <h2 class="text-white ml-5 mt-7">Action-Packed Movie</h2>
-  <app-movies [genre]="18" [useScrollX]="true"></app-movies>
-  <app-movie [movieId]="1151534"></app-movie>
+  <app-movies [genre]="18" [useScrollX]="true" [mediaType]="'movie'"></app-movies>
+  <app-movie [movieId]="1151534" [mediaType]="'movie'"></app-movie>
   <h2 class="text-white ml-5 mt-7">LaughFlix</h2>
-  <app-movies [genre]="35" [useScrollX]="true"></app-movies>
+  <app-movies [genre]="35" [useScrollX]="true" [mediaType]="'movie'"></app-movies>
   <div class="mb-12"></div>
 </section>

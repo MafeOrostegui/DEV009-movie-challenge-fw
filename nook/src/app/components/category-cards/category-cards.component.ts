@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MoviesService } from 'src/app/services/movies/movies.service';
+import { MediaService } from 'src/app/services/media/media.service';
 import { CategoryMovie } from 'src/app/models/category-movie';
 import { DataService } from 'src/app/services/data/data.service';
 
@@ -9,7 +9,7 @@ import { DataService } from 'src/app/services/data/data.service';
 })
 export class CategoryCardsComponent implements OnInit {
   constructor(
-    private moviesService: MoviesService,
+    private moviesService: MediaService,
     private dataService: DataService
   ) { }
 
@@ -21,7 +21,7 @@ export class CategoryCardsComponent implements OnInit {
   }
 
   categoryMovies() {
-    this.moviesService.getCategoryMovies().subscribe((response: { genres: CategoryMovie[] }) => {
+    this.moviesService.getCategoryMedia('movie').subscribe((response: { genres: CategoryMovie[] }) => {
       this.menuCategoryMovies = response.genres;
       this.menuCategoryMovies.forEach((category) => {
         this.dataService.getGenreImageById(category.id).subscribe((url) => {

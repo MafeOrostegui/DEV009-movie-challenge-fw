@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges, HostListener } from '@angular/core';
-import { MoviesService } from 'src/app/services/movies/movies.service';
+import { MediaService } from 'src/app/services/media/media.service';
 import { Movie } from 'src/app/models/movie';
 import { Router } from '@angular/router';
 
@@ -9,11 +9,12 @@ import { Router } from '@angular/router';
 })
 export class MovieCardComponent implements OnInit, OnChanges {
   
-  constructor(private moviesService: MoviesService, private router: Router) {
+  constructor(private moviesService: MediaService, private router: Router) {
     this.isMobile = window.innerWidth < 640;
   }
 
   @Input() movieId!: number;
+  @Input() mediaType?: 'tv' | 'movie';
   movie: Movie = {} as Movie;
 
   isHome(): boolean {
@@ -38,7 +39,7 @@ export class MovieCardComponent implements OnInit, OnChanges {
   }
 
   loadMovieInfo(id: number): void {
-    this.moviesService.getMovieInfo(id)
+    this.moviesService.getMediaInfo(id, this.mediaType)
       .subscribe((response) => {
         this.movie = response;
       });
