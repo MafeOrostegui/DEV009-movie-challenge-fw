@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <app-header [user]="true"></app-header>
-<app-movie [movieId]="movie.id"></app-movie>
+<app-movie [movieId]="movie.id" [mediaType]="'movie'"></app-movie>
 <p
   class="text-white font-light lg:font-light text-center text-[0.8rem] lg:text-[1rem] ml-5 mt-5 lg:mt-[6vh] lg:mb-[10vh] mb-7 mr-5 lg:ml-[5vw] lg:mr-[5vw] mx-auto"
 >
@@ -45,6 +45,6 @@
 
 <ng-container *ngIf="movie && movie.genres && movie.genres.length > 0">
   <h3 class="text-white ml-5">More content like this</h3>
-  <app-movies [genre]="movie.genres[0].id" [useScrollX]="true"></app-movies>
+  <app-movies [genre]="movie.genres[0].id" [useScrollX]="true" [mediaType]="'movie'"></app-movies>
 </ng-container>
 <div class="mb-12"></div>

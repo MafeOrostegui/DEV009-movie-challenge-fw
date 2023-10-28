@@ -21,7 +21,7 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
 import { HeaderComponent } from './components/header/header.component';
 import { MoviesCardsComponent } from './components/movies-cards/movies-cards.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { MovieInfoComponent } from './pages/movie-info/movie-info.component';
+import { MediaInfoComponent } from './pages/media-info/media-info.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
@@ -53,7 +53,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     MoviesCardsComponent,
     MenuComponent,
-    MovieInfoComponent,
+    MediaInfoComponent,
     MovieCardComponent,
     NavBarComponent,
     BackButtonComponent,

@@ -10,7 +10,7 @@
     class="w-[40vw] m-2 lg:w-[10vw] md:w-[20vw] sm:w-[30vw]"
     *ngFor="let movie of movies"
   >
-    <a [routerLink]="['/movie', movie.id]">
+    <a [routerLink]="['/info', movie.id, 'movie']">
       <img
         [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
         [alt]="movie.title"

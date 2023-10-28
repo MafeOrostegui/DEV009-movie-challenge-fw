@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from 'src/app/services/movies/movies.service';
+import { MediaService } from 'src/app/services/media/media.service';
 import { SearchStateService } from 'src/app/services/search-state/search-state.service';
 import { Results, emptyResults } from 'src/app/models/results';
 import { Movie } from 'src/app/models/movie';
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SearchMoviesComponent implements OnInit {
   constructor(
-    private moviesService: MoviesService,
+    private moviesService: MediaService,
     private route: ActivatedRoute,
     private searchStateService: SearchStateService
   ) { }
@@ -52,7 +52,7 @@ export class SearchMoviesComponent implements OnInit {
   private getMoviesFromService(): void {
     if (this.categorySelected !== null) {
       this.moviesService
-        .getMovies(1, undefined, this.categorySelected)
+        .getMedia(1, 'movie', undefined,  this.categorySelected)
         .subscribe((response) => {
           this.movies = response.results as Movie[];
           console.log(this.movies)

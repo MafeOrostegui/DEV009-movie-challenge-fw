@@ -5,7 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { HomeComponent } from './pages/home/home.component';
 import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
-import { MovieInfoComponent } from './pages/movie-info/movie-info.component';
+import { MediaInfoComponent } from './pages/media-info/media-info.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LibraryComponent } from './pages/library/library.component';
 import { SearchMoviesComponent } from './pages/search-movies/search-movies.component';
@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: "search/:id/:categoryName", component: SearchMoviesComponent },
   { path: "search", component: SearchMoviesComponent },
   { path: "email-verification", component: EmailVerificationComponent },
-  { path: "movie/:id", component: MovieInfoComponent }
+  { path: "info/:id/:media", component: MediaInfoComponent }
 ];
 
 @NgModule({

@@ -7,36 +7,39 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 
-export class MoviesService {
+export class MediaService {
 
   constructor(private http: HttpClient) { }
 
   private apiKey = '49a18f8a2dc1ca4105c158804e2ea08e';
   private apiUrl = 'https://api.themoviedb.org/3';
 
-  getMovies(page: number, kind?: string | undefined, genre?: null | number): Observable<any> {
+  getMedia(page: number, media: string | undefined, kind?: string | undefined, genre?: null | number): Observable<any> {
     let url: string;
 
-    (genre)
-      ? url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_genres=${genre}&page=${page}`
-      : url = `${this.apiUrl}/movie/${kind}?api_key=${this.apiKey}&page=${page}`;
-
+    if (genre) {
+      url = `${this.apiUrl}/discover/${media}?api_key=${this.apiKey}&with_genres=${genre}&page=${page}`
+    } else if (kind) {
+      url = `${this.apiUrl}/${media}/${kind}?api_key=${this.apiKey}&page=${page}`
+    } else {
+      url = `${this.apiUrl}/discover/${media}?api_key=${this.apiKey}&page=${page}`
+    }
     return this.http.get(url).pipe(
       catchError(this.handleError)
     );
   }
 
-  getMovieInfo(movieId: number): Observable<any> {
-    const url = `${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}&append_to_response=credits,images`;
+  getMediaInfo(movieId: number, media: string | undefined): Observable<any> {
+    const url = `${this.apiUrl}/${media}/${movieId}?api_key=${this.apiKey}&append_to_response=credits,images`;
     return this.http.get(url)
       .pipe(
-        
+
         catchError(this.handleError)
       );
   }
 
-  getCategoryMovies(): Observable<any> {
-    const url = `${this.apiUrl}/genre/movie/list?language=en&api_key=${this.apiKey}`;
+  getCategoryMedia(media: string | undefined): Observable<any> {
+    const url = `${this.apiUrl}/genre/${media}/list?language=en&api_key=${this.apiKey}`;
     return this.http.get(url)
       .pipe(
         catchError(this.handleError)
