@@ -1,0 +1,28 @@
+<owl-carousel-o [options]="customOptions">
+  <ng-container *ngFor="let slide of dynamicSlides">
+    <ng-template carouselSlide>
+      <div class="slide h-[73vh]">
+        <img
+          [src]="slide.img"
+          [title]="slide.title"
+          class="h-[100%] object-cover"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-100"
+        ></div>
+        <div class="flex items-center flex-col">
+          <h1
+            class="text-white text-center font-semibold absolute top-[65vh] z-30"
+          >
+            {{ slide.title }}
+          </h1>
+          <h2
+            class="text-white text-center font-light absolute top-[68vh] z-30"
+          >
+            {{ slide.subtitle }}
+          </h2>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>

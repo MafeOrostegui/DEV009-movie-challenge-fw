@@ -37,6 +37,10 @@ import { CategoryCardsComponent } from './components/category-cards/category-car
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { CategoryResultsComponent } from './components/category-results/category-results.component';
+import { RouterModule } from '@angular/router';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 @NgModule({
   declarations: [
@@ -64,6 +68,7 @@ import { CategoryResultsComponent } from './components/category-results/category
     CategoryCardsComponent,
     SearchResultsComponent,
     CategoryResultsComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,10 +80,13 @@ import { CategoryResultsComponent } from './components/category-results/category
     MatIconModule,
     AuthFormComponent,
     ErrorMessageComponent,
+    CarouselModule,
+    RouterModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

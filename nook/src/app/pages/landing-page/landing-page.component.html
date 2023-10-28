@@ -1,22 +1,8 @@
 <section class="w-screen h-screen mx-auto" *ngIf="isMobile">
-  <div class="relative" (click)="changeImage()">
-    <img
-      [src]="currentImage"
-      class="absolute top-0 left-0 transition-opacity duration-500"
-    />
-    <img
-      [src]="currentPoint"
-      class="absolute top-[75vh] left-1/2 transform -translate-x-1/2 transition-opacity duration-500"
-    />
-  </div>
+  <img src="../../assets/logo.png" class="absolute w-1/2 h-auto top-[52vh] z-30 left-1/2 transform -translate-x-1/2" />
+
+  <app-carousel></app-carousel>
   <section class="flex flex-col justify-center items-center">
-    <img src="../../assets/logo.png" class="absolute w-1/2 h-auto top-[55vh]" />
-    <h1 class="absolute text-white mt-[5vh] font-semibold top-[60vh]">
-      {{ currentTitle }}
-    </h1>
-    <span class="mb-[2vh] font-light text-sm absolute text-white top-[70vh]">{{
-      currentSubtitle
-    }}</span>
     <div class="absolute top-[80vh] flex flex-col">
       <div
         class="text-white h-[6vh] rounded-[15px] flex justify-center items-center bg-custom-purple hover:bg-transparent hover:border-custom-purple font-semibold py-2 px-4 mb-[1vh] md:w-[20vw]"
