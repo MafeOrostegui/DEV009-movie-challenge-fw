@@ -26,5 +26,4 @@ export class SearchStateService {
   getSearchTerm(): string | null {
     return this.searchTerm
   }
-
 }
