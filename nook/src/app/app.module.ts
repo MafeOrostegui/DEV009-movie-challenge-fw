@@ -19,10 +19,10 @@ import { EmailVerificationComponent } from './pages/email-verification/email-ver
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { HeaderComponent } from './components/header/header.component';
-import { MoviesCardsComponent } from './components/movies-cards/movies-cards.component';
+import { MediaCardsComponent } from './components/media-cards/media-cards.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MediaInfoComponent } from './pages/media-info/media-info.component';
-import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MediaCardComponent } from './components/media-card/media-card.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -40,7 +40,8 @@ import { CategoryResultsComponent } from './components/category-results/category
 import { RouterModule } from '@angular/router';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CarouselComponent } from './components/carousel/carousel.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 
 @NgModule({
   declarations: [
@@ -51,10 +52,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     EmailVerificationComponent,
     HeaderComponent,
-    MoviesCardsComponent,
+    MediaCardsComponent,
     MenuComponent,
     MediaInfoComponent,
-    MovieCardComponent,
+    MediaCardComponent,
     NavBarComponent,
     BackButtonComponent,
     ProfileComponent,
@@ -69,6 +70,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SearchResultsComponent,
     CategoryResultsComponent,
     CarouselComponent,
+    TvShowsComponent,
   ],
   imports: [
     BrowserModule,

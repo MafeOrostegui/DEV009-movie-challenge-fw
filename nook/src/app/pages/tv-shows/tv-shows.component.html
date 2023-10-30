@@ -1,0 +1,20 @@
+<section>
+    <app-nav-bar></app-nav-bar>
+    <app-header [user]="true"></app-header>
+    <app-card [movieId]="84958" [mediaType]="'tv'"></app-card>
+    <h1 class="text-white ml-5 mt-10">Discover top-rated tvShows</h1>
+    <app-cards
+      [movieType]="'top_rated'"
+      [mediaType]="'tv'"
+      [useScrollX]="true"
+    ></app-cards>
+    <h2 class="text-white ml-5 mt-7">Best animated TvShows for you</h2>
+    <app-cards [genre]="16" [useScrollX]="true" [mediaType]="'tv'"></app-cards>
+    <h2 class="text-white ml-5 mt-7">Action-Packed</h2>
+    <app-cards [genre]="18" [useScrollX]="true" [mediaType]="'tv'"></app-cards>
+    <app-card [movieId]="1434" [mediaType]="'tv'"></app-card>
+    <h2 class="text-white ml-5 mt-7">LaughFlix</h2>
+    <app-cards [genre]="35" [useScrollX]="true" [mediaType]="'tv'"></app-cards>
+    <div class="mb-12"></div>
+  </section>
+  
