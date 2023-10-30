@@ -1,5 +1,8 @@
 <section class="w-screen h-screen mx-auto" *ngIf="isMobile">
-  <img src="../../assets/logo.png" class="absolute w-1/2 h-auto top-[52vh] z-30 left-1/2 transform -translate-x-1/2" />
+  <img
+    src="../../assets/logo.png"
+    class="absolute w-1/2 h-auto top-[52vh] z-30 left-1/2 transform -translate-x-1/2"
+  />
 
   <app-carousel></app-carousel>
   <section class="flex flex-col justify-center items-center">
@@ -67,9 +70,17 @@
     </div>
   </section>
   <h2 class="text-white mt-10 mb-5 ml-6">Popular Movies</h2>
-  <app-movies [movieType]="'popular'" [useScrollX]="true"></app-movies>
+  <app-cards
+    [movieType]="'popular'"
+    [useScrollX]="true"
+    [mediaType]="'movie'"
+  ></app-cards>
   <h2 class="text-white mt-10 mb-5 ml-6">Upcoming Movies</h2>
-  <app-movies [movieType]="'upcoming'" [useScrollX]="true"></app-movies>
+  <app-cards
+    [movieType]="'upcoming'"
+    [useScrollX]="true"
+    [mediaType]="'movie'"
+  ></app-cards>
   <section class="flex flex-col justify-center items-center mb-20">
     <h3 class="text-white text-2xl text-center mt-20 mb-20">
       A simple and complete experience

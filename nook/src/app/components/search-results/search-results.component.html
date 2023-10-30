@@ -5,13 +5,13 @@
   "
 >
   <div
-    *ngFor="let movie of searchResults.results"
+    *ngFor="let result of searchResults.results"
     class="w-[40vw] m-2 lg:w-[10vw] md:w-[20vw] sm:w-[30vw]"
   >
-    <a [routerLink]="['/info', movie.id, 'movie']">
+    <a [routerLink]="['/info', result.id, isTvShow(result) ? 'tv' : 'movie']">
       <img
-        [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
-        [alt]="movie.title"
+        [src]="'https://image.tmdb.org/t/p/w500/' + (result?.poster_path || '')"
+        [alt]="getTitle(result)"
         class="hover:border-custom-purple hover:border transition duration-300"
       />
     </a>
