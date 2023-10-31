@@ -1,5 +1,47 @@
 # Changelog
 
+## 1.1.2 - 2023-10-31
+
+### Sprint learnings
+
+* Aprendí un poco más de BehaviorSubject y asObservable.
+* Reforcé mis conocimientos en las interfaces, los decoradores.
+* Reforcé mi conocimiento en los formularios reactivos.
+
+### Added
+
+* Pages de TvShows, seasons Tv Show, componente Carousel.
+* Interfaz de tvShow y sus complementarias.
+
+### Changed
+
+* Se cambió la lógica para obtener el uid del usuario y mostrarle solo sus peliculas.
+* Se modificaron algunos componentes para que fuera más diciente que muestran tvShows o Movies.
+
+### Fixed
+
+* Finalmente solucioné un problema que tenía con el uid del usuario al ingresar a su libreria.
+
+### Removed
+
+* No removí ningún componente
+
+## Commit Log
+
+* Tv Shows Component
+* The movie services were renamed media to be able to make requests for TV shows/
+* Optimization true
+* removal of all carousel images as they were hosted on the web
+* Delete Video and img
+* A library was used to enhance the carousel.
+* elimination of type any in the search results, results interface was created
+* Elimination of user service and implementation of observer to get uid correctly, the library bug was solved
+* Refactoring and Converting Directive to Function
+* Update Changelog
+* modified search results type
+* SEARCH PAGE DETAILS
+
+
 ## 1.1.1 - 2023-10-25
 
 ### Sprint learnings
