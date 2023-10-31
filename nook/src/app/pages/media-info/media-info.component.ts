@@ -15,7 +15,13 @@ export class MediaInfoComponent implements OnInit {
 
   movie: Movie = {} as Movie;
   tvShow: TvShow = {} as TvShow;
+  seasonInfo: any;
   media!: 'tv' | 'movie';
+
+  handleSeasonInfoSelected(seasonInfo: any) {
+    this.seasonInfo = seasonInfo;
+    console.log(this.seasonInfo)
+  }
 
   ngOnInit() {
     this.route.params.pipe(

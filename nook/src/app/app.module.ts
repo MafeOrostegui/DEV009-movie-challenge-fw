@@ -42,6 +42,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
+import { SeasonsTvShowComponent } from './components/seasons-tv-show/seasons-tv-show.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,7 @@ import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
     CategoryResultsComponent,
     CarouselComponent,
     TvShowsComponent,
+    SeasonsTvShowComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,6 +87,7 @@ import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
     ErrorMessageComponent,
     CarouselModule,
     RouterModule,
+    MatSelectModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
