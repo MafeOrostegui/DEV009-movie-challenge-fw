@@ -1,4 +1,5 @@
 import { Actor } from "./actor";
+import { Seasons } from "./seasons";
 
 export interface TvShow {
     id: number;
@@ -12,6 +13,7 @@ export interface TvShow {
     number_of_seasons: number;
     number_of_episodes: number;
     episode_run_time: number;
+    seasons: Seasons[];
     credits: {
         cast: Actor[];
     };
