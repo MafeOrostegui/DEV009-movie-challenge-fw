@@ -19,6 +19,7 @@ export class HeaderComponent {
   isProfile: boolean = false;
   isLibrary: boolean = false;
   isTvShows: boolean = false;
+  isMovies: boolean = false;
   isMobile: boolean;
 
   ngOnInit() {
@@ -28,6 +29,7 @@ export class HeaderComponent {
   private subscribeToRouteChanges() {
     this.route.url.subscribe(segments => {
       this.isProfile = segments.some(segment => segment.path === 'profile');
+      this.isMovies = segments.some(segment => segment.path === 'movies');
       this.isTvShows = segments.some(segment => segment.path === 'tvShows');
       this.isLibrary = segments.some(segment => segment.path === 'library');
     });

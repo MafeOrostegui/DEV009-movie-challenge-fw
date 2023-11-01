@@ -20,7 +20,7 @@ export class MediaCardComponent implements OnInit, OnChanges {
   tvShow: TvShow = {} as TvShow;
 
   isHome(): boolean {
-    return this.router.url === '/home' || this.router.url === '/tvShows';
+    return this.router.url === '/home' || this.router.url === '/tvShows' || this.router.url === '/movies';
   }
 
   isMobile: boolean;

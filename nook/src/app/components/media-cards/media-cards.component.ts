@@ -16,7 +16,7 @@ export class MediaCardsComponent implements OnInit {
   ) { }
 
   defaultMessage: string = "There are no movies in this category";
-  @Input() movieType!: 'popular' | 'upcoming' | 'top_rated' | 'movies' | 'favorites';
+  @Input() movieType!: 'popular' | 'upcoming' | 'top_rated' | 'movies' | 'favorites' | 'on_the_air' | 'now_playing';
   @Input() mediaType?: 'tv' | 'movie';
   @Input() genre?: number;
   @Input() useScrollX: boolean = true;

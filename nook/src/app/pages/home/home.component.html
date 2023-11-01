@@ -8,12 +8,16 @@
     [mediaType]="'movie'"
     [useScrollX]="true"
   ></app-cards>
-  <h2 class="text-white ml-5 mt-7">Best animated movies for you</h2>
-  <app-cards [genre]="16" [useScrollX]="true" [mediaType]="'movie'"></app-cards>
+  <h2 class="text-white ml-5 mt-7">Right Now on TV</h2>
+  <app-cards
+    [movieType]="'on_the_air'"
+    [mediaType]="'tv'"
+    [useScrollX]="true"
+  ></app-cards>
   <h2 class="text-white ml-5 mt-7">Action-Packed Movie</h2>
   <app-cards [genre]="18" [useScrollX]="true" [mediaType]="'movie'"></app-cards>
   <app-card [movieId]="1151534" [mediaType]="'movie'"></app-card>
-  <h2 class="text-white ml-5 mt-7">LaughFlix</h2>
-  <app-cards [genre]="35" [useScrollX]="true" [mediaType]="'movie'"></app-cards>
+  <h2 class="text-white ml-5 mt-7">Sci-Fi Sensations</h2>
+  <app-cards [genre]="10765" [useScrollX]="true" [mediaType]="'tv'"></app-cards>
   <div class="mb-12"></div>
 </section>
