@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { MediaService } from 'src/app/services/media/media.service';
 import { SeasonDetails } from 'src/app/models/season-details';
@@ -27,7 +27,7 @@ import { Seasons } from 'src/app/models/seasons';
   </form>
 `,
 })
-export class SeasonsTvShowComponent implements OnInit {
+export class SeasonsTvShowComponent implements OnChanges, OnInit {
   @Input() serieId!: number;
   @Input() seasons!: Seasons[];
 
@@ -39,19 +39,28 @@ export class SeasonsTvShowComponent implements OnInit {
   form!: FormGroup;
   @Output() seasonInfo = new EventEmitter<SeasonDetails>()
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['seasons'] && this.seasons && this.seasons.length > 0) {
+      this.initForm();
+      this.form.get('seasonsSelect')?.setValue(this.seasons[0].season_number);
+      this.onSeasonSelect(this.seasons[0].season_number);
+    }
+  }
+
   ngOnInit(): void {
-    this.initForm();
+    this.initForm()
   }
 
   private initForm(): void {
     this.form = this.fb.group({
       seasonsSelect: new FormControl()
-    })
-  }
+    });
+  }  
 
   onSeasonSelect(seasonId: number): void {
+    this.form.get('seasonsSelect')?.patchValue(seasonId);
     this.getSeasonInfo(seasonId);
-    console.log(seasonId)
+    console.log(seasonId);
   }
 
   private getSeasonInfo(seasonId: number): void {
