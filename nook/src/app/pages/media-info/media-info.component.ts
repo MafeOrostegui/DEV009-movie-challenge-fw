@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from 'src/app/models/movie';
+import { SeasonDetails } from 'src/app/models/season-details';
 import { TvShow } from 'src/app/models/tv-show';
 import { MediaService } from 'src/app/services/media/media.service';
 import { switchMap } from 'rxjs/operators';
@@ -15,10 +16,10 @@ export class MediaInfoComponent implements OnInit {
 
   movie: Movie = {} as Movie;
   tvShow: TvShow = {} as TvShow;
-  seasonInfo: any;
+  seasonInfo!: SeasonDetails;
   media!: 'tv' | 'movie';
 
-  handleSeasonInfoSelected(seasonInfo: any) {
+  handleSeasonInfoSelected(seasonInfo: SeasonDetails) {
     this.seasonInfo = seasonInfo;
     console.log(this.seasonInfo)
   }
