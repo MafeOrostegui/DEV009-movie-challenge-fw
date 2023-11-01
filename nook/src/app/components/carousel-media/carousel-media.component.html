@@ -1,0 +1,62 @@
+<owl-carousel-o [options]="customOptions" *ngIf="movies.length > 0" class="relative">
+  <ng-container *ngFor="let movie of movies">
+    <ng-template carouselSlide>
+      <div
+        class="slide h-[73vh]"
+        *ngIf="movie.images && movie.images.backdrops && movie.images.logos"
+      >
+        <img
+          [src]="
+            movie.images.backdrops[0]
+              ? 'https://image.tmdb.org/t/p/original/' +
+                movie.images.backdrops[0].file_path
+              : 'https://image.tmdb.org/t/p/w500/' + movie.poster_path
+          "
+          class="object-cover lg:h-[80vh] lg:w-full h-[70vh] w-[100vw] lg:object-right-top md:object-right-top sm:object-right-top object-center"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-100"
+        ></div>
+        <div
+          class="z-10 lg:top-[30vh] sm:top-[30vh] top-[45vh] lg:left-[20vw] text-white absolute left-1/2 -translate-x-1/2 drop-shadow-lg shadow-black"
+        >
+          <div
+            class="text-center text-[0.6rem] sm:text-[1rem] flex flex-col font-extralight mt-[2vh]"
+          >
+            <img
+              [src]="
+                'https://image.tmdb.org/t/p/original/' +
+                movie.images.logos[0].file_path
+              "
+              alt="Logos"
+              class="w-[80vw] sm:w-[40vw] lg:w-[8vw] lg:h-[8vh] xl:w-[8vw] xl:h-[8vw]"
+            />
+            <div class="flex justify-center">
+              <span class="pr-[0.5rem] font-normal">
+                {{ movie.genres[0].name }}
+              </span>
+              <span>
+                {{ movie.release_date | date : "dd/MM/yyyy" }}
+              </span>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg
+                class="w-4 h-4 text-yellow-300 mr-1"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <span
+                >Vote Average: {{ movie.vote_average | number : "1.2-2" }}</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>

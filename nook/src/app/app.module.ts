@@ -45,6 +45,7 @@ import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { SeasonsTvShowComponent } from './components/seasons-tv-show/seasons-tv-show.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MoviesComponent } from './pages/movies/movies.component';
+import { CarouselMediaComponent } from './components/carousel-media/carousel-media.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { MoviesComponent } from './pages/movies/movies.component';
     TvShowsComponent,
     SeasonsTvShowComponent,
     MoviesComponent,
+    CarouselMediaComponent,
   ],
   imports: [
     BrowserModule,
