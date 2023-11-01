@@ -13,7 +13,8 @@ import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { MoviesComponent } from './pages/movies/movies.component';
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent },
+  { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
+  { path: "landing-page", component: LandingPageComponent },
   { path: "login", component: LoginComponent },
   { path: "sign-up", component: SignUpComponent },
   { path: "home", component: HomeComponent },
