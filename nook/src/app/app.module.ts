@@ -44,6 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { SeasonsTvShowComponent } from './components/seasons-tv-show/seasons-tv-show.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MoviesComponent } from './pages/movies/movies.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { MatSelectModule } from '@angular/material/select';
     CarouselComponent,
     TvShowsComponent,
     SeasonsTvShowComponent,
+    MoviesComponent,
   ],
   imports: [
     BrowserModule,

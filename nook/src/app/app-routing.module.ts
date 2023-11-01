@@ -10,6 +10,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { LibraryComponent } from './pages/library/library.component';
 import { SearchMoviesComponent } from './pages/search-movies/search-movies.component';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
+import { MoviesComponent } from './pages/movies/movies.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: "sign-up", component: SignUpComponent },
   { path: "home", component: HomeComponent },
   { path: "tvShows", component: TvShowsComponent },
+  { path: "movies", component: MoviesComponent },
   { path: "profile", component: ProfileComponent },
   { path: "library", component: LibraryComponent },
   { path: "search/:id/:categoryName", component: SearchMoviesComponent },

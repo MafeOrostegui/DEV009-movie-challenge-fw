@@ -1,0 +1,24 @@
+<section>
+    <app-nav-bar></app-nav-bar>
+    <app-header [user]="true"></app-header>
+    <app-card [movieId]="299054" [mediaType]="'movie'"></app-card>
+    <h1 class="text-white ml-5 mt-10">Upcoming movies</h1>
+    <app-cards
+      [movieType]="'upcoming'"
+      [mediaType]="'movie'"
+      [useScrollX]="true"
+    ></app-cards>
+    <h2 class="text-white ml-5 mt-7">War Epics</h2>
+    <app-cards
+      [genre]="10752"
+      [mediaType]="'movie'"
+      [useScrollX]="true"
+    ></app-cards>
+    <h2 class="text-white ml-5 mt-7">Fantasy Films: Escape to Magical Worlds</h2>
+    <app-cards [genre]="14" [useScrollX]="true" [mediaType]="'movie'"></app-cards>
+    <app-card [movieId]="1039690" [mediaType]="'movie'"></app-card>
+    <h2 class="text-white ml-5 mt-7">Chilling Horror Flicks</h2>
+    <app-cards [genre]="27" [useScrollX]="true" [mediaType]="'movie'"></app-cards>
+    <div class="mb-12"></div>
+  </section>
+  
