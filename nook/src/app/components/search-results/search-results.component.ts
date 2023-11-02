@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Results } from 'src/app/models/results';
 import { Movie } from 'src/app/models/movie';
 import { TvShow } from 'src/app/models/tv-show';
@@ -9,6 +9,12 @@ import { TvShow } from 'src/app/models/tv-show';
 })
 export class SearchResultsComponent {
   @Input() searchResults: Results | null | undefined;
+  @Output() scrolled = new EventEmitter<void>();
+  scrollUpDistance: number = 1;
+
+  onScrollSearch() {
+    this.scrolled.emit();
+  }
 
   isTvShow(result: Movie | TvShow): boolean {
     return 'media_type' in result && result.media_type === 'tv';
