@@ -38,17 +38,23 @@ export class SearchBarComponent implements OnInit {
 
   onSearchInputChange(event: Event): void {
     const query = (event.target as HTMLInputElement).value;
-
+  
     if (query.length >= 3) {
-      this.movieService.searchMovies(query, 1).subscribe((response) => {
-        this.searchResults.emit(response);
-        this.searchStateService.setSearchTerm(query);
-        this.form.get('currentPage')?.setValue(1);
-      });
+      const currentPage = this.form.get('currentPage')?.value; 
+      this.search(query, currentPage);
     } else if (query.length === 0) {
       this.clearSearch();
     }
   }
+  
+  search(query: string, currentPage: number) {
+    this.movieService.searchMovies(query, currentPage).subscribe((response) => {
+      this.searchResults.emit(response);
+      this.searchStateService.setSearchTerm(query);
+      this.form.get('currentPage')?.setValue(currentPage);
+    });
+  }
+  
 
   fetchMoreResults() {
     const currentPage = this.form.get('currentPage')?.value + 1;
