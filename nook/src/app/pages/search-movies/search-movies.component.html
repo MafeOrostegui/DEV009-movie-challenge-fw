@@ -1,9 +1,5 @@
 <section
   class="mt-[10vh] lg:mt-[15vh] md:mt-[15vh] flex flex-col items-center w-[100vw]"
-  (scrolled)="onScroll()"
-  infiniteScroll
-  [infiniteScrollDistance]="1"
-  [infiniteScrollThrottle]="50"
 >
   <app-header [user]="true"></app-header>
   <app-nav-bar></app-nav-bar>
@@ -12,16 +8,26 @@
     (clearSearchEvent)="clearSearch()"
   ></app-search-bar>
 
-  <section
-    class="flex flex-col items-center h-[100vh]">
+  <section class="flex flex-col items-center h-[100vh]">
     <ng-container *ngIf="!searchResults">
       <app-category-cards></app-category-cards>
       <app-category-results
         [categoryName]="categoryName || ''"
         [movies]="movies"
+        (scrolled)="onScroll()"
+        infiniteScroll
+        [infiniteScrollDistance]="1"
+        [infiniteScrollThrottle]="50"
       ></app-category-results>
     </ng-container>
-
-    <app-search-results [searchResults]="searchResults"></app-search-results>
+    <app-search-results
+      *ngIf="searchResults"
+      [searchResults]="searchResults"
+      (scrolled)="onScrollSearch()"
+      infiniteScroll
+      [infiniteScrollDistance]="1"
+      [infiniteScrollThrottle]="50"
+    >
+    </app-search-results>
   </section>
 </section>

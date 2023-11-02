@@ -13,7 +13,8 @@ export class AddToListButtonComponent {
   @Input() movieId!: number;
   @Input() moviePath: string = '';
   iconToShow: string = 'add';
-  wordToShow: string = 'Add to List'
+  wordToShow: string = 'Add to List';
+  
 
   addToList() {
     this.iconToShow = this.iconToShow === 'add' ? 'done' : 'add';

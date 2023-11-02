@@ -45,13 +45,12 @@ export class MediaService {
       );
   }
 
-  searchMovies(query: string): Observable<any> {
-    const url = `${this.apiUrl}/search/multi?api_key=${this.apiKey}&query=${query}`;
-    return this.http.get(url)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
+  searchMovies(query: string, currentPage?: number): Observable<any> {
+    const url = `${this.apiUrl}/search/multi?api_key=${this.apiKey}&query=${query}&page=${currentPage}`;
+    return this.http.get(url).pipe(
+      catchError(this.handleError)
+    );
+  }  
 
   getSeasonInfo(serieId: number, season: number): Observable<any> {
     const url = `${this.apiUrl}/tv/${serieId}/season/${season}?language=en-US&api_key=${this.apiKey}&append_to_response=episodes`;

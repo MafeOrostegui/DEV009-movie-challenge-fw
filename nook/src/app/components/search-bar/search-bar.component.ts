@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MediaService } from 'src/app/services/media/media.service';
 import { SearchStateService } from 'src/app/services/search-state/search-state.service';
@@ -20,6 +20,7 @@ export class SearchBarComponent implements OnInit {
   form!: FormGroup;
   @Output() searchResults = new EventEmitter<Results>();
   @Output() clearSearchEvent = new EventEmitter<void>();
+  private currentResults: Results = { results: [] };
 
   ngOnInit() {
     const searchResults = this.searchStateService.getSearchTerm();
@@ -31,6 +32,7 @@ export class SearchBarComponent implements OnInit {
   private initForm(): void {
     this.form = this.fb.group({
       inputSearch: [''],
+      currentPage: 1,
     });
   }
 
@@ -38,13 +40,28 @@ export class SearchBarComponent implements OnInit {
     const query = (event.target as HTMLInputElement).value;
 
     if (query.length >= 3) {
-      this.movieService.searchMovies(query).subscribe((response) => {
+      this.movieService.searchMovies(query, 1).subscribe((response) => {
         this.searchResults.emit(response);
         this.searchStateService.setSearchTerm(query);
+        this.form.get('currentPage')?.setValue(1);
       });
     } else if (query.length === 0) {
       this.clearSearch();
     }
+  }
+
+  fetchMoreResults() {
+    const currentPage = this.form.get('currentPage')?.value + 1;
+    this.form.get('currentPage')?.setValue(currentPage);
+
+    const query = this.form.get('inputSearch')?.value;
+
+    this.movieService.searchMovies(query, currentPage).subscribe((response) => {
+      if (response) {
+        this.currentResults.results = this.currentResults.results.concat(response.results);
+        this.searchResults.emit(this.currentResults);
+      }
+    });
   }
 
   clearSearch(): void {

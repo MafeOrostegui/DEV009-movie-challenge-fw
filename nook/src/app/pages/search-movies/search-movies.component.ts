@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MediaService } from 'src/app/services/media/media.service';
 import { SearchStateService } from 'src/app/services/search-state/search-state.service';
 import { Results, emptyResults } from 'src/app/models/results';
 import { Movie } from 'src/app/models/movie';
 import { ActivatedRoute } from '@angular/router';
+import { SearchBarComponent } from 'src/app/components/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-search-movies',
   templateUrl: './search-movies.component.html',
 })
 export class SearchMoviesComponent implements OnInit {
+
+  @ViewChild(SearchBarComponent) searchBar!: SearchBarComponent;
+  
   constructor(
     private moviesService: MediaService,
     private route: ActivatedRoute,
@@ -70,7 +74,6 @@ export class SearchMoviesComponent implements OnInit {
             this.movies = this.movies.concat(response.results as Movie[]);
             this.page++;
             this.loading = false;
-            console.log(this.movies);
           }
         });
     }
@@ -78,5 +81,9 @@ export class SearchMoviesComponent implements OnInit {
 
   onScroll() {
     this.getMoviesFromService();
+  }
+
+  onScrollSearch(){
+    this.searchBar.fetchMoreResults();
   }
 }

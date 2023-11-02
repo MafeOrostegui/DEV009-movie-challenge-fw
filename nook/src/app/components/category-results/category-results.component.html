@@ -5,6 +5,7 @@
 </h1>
 <section
   class="flex flex-wrap mt-2 justify-center pb-20 lg:w-[95vw] xl:w-[90vw] 2xl:w-[100vw]"
+  (scroll)="onScroll()" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="scrollUpDistance"
 >
   <div
     class="w-[40vw] m-2 lg:w-[10vw] md:w-[20vw] sm:w-[30vw]"
