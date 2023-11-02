@@ -47,6 +47,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { CarouselMediaComponent } from './components/carousel-media/carousel-media.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     RouterModule,
     MatSelectModule,
     MatSnackBarModule,
+    InfiniteScrollModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
