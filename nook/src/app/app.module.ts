@@ -46,6 +46,7 @@ import { SeasonsTvShowComponent } from './components/seasons-tv-show/seasons-tv-
 import { MatSelectModule } from '@angular/material/select';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { CarouselMediaComponent } from './components/carousel-media/carousel-media.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { CarouselMediaComponent } from './components/carousel-media/carousel-med
     CarouselModule,
     RouterModule,
     MatSelectModule,
+    MatSnackBarModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),

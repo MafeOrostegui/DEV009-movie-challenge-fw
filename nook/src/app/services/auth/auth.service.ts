@@ -2,7 +2,7 @@ import { Injectable, OnDestroy, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth, User, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, signInWithEmailAndPassword, signOut, authState } from '@angular/fire/auth';
 import { Subscription } from 'rxjs';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,7 @@ export class authService implements OnDestroy {
 
   constructor(
     private router: Router,
+    private snackBar: MatSnackBar
   ) {
     this.userSubscription = this.user$.subscribe((aUser: User | null) => {
       if (aUser) {
@@ -36,6 +37,7 @@ export class authService implements OnDestroy {
       this.router.navigate(['/email-verification'])
     } catch (error: any) {
       console.log(error)
+      this.showErrorMessage('Email already in use');
     }
   }
 
@@ -53,7 +55,7 @@ export class authService implements OnDestroy {
       this.checkUserIsVerified(user)
       console.log(user)
     } catch (error: any) {
-      console.log('login', error);
+      this.showErrorMessage('Invalid Credentials');
     }
   }
 
@@ -68,5 +70,11 @@ export class authService implements OnDestroy {
     } catch (error) {
       console.log('Sign out', error)
     }
+  }
+
+  private showErrorMessage(message: string): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 5000, 
+    });
   }
 }
