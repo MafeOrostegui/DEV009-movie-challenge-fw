@@ -1,5 +1,9 @@
 <section
-  class="mt-[10vh] lg:mt-[15vh] md:mt-[15vh] flex flex-col items-center h-[100vh] w-[100vw]"
+  class="mt-[10vh] lg:mt-[15vh] md:mt-[15vh] flex flex-col items-center w-[100vw]"
+  (scrolled)="onScroll()"
+  infiniteScroll
+  [infiniteScrollDistance]="1"
+  [infiniteScrollThrottle]="50"
 >
   <app-header [user]="true"></app-header>
   <app-nav-bar></app-nav-bar>
@@ -8,7 +12,8 @@
     (clearSearchEvent)="clearSearch()"
   ></app-search-bar>
 
-  <section class="flex flex-col items-center h-[100vh]">
+  <section
+    class="flex flex-col items-center h-[100vh]">
     <ng-container *ngIf="!searchResults">
       <app-category-cards></app-category-cards>
       <app-category-results
