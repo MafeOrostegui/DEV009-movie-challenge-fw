@@ -7,6 +7,7 @@
   <ng-container *ngIf="hasMediaData(); else noMoviesTemplate">
     <div
       *ngFor="let media of getMediaList()"
+      [class.hidden]="!media.poster_path"
       [ngClass]="{
         'inline-block mr-[4px] w-[30vw] sm:w-[20vw] h-auto m-[10px] lg:w-[10vw] transition-transform duration-300 ease-linear hover:cursor-pointer md:w-[10vw]':
           useScrollX,

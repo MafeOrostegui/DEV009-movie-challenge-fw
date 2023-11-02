@@ -10,7 +10,7 @@ import { TvShow } from 'src/app/models/tv-show';
 export class SearchResultsComponent {
   @Input() searchResults: Results | null | undefined;
   @Output() scrolled = new EventEmitter<void>();
-  scrollUpDistance: number = 1;
+  scrollUpDistance: number = 0.1;
 
   onScrollSearch() {
     this.scrolled.emit();

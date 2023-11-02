@@ -1,20 +1,21 @@
 <section
   class="flex flex-wrap mt-2 justify-center pb-20 lg:w-[95vw] md:w-[100vw] xl:w-[90vw] 2xl:w-[100vw]"
-  (scroll)="onScrollSearch()" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="scrollUpDistance"
-  *ngIf="
-    searchResults && searchResults.results && searchResults.results.length > 0
-  "
+  (scroll)="onScrollSearch()" infiniteScroll [infiniteScrollDistance]="0.1" [infiniteScrollUpDistance]="scrollUpDistance"
+  *ngIf="searchResults && searchResults.results && searchResults.results.length > 0"
 >
   <div
     *ngFor="let result of searchResults.results"
-    class="w-[40vw] m-2 lg:w-[10vw] md:w-[20vw] sm:w-[30vw]"
+    class="w-[40vw] m-2 lg:w-[10vw] md:w-[20vw] sm:w-[20vw]"
+    [class.hidden]="!result.poster_path"
   >
-    <a [routerLink]="['/info', result.id, isTvShow(result) ? 'tv' : 'movie']">
-      <img
-        [src]="'https://image.tmdb.org/t/p/w500/' + (result?.poster_path || '')"
-        [alt]="getTitle(result)"
-        class="hover:border-custom-purple hover:border transition duration-300"
-      />
-    </a>
+    <ng-container> 
+      <a [routerLink]="['/info', result.id, isTvShow(result) ? 'tv' : 'movie']">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500/' + (result?.poster_path || '')"
+          [alt]="getTitle(result)"
+          class="hover:border-custom-purple hover:border transition duration-300"
+        />
+      </a>
+    </ng-container>
   </div>
 </section>
