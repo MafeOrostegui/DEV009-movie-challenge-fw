@@ -6,6 +6,7 @@ import { matchPasswordValidator } from './validator/match-password';
 import { ErrorMessageComponent } from '../error-message/error-message.component';
 import { authService } from 'src/app/services/auth/auth.service';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 const actionType = {
   signIn: {
@@ -37,7 +38,8 @@ export class AuthFormComponent implements OnInit {
 
   constructor(
     private authSvc: authService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar,
   ) { }
 
   @Input() action!: ActionType;
@@ -79,10 +81,17 @@ export class AuthFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { email, password, firstName } = this.form.value;
-    this.action === actionType.signIn.action
-      ? this.authSvc.login(email, password)
-      : this.authSvc.register(email, password, firstName)
+    const { email, password, firstName, confirmPassword } = this.form.value;
+  
+    if (this.action === actionType.signUp.action) {
+      if (!firstName || !confirmPassword) {
+        this.showErrorMessage('First Name and password confirmation are required.');
+        return;
+      }
+      this.authSvc.register(email, password, firstName);
+    } else {
+      this.authSvc.login(email, password);
+    }
   }
 
   private initForm(): void {
@@ -93,6 +102,12 @@ export class AuthFormComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', [Validators.required,
       matchPasswordValidator('password')]]
+    });
+  }
+
+  private showErrorMessage(message: string): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 5000, 
     });
   }
 }

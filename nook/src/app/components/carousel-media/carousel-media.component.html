@@ -1,10 +1,9 @@
 <owl-carousel-o
   [options]="customOptions"
   *ngIf="movies && movies.length > 0"
-  class="relative"
 >
   <ng-container *ngFor="let movie of movies">
-    <ng-template carouselSlide>
+    <ng-template carouselSlide  class="relative">
       <a [routerLink]="['/info', movie.id, 'movie']">
         <div
           class="slide h-[73vh]"
@@ -17,7 +16,7 @@
                   movie.images.backdrops[0].file_path
                 : 'https://image.tmdb.org/t/p/w500/' + movie.poster_path
             "
-            class="object-cover lg:h-[80vh] lg:w-full h-[70vh] w-[100vw] lg:object-right-top md:object-right-top sm:object-right-top object-center"
+            class="object-cover lg:h-[73vh] lg:w-full h-[73vh] w-[100vw] lg:object-right-top md:object-right-top sm:object-right-top object-center"
           />
           <div
             class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-100"
