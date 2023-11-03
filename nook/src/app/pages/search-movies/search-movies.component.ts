@@ -35,7 +35,7 @@ export class SearchMoviesComponent implements OnInit {
 
   clearSearch() {
     this.searchResults = null;
-    this.searchStateService.setSearchResults(emptyResults);
+    this.searchStateService.setSearchResults(emptyResults as Results);
   }
 
   ngOnInit(): void {
