@@ -29,14 +29,11 @@
                 class="w-[50vw] h-[15vh] lg:h-[20vh] object-cover rounded-[8px] align-top"
               />
             </div>
-            <div class="h-[10vh] lg:h-[20vh]"> 
+            <div class="h-[auto]"> 
               <h1 class="text-[0.8rem] lg:text-[0.9rem] font-extralight text-opacity-75 mt-2">
                 Episode {{ episode.episode_number }}
               </h1>
-              <h2 class="text-[0.8rem] lg:text-[1rem]">{{ episode.name }}</h2>
-              <p class="text-[0.8rem] lg:text-[1rem] whitespace-normal font-extralight text-opacity-40">
-                {{ episode.overview }}
-              </p>
+              <h2 class="text-[0.8rem] lg:text-[1rem] whitespace-normal break-words">{{ episode.name }}</h2>
             </div>
           </div>
         </div>
