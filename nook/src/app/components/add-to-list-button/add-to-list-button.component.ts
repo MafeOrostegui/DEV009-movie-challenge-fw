@@ -15,7 +15,6 @@ export class AddToListButtonComponent {
   iconToShow: string = 'add';
   wordToShow: string = 'Add to List';
   
-
   addToList() {
     this.iconToShow = this.iconToShow === 'add' ? 'done' : 'add';
     this.wordToShow = this.wordToShow === 'Add to List' ? 'Added to List' : 'Add to List';

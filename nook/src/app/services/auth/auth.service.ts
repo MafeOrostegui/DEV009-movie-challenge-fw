@@ -53,7 +53,6 @@ export class authService implements OnDestroy {
     try {
       const { user } = await signInWithEmailAndPassword(this.auth, email, password);
       this.checkUserIsVerified(user)
-      console.log(user)
     } catch (error: any) {
       this.showErrorMessage('Invalid Credentials');
     }

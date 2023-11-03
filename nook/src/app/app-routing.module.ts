@@ -11,7 +11,7 @@ import { LibraryComponent } from './pages/library/library.component';
 import { SearchMoviesComponent } from './pages/search-movies/search-movies.component';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { MoviesComponent } from './pages/movies/movies.component';
-import { onlyLoggedInGuard } from './guard/only-logged-in.guard';
+import { onlyLoggedInGuard } from './guards/only-logged-in.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
