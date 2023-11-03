@@ -54,7 +54,6 @@ export class SearchBarComponent implements OnInit {
       this.form.get('currentPage')?.setValue(currentPage);
     });
   }
-  
 
   fetchMoreResults() {
     const currentPage = this.form.get('currentPage')?.value + 1;
