@@ -71,7 +71,7 @@ export class SearchBarComponent implements OnInit {
 
   clearSearch(): void {
     this.form?.get('inputSearch')?.setValue('');
-    this.clearSearchEvent.emit();
     this.searchStateService.setSearchTerm('');
+    this.clearSearchEvent.emit();
   }
 }

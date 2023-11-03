@@ -30,7 +30,6 @@
     "tailwind-scrollbar-hide": "^1.1.7",
     "tslib": "^2.3.0",
     "uuid": "^7.0.3",
-    "vercel": "^32.5.0",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
