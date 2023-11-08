@@ -96,7 +96,7 @@ export class AuthFormComponent implements OnInit {
 
   private initForm(): void {
     this.form = this.fb.group({
-      firstName: ['', [Validators.required]],
+      firstName: [''],
       lastName: [''],
       email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
       password: ['', [Validators.required, Validators.minLength(8)]],
