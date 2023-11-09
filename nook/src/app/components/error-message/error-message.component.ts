@@ -15,7 +15,6 @@ import { validatorErrorMessage } from './validator-message';
 })
 export class ErrorMessageComponent {
   @Input() control: AbstractControl | undefined;
-  @Input() firebaseError: string | undefined;
 
   get errorMessage(): string {
     const error = this.control?.errors;
