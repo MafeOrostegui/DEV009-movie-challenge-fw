@@ -5,6 +5,7 @@ import { CarouselMediaComponent } from './carousel-media.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MediaService } from 'src/app/services/media/media.service';
 import { Movie } from 'src/app/models/movie';
+import { TvShow } from 'src/app/models/tv-show';
 import { of } from 'rxjs';
 
 const mockMovies = {
@@ -29,6 +30,27 @@ const mockMovies = {
     },
   ],
 };
+
+const mockTvShows = {
+  results: [
+    {
+      id: 1,
+      name: 'Ejemplo 1',
+      genres: [{ id: 1, name: 'Romance' }],
+      poster_path: '/example.png',
+      vote_average: 4.2,
+      backdrop_path: '/backdrop.png'
+    },
+    {
+      id: 2,
+      name: 'Ejemplo 2',
+      genres: [],
+      poster_path: '/example2.png',
+      vote_average: 4.8,
+      backdrop_path: '/backdrop.png'
+    },
+  ],
+}
 
 const mockInfoMovies = {
   'images': {
@@ -97,7 +119,7 @@ describe('CarouselMediaComponent', () => {
     expect(mediaService.getMedia).toHaveBeenCalledWith(1, component.mediaType, component.mediaSubtype, component.genre);
     expect(component.movies).toEqual(mockMovies.results as Movie[])
 
-    component['loadMovieInfoForMovies']
+    component['loadMovieInfoForMovies']()
 
     for (const movie of component.movies) {
       expect(mediaService.getMediaInfo).toHaveBeenCalledWith(movie.id, 'movie');
@@ -108,7 +130,7 @@ describe('CarouselMediaComponent', () => {
         }
       };
       Object.assign(movie, updatedMovie);
-    }    
+    }
 
     fixture.detectChanges();
 
@@ -121,6 +143,44 @@ describe('CarouselMediaComponent', () => {
     expectedImageUrls.forEach(expectedUrl => {
       const found = imageUrls.some(url => url.includes(expectedUrl));
       expect(found).toBe(true);
-    });    
+    });
   });
+
+  it("Should create the TV show carousel when the MediaType input is set to 'TV'", () => {
+    const subtype = 'popular';
+    const media = 'tv';
+
+    component.mediaSubtype = subtype;
+    component.mediaType = media;
+    component.genre = undefined;
+
+    mediaService.getMedia.and.returnValue(of(mockTvShows));
+
+    component.ngOnInit();
+
+    expect(mediaService.getMedia).toHaveBeenCalledWith(1, component.mediaType, component.mediaSubtype, component.genre);
+    expect(component.tvShows).toEqual(mockTvShows.results as TvShow[]);
+
+    component['loadMovieInfoForTvShows']();
+
+    for (const tvShow of component.tvShows) {
+      expect(mediaService.getMediaInfo).toHaveBeenCalledWith(tvShow.id, 'tv');
+    }
+
+    fixture.detectChanges();
+
+    const imageElements: HTMLElement = fixture.nativeElement;
+    const images = imageElements.querySelectorAll('img');
+    const imageUrls = Array.from(images).map((imgElement) => imgElement.src);
+
+    const expectedImageUrls = component.tvShows.map(
+      (tvShow) => tvShow.backdrop_path!
+    );
+
+    expectedImageUrls.forEach((expectedUrl) => {
+      const found = imageUrls.some((url) => url.includes(expectedUrl));
+      expect(found).toBe(true);
+    });
+  });
+
 });
