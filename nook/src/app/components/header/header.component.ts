@@ -1,6 +1,5 @@
 import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Auth } from '@angular/fire/auth';
 import { Input } from '@angular/core';
 
 
@@ -10,7 +9,7 @@ import { Input } from '@angular/core';
 })
 export class HeaderComponent {
 
-  constructor(private auth: Auth, private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute) {
     this.isMobile = window.innerWidth < 640
     this.user = false;
   }
