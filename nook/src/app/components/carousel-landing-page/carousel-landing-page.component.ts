@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
-  selector: 'app-carousel',
-  templateUrl: './carousel.component.html',
+  selector: 'app-carousel-landing-page',
+  templateUrl: './carousel-landing-page.component.html',
 })
-export class CarouselComponent {
+export class CarouselLandingPageComponent {
   dynamicSlides = [
     {
       title: 'Unlock the Future of Entertainment',
@@ -27,7 +27,6 @@ export class CarouselComponent {
       subtitle: '',
       img: 'https://i.imgur.com/QcoeGry.jpg'
     }
-
   ];
 
   customOptions: OwlOptions = {
