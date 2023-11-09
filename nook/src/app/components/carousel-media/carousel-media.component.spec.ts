@@ -182,5 +182,4 @@ describe('CarouselMediaComponent', () => {
       expect(found).toBe(true);
     });
   });
-
 });
