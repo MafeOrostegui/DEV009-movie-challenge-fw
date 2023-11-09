@@ -39,7 +39,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { CategoryResultsComponent } from './components/category-results/category-results.component';
 import { RouterModule } from '@angular/router';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { CarouselComponent } from './components/carousel/carousel.component';
+import { CarouselLandingPageComponent } from './components/carousel-landing-page/carousel-landing-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { SeasonsTvShowComponent } from './components/seasons-tv-show/seasons-tv-show.component';
@@ -53,6 +53,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
   declarations: [
     AppComponent,
     LandingPageComponent,
+    CarouselLandingPageComponent,
     LoginComponent,
     SignUpComponent,
     HomeComponent,
@@ -75,7 +76,6 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     CategoryCardsComponent,
     SearchResultsComponent,
     CategoryResultsComponent,
-    CarouselComponent,
     TvShowsComponent,
     SeasonsTvShowComponent,
     MoviesComponent,
@@ -103,6 +103,6 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

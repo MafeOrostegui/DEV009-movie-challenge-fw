@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AuthFormComponent } from './auth-form.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -55,13 +55,13 @@ describe('AuthFormComponent', () => {
   });
 
   it('should update isMobile when window is resized', () => {
-    expect(component.isMobile).toBe(false); 
+    expect(component.isMobile).toBe(false);
 
     const event = new Event('resize');
     Object.defineProperty(event, 'target', { value: window });
     window.dispatchEvent(event);
 
-    fixture.detectChanges(); 
+    fixture.detectChanges();
 
     expect(component.isMobile).toBe(window.innerWidth < 611);
   });

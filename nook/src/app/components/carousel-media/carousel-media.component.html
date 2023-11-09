@@ -1,13 +1,14 @@
-<owl-carousel-o
-  [options]="customOptions"
-  *ngIf="movies && movies.length > 0"
->
+<owl-carousel-o [options]="customOptions" *ngIf="movies && movies.length > 0">
   <ng-container *ngFor="let movie of movies">
-    <ng-template carouselSlide  class="relative">
+    <ng-template carouselSlide class="relative">
       <a [routerLink]="['/info', movie.id, 'movie']">
         <div
           class="slide h-[73vh]"
-          *ngIf="movie && movie?.images?.backdrops && movie.images.backdrops.length > 0"
+          *ngIf="
+            movie &&
+            movie?.images?.backdrops &&
+            movie.images.backdrops.length > 0
+          "
         >
           <img
             [src]="
@@ -37,7 +38,11 @@
               />
               <div class="flex justify-center">
                 <span class="pr-[0.5rem] font-normal">
-                  {{ movie.genres[0].name || "" }}
+                  {{
+                    movie.genres && movie.genres.length > 0
+                      ? movie.genres[0].name
+                      : ""
+                  }}
                 </span>
                 <span>
                   {{ movie?.release_date | date : "dd/MM/yyyy" }}
