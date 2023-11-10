@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
-  templateUrl: './media-card.component.html',
+  templateUrl: './media-card.component.html'
 })
 export class MediaCardComponent implements OnInit, OnChanges {
   
