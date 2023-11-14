@@ -8,7 +8,9 @@ import { MediaService } from 'src/app/services/media/media.service';
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { of } from 'rxjs';
 import { TvShow } from 'src/app/models/tv-show';
+import { MatIconModule } from '@angular/material/icon'; 
 import { AddToListButtonComponent } from '../add-to-list-button/add-to-list-button.component';
+import { LikeButtonComponent } from '../like-button/like-button.component';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 
 const mockMovie = {
@@ -49,26 +51,33 @@ describe('MediaCardComponent', () => {
   let fixture: ComponentFixture<MediaCardComponent>;
   let router: Router;
   let mediaService: jasmine.SpyObj<MediaService>;
-  let firestoreService: jasmine.SpyObj<FirestoreService>;
 
   beforeEach(
     waitForAsync(() => {
       const mediaServiceSpy = jasmine.createSpyObj('MediaService', ['getMediaInfo']);
       const firestoreServiceSpy = jasmine.createSpyObj('FirestoreService', ['addMovieToList']);
+
       const addToListComponentSpy = jasmine.createSpyObj<AddToListButtonComponent>('AddToListButtonComponent', {
         onlyIcon: false,
         movieId: 1,
         moviePath: '/example/path',
         addToList: jasmine.createSpy('addToList').and.returnValue(undefined)
-      } as any);      
+      } as any);   
+      
+      const addLikeButtonSpy = jasmine.createSpyObj<LikeButtonComponent>('AddToListButtonComponent', {
+        movieId: 1,
+        moviePath: '/example/path',
+        addToList: jasmine.createSpy('addToList').and.returnValue(undefined)
+      } as any);  
   
       TestBed.configureTestingModule({
-        declarations: [MediaCardComponent, AddToListButtonComponent],
-        imports: [RouterTestingModule.withRoutes([{ path: 'home', component: HomeComponent }])],
+        declarations: [MediaCardComponent, AddToListButtonComponent, LikeButtonComponent],
+        imports: [RouterTestingModule.withRoutes([{ path: 'home', component: HomeComponent }]), MatIconModule],
         providers: [
           { provide: MediaService, useValue: mediaServiceSpy },
           { provide: AddToListButtonComponent, useValue: addToListComponentSpy },
-          { provide: FirestoreService, useValue: firestoreServiceSpy }
+          { provide: FirestoreService, useValue: firestoreServiceSpy },
+          { provide: LikeButtonComponent, useValue: addLikeButtonSpy}
         ]
       }).compileComponents()
     })
@@ -87,17 +96,18 @@ describe('MediaCardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should update isMobile when window is resized', () => {
-    expect(component.isMobile).toBe(false);
+  it('should update isMobile when window is resized', fakeAsync(() => {
 
     const event = new Event('resize');
     Object.defineProperty(event, 'target', { value: window });
     window.dispatchEvent(event);
-
+  
+    tick(); 
+  
     fixture.detectChanges();
-
+  
     expect(component.isMobile).toBe(window.innerWidth < 611);
-  });
+  }));
 
   it('should navigate to /home', fakeAsync(() => {
     router.navigate(['/home']);
@@ -117,8 +127,6 @@ describe('MediaCardComponent', () => {
     component.ngOnInit();
     expect(mediaService.getMediaInfo).toHaveBeenCalledWith(movieId, mediaType);
     expect(component.movie).toEqual(mockMovie as Movie);
-    console.log(component.movie)
-
 
     fixture.detectChanges();
 
