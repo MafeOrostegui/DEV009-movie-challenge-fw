@@ -60,7 +60,6 @@ export class SeasonsTvShowComponent implements OnChanges, OnInit {
   onSeasonSelect(seasonId: number): void {
     this.form.get('seasonsSelect')?.patchValue(seasonId);
     this.getSeasonInfo(seasonId);
-    console.log(seasonId);
   }
 
   private getSeasonInfo(seasonId: number): void {

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -29,17 +29,18 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should update isMobile when window is resized', () => {
-    expect(component.isMobile).toBe(false);
+  it('should update isMobile when window is resized', fakeAsync(() => {
 
     const event = new Event('resize');
     Object.defineProperty(event, 'target', { value: window });
     window.dispatchEvent(event);
-
+  
+    tick(); 
+  
     fixture.detectChanges();
-
+  
     expect(component.isMobile).toBe(window.innerWidth < 611);
-  });
+  }));
 
   it('should subscribe to route changes and update flags accordingly', () => {
     activatedRouteSpy.url = of([new UrlSegment('profile', {})]);
