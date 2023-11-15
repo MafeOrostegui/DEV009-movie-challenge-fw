@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync, fakeAsync, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MediaCardsComponent } from './media-cards.component';
 import { MediaService } from 'src/app/services/media/media.service';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
