@@ -11,7 +11,7 @@ import { CarouselMediaComponent } from 'src/app/components/carousel-media/carous
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import { MenuComponent } from 'src/app/components/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CarouselComponent, CarouselModule } from 'ngx-owl-carousel-o';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MatIconModule } from '@angular/material/icon';
 import { of } from 'rxjs';
 
@@ -75,7 +75,7 @@ describe('HomeComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [HomeComponent, HeaderComponent, NavBarComponent, CarouselMediaComponent, MediaCardComponent, MediaCardsComponent, MenuComponent],
-      imports: [RouterTestingModule, MatIconModule, CarouselModule, BrowserAnimationsModule,],
+      imports: [RouterTestingModule, MatIconModule, CarouselModule, BrowserAnimationsModule],
       providers: [{ provide: HeaderComponent, useValue: headerSpy },
       { provide: NavBarComponent, useValue: {} },
       { provide: MediaCardComponent, useValue: appCardSpy },
