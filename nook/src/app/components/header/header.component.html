@@ -47,15 +47,15 @@
   <div class="mr-[2vw] flex justify-center items-center" *ngIf="!user">
     <a routerLink="/login">
       <div
-        class="w-[10rem] md:w-[6rem] sm:w-[14vw] h-[3rem] md:h-[2rem] lg:h-[6vh] sm:h-[2rem] rounded-lg text-white flex justify-center items-center hover:bg-[rgba(0,0,0,0.5)] hover:border-2 hover:border-custom-purple hover:text-custom-purple cursor-pointer"
-        [ngClass]="{ 'text-[0.8rem]': isMobile }"
+        class="w-[10rem] md:w-[6rem] sm:w-[14vw] h-[3rem] md:h-[2rem] lg:h-[5vh] sm:h-[2rem] rounded-lg text-white flex justify-center items-center hover:bg-[rgba(0,0,0,0.5)] hover:border-2 hover:border-custom-purple hover:text-custom-purple cursor-pointer sm:text-[0.8rem]"
+        [ngClass]="{ 'text-[0.8rem] h-[2rem] w-[5rem]': isMobile }"
       >
         Login
       </div>
     </a>
     <a routerLink="/sign-up">
       <div
-        class="bg-custom-purple w-[10rem] md:w-[6rem] md:h-[2rem] lg:h-[5vh] lg:ml-[1vw] sm:h-[2rem] sm:w-[14vw] h-[2rem] rounded-lg text-white flex justify-center items-center hover:bg-[rgba(0,0,0,0.5)] hover:border-2 hover:border-custom-purple hover:text-custom-purple cursor-pointer sm:text-[0.8rem]"
+        class="bg-custom-purple w-[10rem]  md:w-[6rem] md:h-[2rem] lg:h-[5vh] lg:ml-[1vw] sm:h-[2rem] sm:w-[14vw] h-[3rem] rounded-lg text-white flex justify-center items-center hover:bg-[rgba(0,0,0,0.5)] hover:border-2 hover:border-custom-purple hover:text-custom-purple cursor-pointer sm:text-[0.8rem]"
         [ngClass]="{ 'text-[0.8rem] h-[2rem] w-[5rem]': isMobile }"
       >
         Get Started
