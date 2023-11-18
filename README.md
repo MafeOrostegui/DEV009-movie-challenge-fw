@@ -13,7 +13,7 @@
 
 Welcome to [Nook](nook-f46b2.web.app/), your go-to platform for an immersive and delightful movie exploration experience. Nook is not just another movie website; it's your personalized movie companion designed with a strong focus on providing an exceptional user experience.
 
-<iframe class="imgur-embed" width="100%" height="648" frameborder="0" src="https://i.imgur.com/70ANi4B.gifv#embed"></iframe>
+![Imgur](https://i.imgur.com/gumeoCx.gifv)
 
 
 ### Key Features
@@ -28,7 +28,7 @@ Welcome to [Nook](nook-f46b2.web.app/), your go-to platform for an immersive and
 
 Nook combines the power of Angular Material and Tailwind CSS to deliver a visually stunning and intuitive user interface. Every click and interaction is crafted to provide a seamless and enjoyable experience, ensuring that your time on Nook is not just about movies but about enjoying the journey of exploration.
 
-<iframe class="imgur-embed" width="100%" height="1152" frameborder="0" src="https://i.imgur.com/gumeoCx.gifv#embed"></iframe>
+![Imgur](https://i.imgur.com/58iZybS.gifv)
 
 ### Seamless Authentication with AngularFire
 
